@@ -1,9 +1,10 @@
-<div>
-    <div class="icon-header icon_krankengeschichte" ></div>
+<div class="header">
+    <div class="header-icon" [inlineSVG]="'./assets/svg/icon_krankengeschichte.svg'" ></div>
+
     <h1>Historie</h1>
 </div>
-<div>
-    <div class="icon-header icon_zurueck" ></div>
+<div class="month-navigation">
+    <lib-icon-button asset="icon_zurueck" [size]="24"></lib-icon-button>
     <span>MONAT/JAHR</span>
-    <div class="icon-header icon_vorwaerts" ></div>
+    <lib-icon-button asset="icon_vorwaerts" [size]="24"></lib-icon-button>
 </div>

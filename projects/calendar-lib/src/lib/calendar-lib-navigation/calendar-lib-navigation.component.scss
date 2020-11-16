@@ -1,0 +1,18 @@
+@use "../variables.scss";
+
+.header {
+
+    .header-icon {
+        display: inline-block;
+        width: variables.$size-icon-header;
+        height: variables.$size-icon-header;
+    }
+
+    h1 {
+        display: inline-block;
+    }
+}
+
+.month-navigation {
+    text-align: center;
+}

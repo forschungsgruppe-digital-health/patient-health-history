@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { CalendarLibModule } from 'calendar-lib'
 
 import { AppComponent } from './app.component';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    CalendarLibModule
+    CalendarLibModule,
+    HttpClientModule,
+    InlineSVGModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
