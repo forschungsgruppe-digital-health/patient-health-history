@@ -4,6 +4,7 @@ import { CalendarLibNavigationComponent } from './calendar-lib-navigation/calend
 import { CalendarLibContainerComponent } from './calendar-lib-container/calendar-lib-container.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
 import { InlineSVGModule } from 'ng-inline-svg';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { InlineSVGModule } from 'ng-inline-svg';
     IconButtonComponent
   ],
   imports: [
+    BrowserModule,
     InlineSVGModule.forRoot()
   ],
   exports: [CalendarLibContainerComponent]

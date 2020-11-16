@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'calendar-lib-navigation',
@@ -12,4 +12,20 @@ export class CalendarLibNavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Output()
+  public requestPrevious = new EventEmitter<null>();
+
+  @Output()
+  public requestNext = new EventEmitter<null>();
+
+  @Input()
+  public yearMonthString: string = "";
+
+  public requestPreviousClick() {
+    this.requestPrevious.emit();
+  }
+
+  public requestNextClick() {
+    this.requestNext.emit();
+  }
 }

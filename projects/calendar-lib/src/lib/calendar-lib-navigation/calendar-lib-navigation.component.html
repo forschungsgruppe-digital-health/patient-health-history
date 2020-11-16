@@ -1,10 +1,10 @@
 <div class="header">
-    <div class="header-icon" [inlineSVG]="'./assets/svg/icon_krankengeschichte.svg'" ></div>
+    <div class="header-icon" [inlineSVG]="'./assets/svg/icon_krankengeschichte.svg'"></div>
 
     <h1>Historie</h1>
 </div>
 <div class="month-navigation">
-    <lib-icon-button asset="icon_zurueck" [size]="24"></lib-icon-button>
-    <span>MONAT/JAHR</span>
-    <lib-icon-button asset="icon_vorwaerts" [size]="24"></lib-icon-button>
+    <lib-icon-button asset="icon_zurueck" [size]="24" (click)="requestPreviousClick()"></lib-icon-button>
+    <span>{{yearMonthString}}</span>
+    <lib-icon-button asset="icon_vorwaerts" [size]="24" (click)="requestNextClick()"></lib-icon-button>
 </div>
