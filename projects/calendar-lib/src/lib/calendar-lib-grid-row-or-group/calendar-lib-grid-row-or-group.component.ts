@@ -1,18 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Groups } from '../models';
+import { IGroup, IRow, RowOrGroup } from '../models';
 
 @Component({
-  selector: 'calendar-lib-grid',
-  templateUrl: './calendar-lib-grid.component.html',
-  styleUrls: ['./calendar-lib-grid.component.css']
+  selector: 'lib-calendar-lib-grid-row-or-group',
+  templateUrl: './calendar-lib-grid-row-or-group.component.html',
+  styleUrls: ['./calendar-lib-grid-row-or-group.component.css']
 })
-export class CalendarLibGridComponent implements OnInit {
+export class CalendarLibGridRowOrGroupComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
-    this.monthChanged();
   }
+
+  private _input: RowOrGroup | null = null;
+
 
   private _month: number = 1;
   private _year: number = 1;
@@ -36,10 +38,23 @@ export class CalendarLibGridComponent implements OnInit {
   }
 
   @Input()
-  public groups: Groups = [];
+  public columnWidth: number = 0;
 
-  public columnWidth: number = 30;
-  public rowHeaderColumnWidth: number = 300;
+  @Input()
+  public rowHeaderColumnWidth: number = 0;
+
+  @Input()
+  public set input(value: RowOrGroup | null) {
+    this._input = value;
+    this.group = (value as IGroup).subs ? value as IGroup : null;
+    this.row = this.group ? null : value as IRow;
+  }
+  public get input() {
+    return this._input;
+  }
+
+  public row: IRow | null = null;
+  public group: IGroup | null = null;
 
   public daysInMonth: number[] = [];
 

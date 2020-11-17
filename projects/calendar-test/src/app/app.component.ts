@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IGroup, IRow } from 'calendar-lib';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,27 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   public currentMonthData: any[] = [];
-  public yearMonthString: string = "";
-
-  private month = 8;
-  private year = 2020;
+  public month = 8;
+  public year = 2020;
+  public groups: (IGroup | IRow)[] = [
+    { name: "Erstdiagnose", key: "Erstdiagnose" },
+    { name: "Weitere Diagnosen", key: "Weitere Diagnosen" },
+    { name: "Schübe", key: "Schübe" },
+    { name: "Schubbehandlung", key: "Schubbehandlung" },
+    {
+      name: "Medikation", isCollapsed: false, subs: [
+        { name: "Cladribin", key: "Cladribin" },
+        { name: "Gilenya", key: "Gilenya" }
+      ]
+    },
+    {
+      name: "weitere Medikation", key: "weitere Medikation", subs: [
+        { name: "Loratadin", key: "Loratadin" }
+      ]
+    },
+    { name: "Subjektives Wohlbefinden", key: "Subjektives Wohlbefinden" },
+    { name: "Verknüpfte Dokumente", key: "Verknüpfte Dokumente" },
+  ];
 
   public ngOnInit() {
     this.loadSampleData(2020, 8);
@@ -30,6 +48,5 @@ export class AppComponent implements OnInit {
     this.year = year;
 
     this.currentMonthData = [];
-    this.yearMonthString = `${this.month} / ${this.year}`
   }
 }

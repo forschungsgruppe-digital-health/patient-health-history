@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Groups } from '../models';
 
 @Component({
   selector: 'calendar-lib-container',
@@ -12,6 +13,9 @@ export class CalendarLibContainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  private _month: number = 1;
+  private _year: number = 1;
+
   @Output()
   public requestPreviousMonth = new EventEmitter<null>();
 
@@ -19,6 +23,26 @@ export class CalendarLibContainerComponent implements OnInit {
   public requestNextMonth = new EventEmitter<null>();
 
   @Input()
+  public get month(): number {
+    return this._month;
+  }
+  public set month(value: number) {
+    this._month = value;
+    this.updateYearMonthString();
+  }
+
+  @Input()
+  public get year(): number {
+    return this._year;
+  }
+  public set year(value: number) {
+    this._year = value;
+    this.updateYearMonthString();
+  }
+
+  @Input()
+  public groups: Groups = [];
+
   public yearMonthString: string = "";
 
   public requestPreviousMonthClick() {
@@ -27,5 +51,9 @@ export class CalendarLibContainerComponent implements OnInit {
 
   public requestNextMonthClick() {
     this.requestNextMonth.emit();
+  }
+
+  private updateYearMonthString() {
+    this.yearMonthString = `${this.month} / ${this.year}`
   }
 }
