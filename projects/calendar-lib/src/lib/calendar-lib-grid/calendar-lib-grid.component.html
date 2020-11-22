@@ -1,5 +1,5 @@
-
-<span style="vertical-align: top;display: inline-block;" [style.width.px]="rowHeaderColumnWidth">Zeitleiste</span>
+<lib-calendar-lib-grid-row-header [rowHeight]="40" [indentationLevel]="0"
+[rowHeaderColumnWidth]="rowHeaderColumnWidth" text="Zeitleiste"></lib-calendar-lib-grid-row-header>
 
 <svg style="vertical-align: top;display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
     <text *ngFor="let day of daysInMonth; let i= index;" text-anchor="middle" [attr.x]="i*columnWidth + columnWidth/2"

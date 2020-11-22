@@ -5,10 +5,8 @@
 </div>
 
 <div *ngIf="group">
-    <svg style="display: inline-block;vertical-align: top;" [attr.width]="rowHeaderColumnWidth" height="40px">
-        <text y="20" [attr.x]="indentationLevel * 20" alignment-baseline="central">{{group.name}}</text>
-        <line x1="0" [attr.x2]="rowHeaderColumnWidth" y1="0" y2="0" stroke="black"></line>
-    </svg>
+    <lib-calendar-lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
+        [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name"></lib-calendar-lib-grid-row-header>
     <svg style="display: inline-block;vertical-align: top;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
         <line *ngFor="let day of daysInMonth; let i= index;" stroke="black" [attr.x1]="i*columnWidth"
             [attr.x2]="i*columnWidth" y1="0" y2="40"></line>

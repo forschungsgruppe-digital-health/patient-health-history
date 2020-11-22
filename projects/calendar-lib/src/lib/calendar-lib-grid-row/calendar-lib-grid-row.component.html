@@ -1,7 +1,6 @@
-<svg style="vertical-align: top;display: inline-block;" [attr.width]="rowHeaderColumnWidth" height="40px">
-    <text y="20" [attr.x]="indentationLevel * 20" alignment-baseline="central">{{input.name}}</text>
-    <line x1="0" [attr.x2]="rowHeaderColumnWidth" y1="0" y2="0" stroke="black"></line>
-</svg>
+<lib-calendar-lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
+    [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="input.name">
+</lib-calendar-lib-grid-row-header>
 
 <svg style="vertical-align: top;display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
     <svg>

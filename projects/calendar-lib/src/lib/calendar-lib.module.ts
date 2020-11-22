@@ -7,6 +7,7 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { BrowserModule } from '@angular/platform-browser';
 import { CalendarLibGridRowComponent } from './calendar-lib-grid-row/calendar-lib-grid-row.component';
 import { CalendarLibGridRowOrGroupComponent } from './calendar-lib-grid-row-or-group/calendar-lib-grid-row-or-group.component';
+import { CalendarLibGridRowHeaderComponent } from './calendar-lib-grid-row-header/calendar-lib-grid-row-header.component';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { CalendarLibGridRowOrGroupComponent } from './calendar-lib-grid-row-or-g
     CalendarLibGridComponent,
     CalendarLibNavigationComponent, 
     CalendarLibContainerComponent, 
-    IconButtonComponent, CalendarLibGridRowComponent, CalendarLibGridRowOrGroupComponent
+    IconButtonComponent, CalendarLibGridRowComponent, CalendarLibGridRowOrGroupComponent, CalendarLibGridRowHeaderComponent
   ],
   imports: [
     BrowserModule,
