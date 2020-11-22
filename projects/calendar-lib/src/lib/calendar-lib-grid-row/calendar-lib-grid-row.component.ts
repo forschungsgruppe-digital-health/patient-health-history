@@ -4,7 +4,7 @@ import { IRow, KnownEntries } from '../models';
 @Component({
   selector: 'lib-calendar-lib-grid-row',
   templateUrl: './calendar-lib-grid-row.component.html',
-  styleUrls: ['./calendar-lib-grid-row.component.css']
+  styleUrls: ['./calendar-lib-grid-row.component.scss']
 })
 export class CalendarLibGridRowComponent implements OnInit {
 

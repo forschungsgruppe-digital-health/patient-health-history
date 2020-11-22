@@ -4,7 +4,7 @@ import { Entries, IGroup, IRow, KnownEntries, RowOrGroup } from '../models';
 @Component({
   selector: 'lib-calendar-lib-grid-row-or-group',
   templateUrl: './calendar-lib-grid-row-or-group.component.html',
-  styleUrls: ['./calendar-lib-grid-row-or-group.component.css']
+  styleUrls: ['./calendar-lib-grid-row-or-group.component.scss']
 })
 export class CalendarLibGridRowOrGroupComponent implements OnInit {
 

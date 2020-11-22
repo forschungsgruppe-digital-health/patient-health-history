@@ -4,7 +4,7 @@ import { Entries, Groups } from '../models';
 @Component({
   selector: 'calendar-lib-container',
   templateUrl: './calendar-lib-container.component.html',
-  styleUrls: ['./calendar-lib-container.component.css']
+  styleUrls: ['./calendar-lib-container.component.scss']
 })
 export class CalendarLibContainerComponent implements OnInit {
 
