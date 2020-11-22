@@ -6,12 +6,38 @@ import { Component, Input } from '@angular/core';
 })
 export class GridSimpleRowComponent {
 
-  @Input()
-  columnWidth: number = 0;
+  private _columnWidth: number = 0;
+  private _rowHeight: number = 40;
+  private _numberOfDays: number = 40;
 
   @Input()
-  numberOfDays: number = 31;
+  get columnWidth(): number {
+    return this._columnWidth;
+  }
+  set columnWidth(value: number) {
+    this._columnWidth = value;
+    this.cellSizeChanged();
+  }
 
   @Input()
-  rowHeight: number = 40;
+  get rowHeight(): number {
+    return this._rowHeight;
+  }
+  set rowHeight(value: number) {
+    this._rowHeight = value;
+    this.cellSizeChanged();
+  }
+
+  @Input()
+  get numberOfDays(): number {
+    return this._numberOfDays;
+  }
+  set numberOfDays(value: number) {
+    this._numberOfDays = value;
+    this.numberOfDaysChanged();
+  }
+
+  protected cellSizeChanged() { }
+
+  protected numberOfDaysChanged() { }
 }

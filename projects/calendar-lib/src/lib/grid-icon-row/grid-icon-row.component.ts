@@ -11,4 +11,11 @@ export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> im
 
   ngOnInit(): void {
   }
+
+  cellSizeChanged() {
+    super.cellSizeChanged();
+    this.iconSize = Math.min(this.columnWidth, this.rowHeight);//3px padding on each side
+  }
+
+  iconSize: number = 1;
 }

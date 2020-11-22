@@ -9,7 +9,7 @@
     </svg>
 
     <svg>
-        <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="columnWidth"
-            [attr.width]="columnWidth" [attr.x]="columnWidth*(entry.day-1)" />
+        <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="iconSize"
+            [attr.width]="iconSize" [attr.y]="(rowHeight - iconSize)/2" [attr.x]="columnWidth*(entry.day-1)" />
     </svg>
 </svg>
