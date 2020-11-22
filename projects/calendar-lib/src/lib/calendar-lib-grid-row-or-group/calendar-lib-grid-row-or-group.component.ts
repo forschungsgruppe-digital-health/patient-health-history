@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Entries, IGroup, IRow, KnownEntries, RowOrGroup } from '../models';
+import { Entries, IGroup, IRow, RowOrGroup } from '../models';
 
 @Component({
   selector: 'lib-calendar-lib-grid-row-or-group',
@@ -62,14 +62,10 @@ export class CalendarLibGridRowOrGroupComponent implements OnInit {
   public row: IRow | null = null;
   public group: IGroup | null = null;
 
-  public daysInMonth: number[] = [];
+  public numberOfDaysInMonth: number = 31;
 
   private monthChanged() {
-    this.daysInMonth = [];
-    let nods = this.getNumberOfDaysInMonth();
-    for (var i = 1; i <= nods; ++i) {
-      this.daysInMonth.push(i);
-    }
+    this.numberOfDaysInMonth = this.getNumberOfDaysInMonth();
   }
 
   private getNumberOfDaysInMonth(): number {

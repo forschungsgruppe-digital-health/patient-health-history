@@ -2,26 +2,13 @@
     [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="input.name">
 </lib-calendar-lib-grid-row-header>
 
-<svg style="vertical-align: top;display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
-    <svg>
-        <line *ngFor="let day of daysInMonth; let i= index;" stroke="black" [attr.x1]="i*columnWidth"
-            [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
-        <line stroke="black" [attr.x1]="daysInMonth.length*columnWidth" [attr.x2]="daysInMonth.length*columnWidth"
-            y1="0" y2="40"></line>
+<lib-grid-icon-row *ngIf="entries && entries.type == 'icon'" [columnWidth]="columnWidth"
+    [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40" [entries]="entries.entries">
+</lib-grid-icon-row>
 
-        <line x1="0" [attr.x2]="daysInMonth.length*columnWidth" y1="0" y2="0" stroke="black"></line>
-    </svg>
+<lib-grid-document-row *ngIf="entries && entries.type == 'document'" [columnWidth]="columnWidth"
+    [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40" [entries]="entries.entries">
+</lib-grid-document-row>
 
-    <svg *ngIf="entries && entries.type == 'icon'">
-        <!-- ToDo: Move to its own component -->
-        <image *ngFor="let entry of entries.entries" [attr.href]="entry.icon" [attr.height]="columnWidth"
-            [attr.width]="columnWidth" [attr.x]="columnWidth*(entry.day-1)" />
-    </svg>
-
-    <svg *ngIf="entries && entries.type == 'document'">
-        <!-- ToDo: Move to its own component -->
-        <!-- ToDo: Add Text (if necessary add ellipses) -->
-        <image *ngFor="let entry of entries.entries" href="/assets/svg/icon_dokument.svg" [attr.height]="columnWidth"
-            [attr.width]="columnWidth" [attr.x]="columnWidth*(entry.day-1)" />
-    </svg>
-</svg>
+<lib-grid-simple-row *ngIf="!entries" [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
+</lib-grid-simple-row>

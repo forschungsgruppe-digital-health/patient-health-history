@@ -164,5 +164,10 @@
       }
     }
   },
-  "defaultProject": "calendar-test"
+  "defaultProject": "calendar-test",
+  "schematics": {
+    "@nrwl/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

@@ -6,14 +6,11 @@
 
 <div *ngIf="group">
     <lib-calendar-lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
-        [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name"></lib-calendar-lib-grid-row-header>
-    <svg style="display: inline-block;vertical-align: top;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
-        <line *ngFor="let day of daysInMonth; let i= index;" stroke="black" [attr.x1]="i*columnWidth"
-            [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
-        <line stroke="black" [attr.x1]="daysInMonth.length*columnWidth" [attr.x2]="daysInMonth.length*columnWidth"
-            y1="0" y2="40"></line>
-        <line x1="0" [attr.x2]="daysInMonth.length*columnWidth" y1="0" y2="0" stroke="black"></line>
-    </svg>
+        [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name">
+    </lib-calendar-lib-grid-row-header>
+    <lib-grid-simple-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
+    </lib-grid-simple-row>
+
     <div style="vertical-align: top;">
         <lib-calendar-lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
             [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries"

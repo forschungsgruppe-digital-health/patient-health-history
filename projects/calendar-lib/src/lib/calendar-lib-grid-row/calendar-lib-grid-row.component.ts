@@ -49,14 +49,10 @@ export class CalendarLibGridRowComponent implements OnInit {
   @Input()
   public indentationLevel : number = 0;
 
-  public daysInMonth: number[] = [];
+  public numberOfDaysInMonth: number = 31;
 
   private monthChanged() {
-    this.daysInMonth = [];
-    let nods = this.getNumberOfDaysInMonth();
-    for (var i = 1; i <= nods; ++i) {
-      this.daysInMonth.push(i);
-    }
+    this.numberOfDaysInMonth = this.getNumberOfDaysInMonth();
   }
 
   private getNumberOfDaysInMonth(): number {
