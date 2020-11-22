@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Groups } from '../models';
+import { Entries, Groups } from '../models';
 
 @Component({
   selector: 'calendar-lib-container',
@@ -42,6 +42,9 @@ export class CalendarLibContainerComponent implements OnInit {
 
   @Input()
   public groups: Groups = [];
+
+  @Input()
+  public entries: Entries = {};
 
   public yearMonthString: string = "";
 

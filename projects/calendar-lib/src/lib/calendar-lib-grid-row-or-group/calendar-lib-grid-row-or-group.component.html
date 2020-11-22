@@ -1,5 +1,6 @@
 <div *ngIf="row">
-    <lib-calendar-lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth"></lib-calendar-lib-grid-row>
+    <lib-calendar-lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth" 
+    [columnWidth]="columnWidth" [entries]="entries[row.key]"></lib-calendar-lib-grid-row>
 </div>
 
 <div *ngIf="group">
@@ -12,7 +13,7 @@
     </svg>
     <div style="margin-left:20px;">
         <lib-calendar-lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
-        [rowHeaderColumnWidth]="rowHeaderColumnWidth-20" [columnWidth]="columnWidth">
+        [rowHeaderColumnWidth]="rowHeaderColumnWidth-20" [columnWidth]="columnWidth" [entries]="entries">
         </lib-calendar-lib-grid-row-or-group>
     </div>
 </div> 

@@ -13,6 +13,6 @@
 <div *ngIf="groups">
     <lib-calendar-lib-grid-row-or-group *ngFor="let group of groups" 
     [input]="group" [month]="month" [year]="year"
-    [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth">
+    [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries">
     </lib-calendar-lib-grid-row-or-group>
 </div>

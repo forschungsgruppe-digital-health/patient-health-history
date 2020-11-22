@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IGroup, IRow, RowOrGroup } from '../models';
+import { Entries, IGroup, IRow, KnownEntries, RowOrGroup } from '../models';
 
 @Component({
   selector: 'lib-calendar-lib-grid-row-or-group',
@@ -42,6 +42,9 @@ export class CalendarLibGridRowOrGroupComponent implements OnInit {
 
   @Input()
   public rowHeaderColumnWidth: number = 0;
+
+  @Input()
+  public entries: Entries = {};
 
   @Input()
   public set input(value: RowOrGroup | null) {

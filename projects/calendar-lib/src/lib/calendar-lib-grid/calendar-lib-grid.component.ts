@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Groups } from '../models';
+import { Entries, Groups } from '../models';
 
 @Component({
   selector: 'calendar-lib-grid',
@@ -37,6 +37,9 @@ export class CalendarLibGridComponent implements OnInit {
 
   @Input()
   public groups: Groups = [];
+
+  @Input()
+  public entries: Entries = {};
 
   public columnWidth: number = 30;
   public rowHeaderColumnWidth: number = 300;

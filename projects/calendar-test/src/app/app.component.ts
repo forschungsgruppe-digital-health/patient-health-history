@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IGroup, IRow } from 'calendar-lib';
+import { Entries, IGroup, IRow } from 'calendar-lib';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +10,10 @@ export class AppComponent implements OnInit {
 
   public currentMonthData: any[] = [];
   public month = 8;
-  public year = 2020;
+  public year = 220;
   public groups: (IGroup | IRow)[] = [
     { name: "Erstdiagnose", key: "Erstdiagnose" },
+    { name: "Verknüpfte Dokumente", key: "Verknüpfte Dokumente" },
     { name: "Weitere Diagnosen", key: "Weitere Diagnosen" },
     { name: "Schübe", key: "Schübe" },
     { name: "Schubbehandlung", key: "Schubbehandlung" },
@@ -28,11 +29,77 @@ export class AppComponent implements OnInit {
       ]
     },
     { name: "Subjektives Wohlbefinden", key: "Subjektives Wohlbefinden" },
-    { name: "Verknüpfte Dokumente", key: "Verknüpfte Dokumente" },
   ];
+  public entries: Entries = {
+    "Verknüpfte Dokumente": {
+      type: "document",
+      entries: [
+        {
+          day: 29,
+          link: "https://google.de",
+          name: "Google"
+        },
+        {
+          day: 5,
+          link: "https://bing.de",
+          name: "Bing"
+        },
+        {
+          day: 21,
+          link: "https://yahoo.de",
+          name: "Yahoo"
+        }
+      ]
+    },
+    "Cladribin": {
+      type: "icon",
+      entries: [
+        {
+          day: 1,
+          tooltip: "Tooltip 1",
+          icon: "/assets/svg/icon_stimmung_gut.svg"
+        },
+        {
+          day: 2,
+          tooltip: "Tooltip 2",
+          icon: "/assets/svg/icon_stimmung_gut.svg"
+        },
+        {
+          day: 3,
+          tooltip: "Tooltip 3",
+          icon: "/assets/svg/icon_stimmung_mittel.svg"
+        },
+        {
+          day: 5,
+          tooltip: "Tooltip 5",
+          icon: "/assets/svg/icon_stimmung_gut.svg"
+        },
+        {
+          day: 6,
+          tooltip: "Tooltip 6",
+          icon: "/assets/svg/icon_stimmung_schlecht.svg"
+        },
+        {
+          day: 7,
+          tooltip: "Tooltip 7",
+          icon: "/assets/svg/icon_stimmung_gut.svg"
+        },
+        {
+          day: 16,
+          tooltip: "Tooltip 16",
+          icon: "/assets/svg/icon_stimmung_gut.svg"
+        },
+        {
+          day: 17,
+          tooltip: "Tooltip 17",
+          icon: "/assets/svg/icon_stimmung_mittel.svg"
+        }
+      ]
+    }
+  }
 
   public ngOnInit() {
-    this.loadSampleData(2020, 8);
+    this.loadSampleData(220, 8);
   }
 
   public requestNextMonth() {

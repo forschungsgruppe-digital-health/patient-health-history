@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IRow } from '../models';
+import { IRow, KnownEntries } from '../models';
 
 @Component({
   selector: 'lib-calendar-lib-grid-row',
@@ -42,6 +42,9 @@ export class CalendarLibGridRowComponent implements OnInit {
 
   @Input()
   public rowHeaderColumnWidth: number = 0;
+
+  @Input()
+  public entries: KnownEntries | null= null;
 
   public daysInMonth: number[] = [];
 

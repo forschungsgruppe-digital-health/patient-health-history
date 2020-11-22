@@ -1,8 +1,23 @@
 <span style="display: inline-block;" [style.width.px]="rowHeaderColumnWidth">{{input.name}}</span>
 
 <svg style="display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
-    <line *ngFor="let day of daysInMonth; let i= index;" stroke="black" [attr.x1]="i*columnWidth"
-        [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
-    <line stroke="black" [attr.x1]="daysInMonth.length*columnWidth" [attr.x2]="daysInMonth.length*columnWidth" y1="0"
-        y2="40"></line>
+    <svg>
+        <line *ngFor="let day of daysInMonth; let i= index;" stroke="black" [attr.x1]="i*columnWidth"
+            [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
+        <line stroke="black" [attr.x1]="daysInMonth.length*columnWidth" [attr.x2]="daysInMonth.length*columnWidth"
+            y1="0" y2="40"></line>
+    </svg>
+
+    <svg *ngIf="entries && entries.type == 'icon'">
+        <!-- ToDo: Move to its own component -->
+        <image *ngFor="let entry of entries.entries" [attr.href]="entry.icon" [attr.height]="columnWidth"
+            [attr.width]="columnWidth" [attr.x]="columnWidth*(entry.day-1)" />
+    </svg>
+
+    <svg *ngIf="entries && entries.type == 'document'">
+        <!-- ToDo: Move to its own component -->
+        <!-- ToDo: Add Text (if necessary add ellipses) -->
+        <image *ngFor="let entry of entries.entries" href="/assets/svg/icon_dokument.svg" [attr.height]="columnWidth"
+            [attr.width]="columnWidth" [attr.x]="columnWidth*(entry.day-1)" />
+    </svg>
 </svg>
