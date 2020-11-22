@@ -47,6 +47,9 @@ export class CalendarLibGridRowOrGroupComponent implements OnInit {
   public entries: Entries = {};
 
   @Input()
+  public indentationLevel: number = 0;
+
+  @Input()
   public set input(value: RowOrGroup | null) {
     this._input = value;
     this.group = (value as IGroup).subs ? value as IGroup : null;

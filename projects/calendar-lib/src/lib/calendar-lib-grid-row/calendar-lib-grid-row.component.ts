@@ -46,6 +46,9 @@ export class CalendarLibGridRowComponent implements OnInit {
   @Input()
   public entries: KnownEntries | null= null;
 
+  @Input()
+  public indentationLevel : number = 0;
+
   public daysInMonth: number[] = [];
 
   private monthChanged() {

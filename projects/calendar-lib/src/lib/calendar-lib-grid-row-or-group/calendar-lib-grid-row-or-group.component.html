@@ -1,19 +1,25 @@
 <div *ngIf="row">
-    <lib-calendar-lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth" 
-    [columnWidth]="columnWidth" [entries]="entries[row.key]"></lib-calendar-lib-grid-row>
+    <lib-calendar-lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
+        [columnWidth]="columnWidth" [entries]="entries[row.key]" [indentationLevel]="indentationLevel">
+    </lib-calendar-lib-grid-row>
 </div>
 
 <div *ngIf="group">
-    <span [style.width.px]="rowHeaderColumnWidth" style="display: inline-block;">{{group.name}}</span>
-    <svg style="display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
+    <svg style="display: inline-block;vertical-align: top;" [attr.width]="rowHeaderColumnWidth" height="40px">
+        <text y="20" [attr.x]="indentationLevel * 20" alignment-baseline="central">{{group.name}}</text>
+        <line x1="0" [attr.x2]="rowHeaderColumnWidth" y1="0" y2="0" stroke="black"></line>
+    </svg>
+    <svg style="display: inline-block;vertical-align: top;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
         <line *ngFor="let day of daysInMonth; let i= index;" stroke="black" [attr.x1]="i*columnWidth"
             [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
-        <line stroke="black" [attr.x1]="daysInMonth.length*columnWidth" [attr.x2]="daysInMonth.length*columnWidth" y1="0"
-            y2="40"></line>
+        <line stroke="black" [attr.x1]="daysInMonth.length*columnWidth" [attr.x2]="daysInMonth.length*columnWidth"
+            y1="0" y2="40"></line>
+        <line x1="0" [attr.x2]="daysInMonth.length*columnWidth" y1="0" y2="0" stroke="black"></line>
     </svg>
-    <div style="margin-left:20px;">
+    <div style="vertical-align: top;">
         <lib-calendar-lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
-        [rowHeaderColumnWidth]="rowHeaderColumnWidth-20" [columnWidth]="columnWidth" [entries]="entries">
+            [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries"
+            [indentationLevel]="indentationLevel+1">
         </lib-calendar-lib-grid-row-or-group>
     </div>
-</div> 
+</div>

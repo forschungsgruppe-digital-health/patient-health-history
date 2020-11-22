@@ -1,7 +1,7 @@
 
-<span style="display: inline-block;" [style.width.px]="rowHeaderColumnWidth">Zeitleiste</span>
+<span style="vertical-align: top;display: inline-block;" [style.width.px]="rowHeaderColumnWidth">Zeitleiste</span>
 
-<svg style="display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
+<svg style="vertical-align: top;display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
     <text *ngFor="let day of daysInMonth; let i= index;" text-anchor="middle" [attr.x]="i*columnWidth + columnWidth/2"
         y="40">{{day}}</text>
 
@@ -10,7 +10,7 @@
     <line stroke="black" [attr.x1]="daysInMonth.length*columnWidth" [attr.x2]="daysInMonth.length*columnWidth" y1="0"
         y2="40"></line>
 </svg>
-<div *ngIf="groups">
+<div style="vertical-align: top;" *ngIf="groups">
     <lib-calendar-lib-grid-row-or-group *ngFor="let group of groups" 
     [input]="group" [month]="month" [year]="year"
     [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries">
