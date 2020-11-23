@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'lib-grid-row-header',
@@ -12,6 +12,12 @@ export class GridRowHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Output()
+  public isCollapsedChange = new EventEmitter<boolean>();
+
+  @Input()
+  isCollapsed: boolean = true;
+
   @Input()
   rowHeaderColumnWidth: number = 300;
 
@@ -23,4 +29,12 @@ export class GridRowHeaderComponent implements OnInit {
 
   @Input()
   text: string = "";
+
+  @Input()
+  showCollapseButton: boolean = false;
+
+  onToggle() {
+    this.isCollapsed = !this.isCollapsed;
+    this.isCollapsedChange.emit(this.isCollapsed);
+  }
 }

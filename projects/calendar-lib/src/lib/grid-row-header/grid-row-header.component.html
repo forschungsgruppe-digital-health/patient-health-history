@@ -1,4 +1,12 @@
 <svg style="display: inline-block;vertical-align: top;" [attr.width]="rowHeaderColumnWidth" [attr.height]="rowHeight">
     <text y="20" [attr.x]="indentationLevel * 20" alignment-baseline="central">{{text}}</text>
     <line x1="0" [attr.x2]="rowHeaderColumnWidth" y1="0" y2="0" stroke="black"></line>
+
+    <svg *ngIf="showCollapseButton" [attr.x]="rowHeaderColumnWidth - rowHeight" (click)="onToggle()">
+        <rect [attr.width]="rowHeight*0.6" [attr.height]="rowHeight*0.6"
+         [attr.x]="rowHeight * 0.2" [attr.y]="rowHeight*0.2" 
+         stroke="black" fill="transparent"></rect>
+        <text style="pointer-events: none" [attr.x]="rowHeight/2" [attr.y]="rowHeight/2" text-anchor="middle" alignment-baseline="central" *ngIf="!isCollapsed">-</text>
+        <text style="pointer-events: none" [attr.x]="rowHeight/2" [attr.y]="rowHeight/2" text-anchor="middle" alignment-baseline="central" *ngIf="isCollapsed">+</text>
+    </svg>
 </svg>

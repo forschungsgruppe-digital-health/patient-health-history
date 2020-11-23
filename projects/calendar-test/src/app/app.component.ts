@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
       ]
     },
     {
-      name: "weitere Medikation", key: "weitere Medikation", subs: [
+      name: "weitere Medikation", isCollapsed: true, key: "weitere Medikation", subs: [
         { name: "Loratadin", key: "Loratadin" }
       ]
     },

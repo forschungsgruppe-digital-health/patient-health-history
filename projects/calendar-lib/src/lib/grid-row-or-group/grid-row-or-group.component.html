@@ -6,12 +6,13 @@
 
 <div *ngIf="group">
     <lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
-        [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name">
+        [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name"
+        [showCollapseButton]="true" [(isCollapsed)]="group.isCollapsed">
     </lib-grid-row-header>
     <lib-grid-simple-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
     </lib-grid-simple-row>
 
-    <div style="vertical-align: top;">
+    <div style="vertical-align: top;" *ngIf="!group.isCollapsed">
         <lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
             [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries"
             [indentationLevel]="indentationLevel+1">
