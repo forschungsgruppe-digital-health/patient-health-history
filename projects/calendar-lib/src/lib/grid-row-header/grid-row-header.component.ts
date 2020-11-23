@@ -33,6 +33,9 @@ export class GridRowHeaderComponent implements OnInit {
   @Input()
   showCollapseButton: boolean = false;
 
+  @Input()
+  showTopBorder: boolean = false;
+
   onToggle() {
     this.isCollapsed = !this.isCollapsed;
     this.isCollapsedChange.emit(this.isCollapsed);
