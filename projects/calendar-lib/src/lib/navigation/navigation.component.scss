@@ -1,7 +1,6 @@
 @use "../variables.scss";
 
 .header {
-
     .header-icon {
         display: inline-block;
         width: variables.$size-icon-header;
@@ -10,9 +9,11 @@
 
     h1 {
         display: inline-block;
+        font: variables.$font-headline-2;
     }
 }
 
 .month-navigation {
     text-align: center;
+    font: variables.$font-standard;
 }

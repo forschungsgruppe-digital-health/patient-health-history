@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
 
   public currentMonthData: any[] = [];
   public month = 8;
-  public year = 220;
+  public year = 2020;
   public groups: (IGroup | IRow)[] = [
     { name: "Erstdiagnose", key: "Erstdiagnose" },
     { name: "Verknüpfte Dokumente", key: "Verknüpfte Dokumente" },
@@ -99,7 +99,7 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.loadSampleData(220, 8);
+    this.loadSampleData(this.year, this.month);
   }
 
   public requestNextMonth() {
