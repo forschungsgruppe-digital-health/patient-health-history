@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-calendar-lib-grid-row-header',
-  templateUrl: './calendar-lib-grid-row-header.component.html',
-  styleUrls: ['./calendar-lib-grid-row-header.component.scss']
+  selector: 'lib-grid-row-header',
+  templateUrl: './grid-row-header.component.html',
+  styleUrls: ['./grid-row-header.component.scss']
 })
-export class CalendarLibGridRowHeaderComponent implements OnInit {
+export class GridRowHeaderComponent implements OnInit {
 
   constructor() { }
 

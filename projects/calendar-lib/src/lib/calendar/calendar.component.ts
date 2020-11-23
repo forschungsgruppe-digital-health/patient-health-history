@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Entries, Groups } from '../models';
 
 @Component({
-  selector: 'calendar-lib-container',
-  templateUrl: './calendar-lib-container.component.html',
-  styleUrls: ['./calendar-lib-container.component.scss']
+  selector: 'calendar',
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.scss']
 })
-export class CalendarLibContainerComponent implements OnInit {
+export class CalendarComponent implements OnInit {
 
   constructor() { }
 

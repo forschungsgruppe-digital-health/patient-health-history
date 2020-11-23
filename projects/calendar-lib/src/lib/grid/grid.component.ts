@@ -3,10 +3,10 @@ import { Entries, Groups } from '../models';
 
 @Component({
   selector: 'calendar-lib-grid',
-  templateUrl: './calendar-lib-grid.component.html',
-  styleUrls: ['./calendar-lib-grid.component.scss']
+  templateUrl: './grid.component.html',
+  styleUrls: ['./grid.component.scss']
 })
-export class CalendarLibGridComponent implements OnInit {
+export class GridComponent implements OnInit {
 
   constructor() { }
 

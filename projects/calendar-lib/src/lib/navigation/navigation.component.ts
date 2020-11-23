@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'calendar-lib-navigation',
-  templateUrl: './calendar-lib-navigation.component.html',
-  styleUrls: ['./calendar-lib-navigation.component.scss']
+  selector: 'lib-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss']
 })
-export class CalendarLibNavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit {
 
   constructor() { }
 

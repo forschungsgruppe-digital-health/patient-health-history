@@ -1,17 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IRow, KnownEntries } from '../models';
+import { Entries, IGroup, IRow, RowOrGroup } from '../models';
 
 @Component({
-  selector: 'lib-calendar-lib-grid-row',
-  templateUrl: './calendar-lib-grid-row.component.html',
-  styleUrls: ['./calendar-lib-grid-row.component.scss']
+  selector: 'lib-grid-row-or-group',
+  templateUrl: './grid-row-or-group.component.html',
+  styleUrls: ['./grid-row-or-group.component.scss']
 })
-export class CalendarLibGridRowComponent implements OnInit {
+export class GridRowOrGroupComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  private _input: RowOrGroup | null = null;
+
 
   private _month: number = 1;
   private _year: number = 1;
@@ -35,19 +38,29 @@ export class CalendarLibGridRowComponent implements OnInit {
   }
 
   @Input()
-  input: IRow = { name: "", key: "" };
-
-  @Input()
   public columnWidth: number = 0;
 
   @Input()
   public rowHeaderColumnWidth: number = 0;
 
   @Input()
-  public entries: KnownEntries | null= null;
+  public entries: Entries = {};
 
   @Input()
-  public indentationLevel : number = 0;
+  public indentationLevel: number = 0;
+
+  @Input()
+  public set input(value: RowOrGroup | null) {
+    this._input = value;
+    this.group = (value as IGroup).subs ? value as IGroup : null;
+    this.row = this.group ? null : value as IRow;
+  }
+  public get input() {
+    return this._input;
+  }
+
+  public row: IRow | null = null;
+  public group: IGroup | null = null;
 
   public numberOfDaysInMonth: number = 31;
 

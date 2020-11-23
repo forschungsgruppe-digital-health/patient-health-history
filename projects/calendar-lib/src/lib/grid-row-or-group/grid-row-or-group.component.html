@@ -1,20 +1,20 @@
 <div *ngIf="row">
-    <lib-calendar-lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
+    <lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
         [columnWidth]="columnWidth" [entries]="entries[row.key]" [indentationLevel]="indentationLevel">
-    </lib-calendar-lib-grid-row>
+    </lib-grid-row>
 </div>
 
 <div *ngIf="group">
-    <lib-calendar-lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
+    <lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
         [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name">
-    </lib-calendar-lib-grid-row-header>
+    </lib-grid-row-header>
     <lib-grid-simple-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
     </lib-grid-simple-row>
 
     <div style="vertical-align: top;">
-        <lib-calendar-lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
+        <lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
             [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries"
             [indentationLevel]="indentationLevel+1">
-        </lib-calendar-lib-grid-row-or-group>
+        </lib-grid-row-or-group>
     </div>
 </div>

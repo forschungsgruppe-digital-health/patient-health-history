@@ -1,5 +1,5 @@
-<lib-calendar-lib-grid-row-header [rowHeight]="40" [indentationLevel]="0"
-[rowHeaderColumnWidth]="rowHeaderColumnWidth" text="Zeitleiste"></lib-calendar-lib-grid-row-header>
+<lib-grid-row-header [rowHeight]="40" [indentationLevel]="0"
+[rowHeaderColumnWidth]="rowHeaderColumnWidth" text="Zeitleiste"></lib-grid-row-header>
 
 <svg style="vertical-align: top;display: inline-block;" [attr.width]="daysInMonth.length*columnWidth" height="40px">
     <text *ngFor="let day of daysInMonth; let i= index;" text-anchor="middle" [attr.x]="i*columnWidth + columnWidth/2"
@@ -11,8 +11,8 @@
         y2="40"></line>
 </svg>
 <div style="vertical-align: top;" *ngIf="groups">
-    <lib-calendar-lib-grid-row-or-group *ngFor="let group of groups" 
+    <lib-grid-row-or-group *ngFor="let group of groups" 
     [input]="group" [month]="month" [year]="year"
     [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries">
-    </lib-calendar-lib-grid-row-or-group>
+    </lib-grid-row-or-group>
 </div>
