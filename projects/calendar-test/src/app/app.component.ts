@@ -57,42 +57,42 @@ export class AppComponent implements OnInit {
         {
           day: 1,
           tooltip: "Tooltip 1",
-          icon: "/assets/svg/icon_stimmung_gut.svg"
+          icon: "/assets/svg/icon_alles_genommen.svg"
         },
         {
           day: 2,
           tooltip: "Tooltip 2",
-          icon: "/assets/svg/icon_stimmung_gut.svg"
+          icon: "/assets/svg/icon_alles_genommen.svg"
         },
         {
           day: 3,
           tooltip: "Tooltip 3",
-          icon: "/assets/svg/icon_stimmung_mittel.svg"
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
         },
         {
           day: 5,
           tooltip: "Tooltip 5",
-          icon: "/assets/svg/icon_stimmung_gut.svg"
+          icon: "/assets/svg/icon_alles_genommen.svg"
         },
         {
           day: 6,
           tooltip: "Tooltip 6",
-          icon: "/assets/svg/icon_stimmung_schlecht.svg"
+          icon: "/assets/svg/icon_nichts_genommen.svg"
         },
         {
           day: 7,
           tooltip: "Tooltip 7",
-          icon: "/assets/svg/icon_stimmung_gut.svg"
+          icon: "/assets/svg/icon_alles_genommen.svg"
         },
         {
           day: 16,
           tooltip: "Tooltip 16",
-          icon: "/assets/svg/icon_stimmung_gut.svg"
+          icon: "/assets/svg/icon_alles_genommen.svg"
         },
         {
           day: 17,
           tooltip: "Tooltip 17",
-          icon: "/assets/svg/icon_stimmung_mittel.svg"
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
         }
       ]
     }
