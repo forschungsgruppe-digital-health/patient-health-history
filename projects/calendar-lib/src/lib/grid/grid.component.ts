@@ -44,14 +44,10 @@ export class GridComponent implements OnInit {
   public columnWidth: number = 30;
   public rowHeaderColumnWidth: number = 300;
 
-  public daysInMonth: number[] = [];
+  public numberOfDaysInMonth: number = 31;
 
   private monthChanged() {
-    this.daysInMonth = [];
-    let nods = this.getNumberOfDaysInMonth();
-    for (var i = 1; i <= nods; ++i) {
-      this.daysInMonth.push(i);
-    }
+    this.numberOfDaysInMonth = this.getNumberOfDaysInMonth();
   }
 
   private getNumberOfDaysInMonth(): number {

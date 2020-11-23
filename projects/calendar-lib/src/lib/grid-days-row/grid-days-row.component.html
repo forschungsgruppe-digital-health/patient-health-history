@@ -1,0 +1,14 @@
+<svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth"
+    [attr.height]="rowHeight">
+    <svg *ngFor="let day of [].constructor(numberOfDays); let i= index;">
+        <line stroke="black" [attr.x1]="i*columnWidth" [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
+
+        <text text-anchor="middle" alignment-baseline="central" [attr.x]="i*columnWidth + columnWidth/2" [attr.y]="rowHeight/2">{{i+1}}</text>
+    </svg>
+
+    <!-- most right line -->
+    <line stroke="black" [attr.x1]="numberOfDays*columnWidth" [attr.x2]="numberOfDays*columnWidth" y1="0" y2="40">
+    </line>
+
+    <line x1="0" [attr.x2]="numberOfDays*columnWidth" y1="0" y2="0" stroke="black"></line>
+</svg>
