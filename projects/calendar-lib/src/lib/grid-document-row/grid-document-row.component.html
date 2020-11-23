@@ -1,16 +1,25 @@
-<svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth" [attr.height]="rowHeight">
+<svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth"
+    [attr.height]="rowHeight">
     <svg>
-        <line *ngFor="let day of [].constructor(numberOfDays); let i= index;" stroke="black" [attr.x1]="i*columnWidth"
-            [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
-        <line stroke="black" [attr.x1]="numberOfDays*columnWidth" [attr.x2]="numberOfDays*columnWidth"
-            y1="0" y2="40"></line>
+        <line *ngFor="let i of lines;" stroke="black" [attr.x1]="i*columnWidth" [attr.x2]="i*columnWidth" y1="0"
+            y2="40"></line>
 
         <line x1="0" [attr.x2]="numberOfDays*columnWidth" y1="0" y2="0" stroke="black"></line>
     </svg>
 
-    <svg>
+    <svg *ngFor="let entry of entries" [attr.x]="columnWidth*(entry.day-1)" (click)="onEntryClick(entry)">
         <!-- ToDo: Add Text (if necessary add ellipses) -->
-        <image *ngFor="let entry of entries" href="/assets/svg/icon_dokument.svg" [attr.height]="columnWidth"
-            [attr.width]="columnWidth" [attr.x]="columnWidth*(entry.day-1)" />
+        <image href="/assets/svg/icon_dokument.svg" [attr.height]="iconSize" [attr.width]="iconSize"
+            [attr.y]="(rowHeight-iconSize)/2" />
+        <svg [attr.height]="rowHeight-6" [attr.width]="(rowHeight-6)*5" viewBox="0 0 10 2" [attr.y]="3"
+            [attr.x]="iconSize">
+            <path d="M0 1 l1 -1 l9 0 l0 2 l-9 0 l-1 -1" stroke="transparent" fill="lightgray"></path>
+        </svg>
+        <line [attr.x1]="iconSize" [attr.y1]="rowHeight/2" [attr.x2]="iconSize+rowHeight/2-3" [attr.y2]="3"
+            stroke="black" stroke-linecap="round"></line>
+        <line [attr.x1]="iconSize" [attr.y1]="rowHeight/2" [attr.x2]="iconSize+rowHeight/2-3" [attr.y2]="rowHeight-3"
+            stroke="black" stroke-linecap="round"></line>
+        <text style="pointer-events: none" alignment-baseline="central" [attr.y]="rowHeight/2"
+            [attr.x]="iconSize+rowHeight/2-3">{{entry.name}}</text>
     </svg>
 </svg>

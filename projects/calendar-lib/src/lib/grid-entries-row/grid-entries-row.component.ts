@@ -6,6 +6,16 @@ import { GridSimpleRowComponent } from '../grid-simple-row/grid-simple-row.compo
 })
 export class GridEntriesRowComponent<TEntry> extends GridSimpleRowComponent {
 
+  private _entries: TEntry[] = [];
+
   @Input()
-  entries: TEntry[] = [];
+  get entries(): TEntry[] {
+    return this._entries;
+  }
+  set entries(value: TEntry[]) {
+    this._entries = value;
+    this.entriesChanged();
+  }
+
+  protected entriesChanged() { }
 }
