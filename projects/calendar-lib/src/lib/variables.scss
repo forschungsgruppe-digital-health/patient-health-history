@@ -1,27 +1,27 @@
 /*FG Colors*/
 $color-fg-white: white;
 $color-fg-black: #020202;
-$color-fg-grey02: #BAB1AA;
-$color-fg-green04:#005646;
+$color-fg-grey02: #bab1aa;
+$color-fg-green04: #005646;
 
 /*BG Colors*/
 $color-bg-white: white;
 $color-bg-black: #020202;
-$color-bg-green01: #C0F2E9;
-$color-bg-green02: #40D6BA;
-$color-bg-green03: #00A384;
+$color-bg-green01: #c0f2e9;
+$color-bg-green02: #40d6ba;
+$color-bg-green03: #00a384;
 $color-bg-green04: #005646;
-$color-bg-grey01: #EADED6;
-$color-bg-grey02: #BAB1AA;
-$color-bg-grey03: #77716E;
-$color-bg-grey04: #423F3E;
-$color-bg-brown01: #DFBD99;
-$color-bg-brown02: #D68D40;
-$color-bg-brown03: #B05A00;
+$color-bg-grey01: #eaded6;
+$color-bg-grey02: #bab1aa;
+$color-bg-grey03: #77716e;
+$color-bg-grey04: #423f3e;
+$color-bg-brown01: #dfbd99;
+$color-bg-brown02: #d68d40;
+$color-bg-brown03: #b05a00;
 $color-bg-brown04: #633300;
-$color-bg-symbolred: #FF4D29;
-$color-bg-symbolyellow: #F5AB2B;
-$color-bg-symbolgreen: #ADD61E;
+$color-bg-symbolred: #ff4d29;
+$color-bg-symbolyellow: #f5ab2b;
+$color-bg-symbolgreen: #add61e;
 
 //sizes
 $size-icon-mainpage: 68px;
@@ -30,3 +30,13 @@ $size-icon-footer: 30px;
 $size-icon-header: 30px;
 $size-icon-calendar: 24px;
 $size-icon-mini: 20px;
+
+// fonts
+$font-headline-1: 44px "Segoe Marker"; // <h1>
+$font-headline-2: 36px "Segoe Marker"; // <h2>
+$font-headline-3: 28px "Segoe Marker"; // <h3>
+$font-button-text: 18px "Segoe Marker"; // <h4>
+$font-standard: 16px "Segoe UI"; // <p>
+$font-lable: 16px bold "Segoe UI"; // Lables
+$font-emphasized: 16px italic "Segoe UI";
+$font-mini-text: 14px "Segoe UI";
