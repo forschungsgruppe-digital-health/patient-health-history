@@ -1,5 +1,7 @@
 <lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
-    [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="input.name">
+    [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="input.name"
+    [isBold]="!!input.fontStyle && input.fontStyle.isBold"
+    [isItalic]="!!input.fontStyle && input.fontStyle.isItalic">
 </lib-grid-row-header>
 
 <lib-grid-icon-row *ngIf="entries && entries.type == 'icon'" [columnWidth]="columnWidth"

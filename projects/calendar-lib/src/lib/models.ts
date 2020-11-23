@@ -4,11 +4,13 @@ export interface IGroup {
     name: string;
     isCollapsed: boolean;
     subs: RowOrGroup[];
+    fontStyle?: IFontStyle;
 }
 
 export interface IRow {
     name: string;
     key: string;
+    fontStyle?: IFontStyle;
 }
 
 export type RowOrGroup = IRow | IGroup;
@@ -29,4 +31,9 @@ export interface IDocumentEntry {
     day: number;
     link: string;
     name: string;
+}
+
+export interface IFontStyle {
+    isBold: boolean;
+    isItalic: boolean;
 }

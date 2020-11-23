@@ -6,10 +6,7 @@
     <!-- top line if showTopBorder -->
     <line *ngIf="showTopBorder" x1="0" [attr.x2]="rowHeaderColumnWidth" y1="0" y2="0" stroke="black"></line>
 
-    <!-- left line -->
-    <line x1="0" x2="0" y1="0" [attr.y2]="rowHeight" stroke="black"></line>
-
-    <text [attr.y]="rowHeight/2" [attr.x]="indentationLevel * 20 + 10" alignment-baseline="central">{{text}}</text>
+    <text [attr.data-isBold]="isBold" [attr.data-isItalic]="isItalic" [attr.y]="rowHeight/2" [attr.x]="indentationLevel * 20" alignment-baseline="central">{{text}}</text>
 
     <svg *ngIf="showCollapseButton" [attr.x]="rowHeaderColumnWidth - rowHeight" (click)="onToggle()">
         <rect [attr.width]="rowHeight*0.6" [attr.height]="rowHeight*0.6"

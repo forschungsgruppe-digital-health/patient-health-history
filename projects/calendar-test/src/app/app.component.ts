@@ -15,20 +15,20 @@ export class AppComponent implements OnInit {
     { name: "Erstdiagnose", key: "Erstdiagnose" },
     { name: "Verknüpfte Dokumente", key: "Verknüpfte Dokumente" },
     { name: "Weitere Diagnosen", key: "Weitere Diagnosen" },
-    { name: "Schübe", key: "Schübe" },
-    { name: "Schubbehandlung", key: "Schubbehandlung" },
+    { name: "Schübe", key: "Schübe", fontStyle: { isBold: true, isItalic: false } },
+    { name: "Schubbehandlung", key: "Schubbehandlung", fontStyle: { isBold: true, isItalic: false } },
     {
-      name: "Medikation", isCollapsed: false, subs: [
-        { name: "Cladribin", key: "Cladribin" },
-        { name: "Gilenya", key: "Gilenya" }
+      name: "Medikation", isCollapsed: false, fontStyle: { isBold: true, isItalic: false }, subs: [
+        { name: "Cladribin", key: "Cladribin", fontStyle: { isBold: false, isItalic: true } },
+        { name: "Gilenya", key: "Gilenya", fontStyle: { isBold: false, isItalic: true } }
       ]
     },
     {
       name: "weitere Medikation", isCollapsed: true, key: "weitere Medikation", subs: [
-        { name: "Loratadin", key: "Loratadin" }
+        { name: "Loratadin", key: "Loratadin", fontStyle: { isBold: false, isItalic: true } }
       ]
     },
-    { name: "Subjektives Wohlbefinden", key: "Subjektives Wohlbefinden" },
+    { name: "Subjektives Wohlbefinden", key: "Subjektives Wohlbefinden", fontStyle: { isBold: true, isItalic: false } },
   ];
   public entries: Entries = {
     "Verknüpfte Dokumente": {

@@ -7,7 +7,9 @@
 <div *ngIf="group">
     <lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
         [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name"
-        [showCollapseButton]="true" [(isCollapsed)]="group.isCollapsed">
+        [showCollapseButton]="true" [(isCollapsed)]="group.isCollapsed"
+        [isBold]="!!group.fontStyle && group.fontStyle.isBold"
+        [isItalic]="!!group.fontStyle && group.fontStyle.isItalic">
     </lib-grid-row-header>
     <lib-grid-simple-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
     </lib-grid-simple-row>
