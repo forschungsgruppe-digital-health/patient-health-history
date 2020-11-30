@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Entries, IGroup, IRow, RowOrGroup } from '../models';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Entries, IGroup, IRow, IRowData, RowOrGroup } from '../models';
 
 @Component({
   selector: 'lib-grid-row-or-group',
@@ -58,6 +58,9 @@ export class GridRowOrGroupComponent implements OnInit {
   public get input() {
     return this._input;
   }
+  
+  @Input()
+  public rowTemplate: TemplateRef<IRowData> | null = null;
 
   public row: IRow | null = null;
   public group: IGroup | null = null;

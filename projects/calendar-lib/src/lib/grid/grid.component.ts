@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Entries, Groups } from '../models';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Entries, Groups, IRowData } from '../models';
 
 @Component({
   selector: 'calendar-lib-grid',
@@ -40,6 +40,9 @@ export class GridComponent implements OnInit {
 
   @Input()
   public entries: Entries = {};
+  
+  @Input()
+  public rowTemplate: TemplateRef<IRowData> | null = null;
 
   public columnWidth: number = 30;
   public rowHeaderColumnWidth: number = 300;

@@ -37,3 +37,12 @@ export interface IFontStyle {
     isBold: boolean;
     isItalic: boolean;
 }
+
+export interface IRowData {
+    width: number;
+    entries: any[];
+    type: string;
+    columnWidth: number;
+    rowHeight: number;
+    numberOfDays: number;
+}

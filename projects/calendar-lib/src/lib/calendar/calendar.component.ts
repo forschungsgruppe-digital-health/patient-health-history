@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Entries, Groups } from '../models';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Entries, Groups, IRowData } from '../models';
 
 @Component({
   selector: 'calendar',
@@ -45,6 +45,9 @@ export class CalendarComponent implements OnInit {
 
   @Input()
   public entries: Entries = {};
+
+  @Input()
+  public rowTemplate: TemplateRef<IRowData> | null = null;
 
   public yearMonthString: string = "";
 

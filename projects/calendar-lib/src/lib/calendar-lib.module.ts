@@ -34,6 +34,12 @@ import { GridDaysRowComponent } from './grid-days-row/grid-days-row.component';
     BrowserModule,
     InlineSVGModule.forRoot()
   ],
-  exports: [CalendarComponent]
+  exports: [
+    CalendarComponent,
+    GridIconRowComponent,
+    GridDocumentRowComponent,
+    GridSimpleRowComponent,
+    GridEntriesRowComponent    
+  ]
 })
 export class CalendarLibModule { }

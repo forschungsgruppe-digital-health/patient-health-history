@@ -1,6 +1,18 @@
-<calendar
- (requestPreviousMonth)="requestPreviousMonth()" 
- (requestNextMonth)="requestNextMonth()"
- [year]="year" [month]="month"
- [groups]="groups"
- [entries]="entries"></calendar>
+<ng-template #rowTemplate let-data="data">
+
+    <lib-grid-icon-row *ngIf="data.entries && data.type == 'icon'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [rowHeight]="data.rowHeight" [entries]="data.entries">
+    </lib-grid-icon-row>
+
+    <lib-grid-document-row *ngIf="data.entries && data.type == 'document'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [rowHeight]="data.rowHeight" [entries]="data.entries">
+    </lib-grid-document-row>
+
+    <lib-grid-simple-row *ngIf="!data.entries || data.type == ''" [columnWidth]="data.columnWidth" [numberOfDays]="data.numberOfDays"
+        [rowHeight]="data.rowHeight">
+    </lib-grid-simple-row>
+
+</ng-template>
+
+<calendar (requestPreviousMonth)="requestPreviousMonth()" (requestNextMonth)="requestNextMonth()" [year]="year"
+    [month]="month" [groups]="groups" [entries]="entries" [rowTemplate]="rowTemplate"></calendar>

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IRow, KnownEntries } from '../models';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { IRow, IRowData, KnownEntries } from '../models';
 
 @Component({
   selector: 'lib-grid-row',
@@ -44,10 +44,24 @@ export class GridRowComponent implements OnInit {
   public rowHeaderColumnWidth: number = 0;
 
   @Input()
-  public entries: KnownEntries | null= null;
+  public entries: KnownEntries | null = null;
 
   @Input()
-  public indentationLevel : number = 0;
+  public indentationLevel: number = 0;
+
+  @Input()
+  public rowTemplate: TemplateRef<IRowData> | null = null;
+
+  public get rowData(): IRowData | null {
+    return {
+      width: this.columnWidth * this.numberOfDaysInMonth,
+      entries: this.entries ? <any[]>this.entries.entries : [],
+      type: this.entries ? this.entries.type : "",
+      columnWidth: this.columnWidth,
+      rowHeight: 40,
+      numberOfDays: this.numberOfDaysInMonth,
+    }
+  }
 
   public numberOfDaysInMonth: number = 31;
 

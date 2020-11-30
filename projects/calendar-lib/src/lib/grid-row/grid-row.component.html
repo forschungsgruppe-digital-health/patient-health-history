@@ -4,13 +4,6 @@
     [isItalic]="!!input.fontStyle && input.fontStyle.isItalic">
 </lib-grid-row-header>
 
-<lib-grid-icon-row *ngIf="entries && entries.type == 'icon'" [columnWidth]="columnWidth"
-    [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40" [entries]="entries.entries">
-</lib-grid-icon-row>
-
-<lib-grid-document-row *ngIf="entries && entries.type == 'document'" [columnWidth]="columnWidth"
-    [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40" [entries]="entries.entries">
-</lib-grid-document-row>
-
-<lib-grid-simple-row *ngIf="!entries" [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
-</lib-grid-simple-row>
+<ng-container *ngIf="rowData">
+<ng-container *ngTemplateOutlet="rowTemplate;context:{data:rowData}"></ng-container>
+</ng-container> 
