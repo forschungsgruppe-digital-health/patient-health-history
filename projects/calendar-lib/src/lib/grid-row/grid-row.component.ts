@@ -54,7 +54,6 @@ export class GridRowComponent implements OnInit {
 
   public get rowData(): IRowData | null {
     return {
-      width: this.columnWidth * this.numberOfDaysInMonth,
       entries: this.entries ? <any[]>this.entries.entries : [],
       type: this.entries ? this.entries.type : "",
       columnWidth: this.columnWidth,
