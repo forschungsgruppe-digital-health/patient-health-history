@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "npx ng",
-    "start": "npx ng serve",
-    "build": "npx ng build",
-    "test": "npx ng test",
-    "lint": "npx ng lint"
+    "build-lib": "npx ng build calendar-lib --watch",
+    "serve-test": "npx ng serve calendar-test --watch"
   },
   "private": true,
   "dependencies": {
