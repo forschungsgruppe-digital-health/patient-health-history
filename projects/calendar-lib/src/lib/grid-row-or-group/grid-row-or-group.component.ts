@@ -50,6 +50,9 @@ export class GridRowOrGroupComponent implements OnInit {
   public indentationLevel: number = 0;
 
   @Input()
+  public useCompactLayout: boolean = true;
+
+  @Input()
   public set input(value: RowOrGroup | null) {
     this._input = value;
     this.group = (value as IGroup).subs ? value as IGroup : null;
@@ -58,7 +61,7 @@ export class GridRowOrGroupComponent implements OnInit {
   public get input() {
     return this._input;
   }
-  
+
   @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
 

@@ -1,6 +1,6 @@
 <div *ngIf="row">
     <lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
-        [columnWidth]="columnWidth" [entries]="entries[row.key]" [indentationLevel]="indentationLevel" [rowTemplate]="rowTemplate">
+        [columnWidth]="columnWidth" [entries]="entries[row.key]" [indentationLevel]="indentationLevel" [rowTemplate]="rowTemplate" [useCompactLayout]="useCompactLayout">
     </lib-grid-row>
     <lib-grid-row-line></lib-grid-row-line>
 </div>
@@ -13,14 +13,14 @@
         [isItalic]="!!group.fontStyle && group.fontStyle.isItalic">
     </lib-grid-row-header>
     <!--ToDo: use template-->
-    <lib-grid-simple-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
+    <lib-grid-simple-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40" [useCompactLayout]="useCompactLayout">
     </lib-grid-simple-row>
     <lib-grid-row-line></lib-grid-row-line>
 
     <div style="vertical-align: top;" *ngIf="!group.isCollapsed">
         <lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
             [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries"
-            [indentationLevel]="indentationLevel+1" [rowTemplate]="rowTemplate">
+            [indentationLevel]="indentationLevel+1" [rowTemplate]="rowTemplate" [useCompactLayout]="useCompactLayout">
         </lib-grid-row-or-group>
     </div>
 </div>

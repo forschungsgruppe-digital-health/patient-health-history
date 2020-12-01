@@ -43,4 +43,5 @@ export interface IRowData {
     type: string;
     columnWidth: number;
     numberOfDays: number;
+    useCompactLayout: boolean;
 }

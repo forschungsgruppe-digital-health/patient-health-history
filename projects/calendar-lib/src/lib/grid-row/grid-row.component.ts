@@ -52,12 +52,16 @@ export class GridRowComponent implements OnInit {
   @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
 
+  @Input()
+  public useCompactLayout: boolean = true;
+
   public get rowData(): IRowData | null {
     return {
       entries: this.entries ? <any[]>this.entries.entries : [],
       type: this.entries ? this.entries.type : "",
       columnWidth: this.columnWidth,
       numberOfDays: this.numberOfDaysInMonth,
+      useCompactLayout: this.useCompactLayout
     }
   }
 

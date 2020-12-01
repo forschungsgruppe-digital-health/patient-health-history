@@ -55,6 +55,7 @@ export class GridComponent implements OnInit {
 
   public columnWidth: number = 30;
   public rowHeaderColumnWidth: number = 300;
+  public useCompactLayout: boolean = true;
 
   public numberOfDaysInMonth: number = 31;
 
@@ -76,10 +77,14 @@ export class GridComponent implements OnInit {
     if (width > GridComponent.compactLayoutMaxWidth) {
       this.columnWidth = Math.floor((width - GridComponent.minRowHeaderWidth) / this.numberOfDaysInMonth);
       this.rowHeaderColumnWidth = width - this.columnWidth * this.numberOfDaysInMonth - 1;
+      this.useCompactLayout = false;
     }
     else {
       this.rowHeaderColumnWidth = width;
       this.columnWidth = width / this.numberOfDaysInMonth;
+      this.useCompactLayout = true;
     }
+
+    this.useCompactLayout = this.columnWidth < 25;
   }
 }

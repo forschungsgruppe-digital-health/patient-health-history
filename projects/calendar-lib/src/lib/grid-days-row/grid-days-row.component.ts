@@ -11,4 +11,26 @@ export class GridDaysRowComponent extends GridSimpleRowComponent implements OnIn
   ngOnInit(): void {
   }
 
+  public daysToRender: number[] = [];
+
+  protected numberOfDaysChanged() {
+    this.updateLayout();
+  }
+
+  protected useCompactLayoutChanged() {
+    this.updateLayout();
+  }
+
+  private updateLayout() {
+    let allDays = Array(this.numberOfDays + 1)
+      .fill(1)
+      .map((x, i) => i);
+
+    if (this.useCompactLayout) {
+      this.daysToRender = allDays.filter(x => x % 5 == 0 || x == 1);
+    }
+    else {
+      this.daysToRender = allDays;
+    }
+  }
 }
