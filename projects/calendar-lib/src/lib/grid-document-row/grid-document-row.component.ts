@@ -14,7 +14,7 @@ export class GridDocumentRowComponent extends GridEntriesRowComponent<IDocumentE
 
   protected cellSizeChanged() {
     super.cellSizeChanged();
-    this.iconSize = Math.min(this.columnWidth, this.rowHeight);//3px padding on each side
+    this.iconSize = Math.min(Math.max(this.columnWidth, this.rowHeight - 10), this.rowHeight);
   }
 
   protected numberOfDaysChanged() {
