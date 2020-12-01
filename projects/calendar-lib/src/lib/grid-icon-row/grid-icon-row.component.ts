@@ -30,29 +30,48 @@ export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> im
   tooltipX: number = 0;
   tooltipHeight: number = 40;
   tooltipPath: string = "";
-  tooltipTextLeftRightPadding: number = 10;
+  tooltipTextX: number = 0;
+  readonly tooltipTextLeftRightPadding: number = 10;
 
   onMouseOver(entry: IIconEntry) {
     this.tooltip = entry.tooltip;
     this.tooltipX = this.columnWidth * (entry.day - 1);
 
-    const width = 2 * this.tooltipTextLeftRightPadding + (this._textService.getTextWidth(this.tooltip, "16px Segoe UI") || 150);
+    let textWidth = this._textService.getTextWidth(this.tooltip, "16px Segoe UI") || 150;
+    const width = 2 * this.tooltipTextLeftRightPadding + textWidth;
     const height = this.tooltipHeight;
     const rxy = 5;
-    let path = `M${this.columnWidth / 2 + this.tooltipX} 0 ` // Start at nose tip
-      + `l${rxy} ${rxy} ` // line from nose tip to right side of upper line
-      + `l${width - rxy - this.columnWidth / 2 - rxy} 0 ` // upper line on right side of nose
-      + `a${rxy} ${rxy} 0 0 1 ${rxy} ${rxy}` // top right arc
-      + `l0 ${height - 3 * rxy} ` // right line
-      + `a${rxy} ${rxy} 0 0 1 ${-rxy} ${rxy}`//bottom right arc
-      + `l${-width + 2 * rxy} 0 ` // bottom line
-      + `a${rxy} ${rxy} 0 0 1 ${-rxy} ${-rxy}`//bottom left arc
-      + `l0 ${-height + 3 * rxy} `//left line
-      + `a${rxy} ${rxy} 0 0 1 ${rxy} ${-rxy}`//top left arc
-      + `l${this.columnWidth / 2 - 2 * rxy} 0 `//upper line from top left arc to left side of nose
-      + `l${rxy} ${-rxy}`;//from upper line to nose tip
 
-    this.tooltipPath = path;
+    if (entry.day <= 15) {
+      this.tooltipTextX = this.tooltipX + this.tooltipTextLeftRightPadding;
+      this.tooltipPath = `M${this.columnWidth / 2 + this.tooltipX} 0 ` // Start at nose tip
+        + `l${rxy} ${rxy} ` // line from nose tip to right side of upper line
+        + `l${width - rxy - this.columnWidth / 2 - rxy} 0 ` // upper line on right side of nose
+        + `a${rxy} ${rxy} 0 0 1 ${rxy} ${rxy}` // top right arc
+        + `l0 ${height - 3 * rxy} ` // right line
+        + `a${rxy} ${rxy} 0 0 1 ${-rxy} ${rxy}`//bottom right arc
+        + `l${-width + 2 * rxy} 0 ` // bottom line
+        + `a${rxy} ${rxy} 0 0 1 ${-rxy} ${-rxy}`//bottom left arc
+        + `l0 ${-height + 3 * rxy} `//left line
+        + `a${rxy} ${rxy} 0 0 1 ${rxy} ${-rxy}`//top left arc
+        + `l${this.columnWidth / 2 - 2 * rxy} 0 `//upper line from top left arc to left side of nose
+        + `l${rxy} ${-rxy}`;//from upper line to nose tip
+    }
+    else {
+      this.tooltipTextX = this.tooltipX + this.columnWidth - textWidth - this.tooltipTextLeftRightPadding;
+      this.tooltipPath = `M${this.columnWidth / 2 + this.tooltipX} 0 ` // Start at nose tip
+        + `l${rxy} ${rxy} ` // line from nose tip to right side of upper line
+        + `l${this.columnWidth / 2 - 2 * rxy} 0 ` // upper line on right side of nose
+        + `a${rxy} ${rxy} 0 0 1 ${rxy} ${rxy}` // top right arc
+        + `l0 ${height - 3 * rxy} ` // right line
+        + `a${rxy} ${rxy} 0 0 1 ${-rxy} ${rxy}`//bottom right arc
+        + `l${-width + 2 * rxy} 0 ` // bottom line
+        + `a${rxy} ${rxy} 0 0 1 ${-rxy} ${-rxy}`//bottom left arc
+        + `l0 ${-height + 3 * rxy} `//left line
+        + `a${rxy} ${rxy} 0 0 1 ${rxy} ${-rxy}`//top left arc
+        + `l${width - this.columnWidth / 2 - 2 * rxy} 0 `//upper line from top left arc to left side of nose
+        + `l${rxy} ${-rxy}`;//from upper line to nose tip
+    }
   }
 
   onMouseLeave() {
