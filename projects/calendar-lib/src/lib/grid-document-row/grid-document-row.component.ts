@@ -28,10 +28,7 @@ export class GridDocumentRowComponent extends GridEntriesRowComponent<IDocumentE
 
   private updateLines() {
     let days = this.entries.map(entry => entry.day);
-    this.lines = Array(this.numberOfDays + 1)
-      .fill(1)
-      .map((x, i) => i)
-      .filter(x => days.indexOf(x) == -1);
+    this.lines = this.linesToRender.filter(x => days.indexOf(x-1) == -1);
   }
 
   onEntryClick(entry: IDocumentEntry) {

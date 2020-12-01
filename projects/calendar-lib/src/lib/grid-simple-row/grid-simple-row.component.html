@@ -1,8 +1,8 @@
 <svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth" [attr.height]="rowHeight">
     <svg>
-        <line *ngFor="let day of [].constructor(numberOfDays); let i= index;" stroke="black" [attr.x1]="i*columnWidth"
-            [attr.x2]="i*columnWidth" y1="0" y2="40"></line>
+        <line *ngFor="let day of linesToRender" stroke="black" [attr.x1]="(day-1)*columnWidth"
+            [attr.x2]="(day-1)*columnWidth" y1="0" [attr.y2]="rowHeight"></line>
         <line stroke="black" [attr.x1]="numberOfDays*columnWidth" [attr.x2]="numberOfDays*columnWidth"
-            y1="0" y2="40"></line>
+            y1="0" [attr.y2]="rowHeight"></line>
     </svg>
 </svg>

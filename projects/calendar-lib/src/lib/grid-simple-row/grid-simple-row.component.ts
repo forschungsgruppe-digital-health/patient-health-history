@@ -55,9 +55,28 @@ export class GridSimpleRowComponent {
     }
   }
 
-  protected cellSizeChanged() { }
+  public linesToRender: number[] = [];
 
-  protected numberOfDaysChanged() { }
+  protected cellSizeChanged() { }  
 
-  protected useCompactLayoutChanged() { }
+  protected numberOfDaysChanged() {
+    this.updateLinesToRender();
+  }
+
+  protected useCompactLayoutChanged() {
+    this.updateLinesToRender();
+  }
+
+  private updateLinesToRender() {
+    let allDays = Array(this.numberOfDays + 1)
+      .fill(1)
+      .map((_, i) => i);
+
+    if (this.useCompactLayout) {
+      this.linesToRender = allDays.filter(x => (x - 1) % 5 == 0 && x != 31);
+    }
+    else {
+      this.linesToRender = allDays;
+    }
+  }
 }

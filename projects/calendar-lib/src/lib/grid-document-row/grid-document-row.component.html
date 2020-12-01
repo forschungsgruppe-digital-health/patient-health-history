@@ -1,8 +1,8 @@
 <svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth"
     [attr.height]="rowHeight">
     <svg>
-        <line *ngFor="let i of lines;" stroke="black" [attr.x1]="i*columnWidth" [attr.x2]="i*columnWidth" y1="0"
-            [attr.y2]="rowHeight"></line>
+        <line *ngFor="let day of lines;" stroke="black" [attr.x1]="(day-1)*columnWidth" [attr.x2]="(day-1)*columnWidth"
+            y1="0" [attr.y2]="rowHeight"></line>
     </svg>
 
     <svg *ngFor="let entry of entries" [attr.x]="columnWidth*(entry.day-1)" (click)="onEntryClick(entry)">

@@ -1,6 +1,6 @@
 <svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth"
     [attr.height]="rowHeight">
-    <svg *ngFor="let day of daysToRender;">
+    <svg *ngFor="let day of linesToRender">
         <line stroke="black" [attr.x1]="(day-1)*columnWidth" [attr.x2]="(day-1)*columnWidth" y1="0" y2="40"></line>
 
         <text [attr.text-anchor]="useCompactLayout?'left':'middle'" alignment-baseline="central" [attr.x]="(day-1)*columnWidth + (useCompactLayout?5:columnWidth/2)" [attr.y]="rowHeight/2">{{day}}</text>
