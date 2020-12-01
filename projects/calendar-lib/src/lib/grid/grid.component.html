@@ -1,11 +1,15 @@
+<lib-grid-row-line></lib-grid-row-line>
 <lib-grid-row-header [rowHeight]="30" [indentationLevel]="0" [showTopBorder]="true"
-[rowHeaderColumnWidth]="rowHeaderColumnWidth" text="Zeitleiste" [isBold]="true"></lib-grid-row-header>
+    [rowHeaderColumnWidth]="rowHeaderColumnWidth" text="Zeitleiste" [isBold]="true"></lib-grid-row-header>
 
-<lib-grid-days-row [rowHeight]="30" [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth"></lib-grid-days-row>
+<lib-grid-days-row [rowHeight]="30" [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth">
+</lib-grid-days-row>
+
+<lib-grid-row-line></lib-grid-row-line>
 
 <div style="vertical-align: top;" *ngIf="groups">
-    <lib-grid-row-or-group *ngFor="let group of groups" 
-    [input]="group" [month]="month" [year]="year" [rowTemplate]="rowTemplate"
-    [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries">
+    <lib-grid-row-or-group *ngFor="let group of groups" [input]="group" [month]="month" [year]="year"
+        [rowTemplate]="rowTemplate" [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth"
+        [entries]="entries">
     </lib-grid-row-or-group>
 </div>

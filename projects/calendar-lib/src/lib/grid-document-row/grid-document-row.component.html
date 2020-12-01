@@ -2,9 +2,7 @@
     [attr.height]="rowHeight">
     <svg>
         <line *ngFor="let i of lines;" stroke="black" [attr.x1]="i*columnWidth" [attr.x2]="i*columnWidth" y1="0"
-            y2="40"></line>
-
-        <line x1="0" [attr.x2]="numberOfDays*columnWidth" [attr.y1]="rowHeight" [attr.y2]="rowHeight" stroke="black"></line>
+            [attr.y2]="rowHeight"></line>
     </svg>
 
     <svg *ngFor="let entry of entries" [attr.x]="columnWidth*(entry.day-1)" (click)="onEntryClick(entry)">

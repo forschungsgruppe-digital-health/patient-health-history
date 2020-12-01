@@ -43,6 +43,5 @@ export interface IRowData {
     entries: any[];
     type: string;
     columnWidth: number;
-    rowHeight: number;
     numberOfDays: number;
 }

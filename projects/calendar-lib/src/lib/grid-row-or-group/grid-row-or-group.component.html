@@ -2,17 +2,20 @@
     <lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
         [columnWidth]="columnWidth" [entries]="entries[row.key]" [indentationLevel]="indentationLevel" [rowTemplate]="rowTemplate">
     </lib-grid-row>
+    <lib-grid-row-line></lib-grid-row-line>
 </div>
 
 <div *ngIf="group">
-    <lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
+    <lib-grid-row-header [showTopBorder]="true" [rowHeight]="40" [indentationLevel]="indentationLevel"
         [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name"
         [showCollapseButton]="true" [(isCollapsed)]="group.isCollapsed"
         [isBold]="!!group.fontStyle && group.fontStyle.isBold"
         [isItalic]="!!group.fontStyle && group.fontStyle.isItalic">
     </lib-grid-row-header>
+    <!--ToDo: use template-->
     <lib-grid-simple-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40">
     </lib-grid-simple-row>
+    <lib-grid-row-line></lib-grid-row-line>
 
     <div style="vertical-align: top;" *ngIf="!group.isCollapsed">
         <lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"

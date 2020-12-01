@@ -37,6 +37,9 @@ export class GridRowHeaderComponent implements OnInit {
   showTopBorder: boolean = false;
 
   @Input()
+  showBottomBorder: boolean = false;
+
+  @Input()
   isBold: boolean = false;
 
   @Input()

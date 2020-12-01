@@ -13,6 +13,7 @@ import { GridRowComponent } from './grid-row/grid-row.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GridComponent } from './grid/grid.component';
 import { GridDaysRowComponent } from './grid-days-row/grid-days-row.component';
+import { GridRowLineComponent } from './grid-row-line/grid-row-line.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { GridDaysRowComponent } from './grid-days-row/grid-days-row.component';
     GridEntriesRowComponent,
     GridIconRowComponent,
     GridDocumentRowComponent,
-    GridDaysRowComponent
+    GridDaysRowComponent,
+    GridRowLineComponent
   ],
   imports: [
     BrowserModule,

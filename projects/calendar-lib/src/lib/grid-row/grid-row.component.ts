@@ -58,7 +58,6 @@ export class GridRowComponent implements OnInit {
       entries: this.entries ? <any[]>this.entries.entries : [],
       type: this.entries ? this.entries.type : "",
       columnWidth: this.columnWidth,
-      rowHeight: 40,
       numberOfDays: this.numberOfDaysInMonth,
     }
   }

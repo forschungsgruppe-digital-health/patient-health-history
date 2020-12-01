@@ -1,15 +1,15 @@
 <ng-template #rowTemplate let-data="data">
 
     <lib-grid-icon-row *ngIf="data.entries && data.type == 'icon'" [columnWidth]="data.columnWidth"
-        [numberOfDays]="data.numberOfDays" [rowHeight]="data.rowHeight" [entries]="data.entries">
+        [numberOfDays]="data.numberOfDays" [rowHeight]="40" [entries]="data.entries">
     </lib-grid-icon-row>
 
     <lib-grid-document-row *ngIf="data.entries && data.type == 'document'" [columnWidth]="data.columnWidth"
-        [numberOfDays]="data.numberOfDays" [rowHeight]="data.rowHeight" [entries]="data.entries">
+        [numberOfDays]="data.numberOfDays" [rowHeight]="40" [entries]="data.entries">
     </lib-grid-document-row>
 
     <lib-grid-simple-row *ngIf="!data.entries || data.type == ''" [columnWidth]="data.columnWidth" [numberOfDays]="data.numberOfDays"
-        [rowHeight]="data.rowHeight">
+        [rowHeight]="40">
     </lib-grid-simple-row>
 
 </ng-template>
