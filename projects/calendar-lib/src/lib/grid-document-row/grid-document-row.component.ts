@@ -17,18 +17,10 @@ export class GridDocumentRowComponent extends GridEntriesRowComponent<IDocumentE
     this.iconSize = Math.min(Math.max(this.columnWidth, this.rowHeight - 10), this.rowHeight);
   }
 
-  protected numberOfDaysChanged() {
-    super.numberOfDaysChanged();
-    this.updateLines();
-  }
-
-  protected entriesChanged() {
-    this.updateLines();
-  }
-
-  private updateLines() {
+  protected getLinesToRender() {
+    let superLines = super.getLinesToRender();
     let days = this.entries.map(entry => entry.day);
-    this.lines = this.linesToRender.filter(x => days.indexOf(x-1) == -1);
+    return superLines.filter(x => days.indexOf(x-1) == -1);
   }
 
   onEntryClick(entry: IDocumentEntry) {
@@ -36,6 +28,4 @@ export class GridDocumentRowComponent extends GridEntriesRowComponent<IDocumentE
   }
 
   iconSize: number = 1;
-
-  lines: number[] = [];
 }

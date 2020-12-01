@@ -57,26 +57,26 @@ export class GridSimpleRowComponent {
 
   public linesToRender: number[] = [];
 
-  protected cellSizeChanged() { }  
+  protected cellSizeChanged() { }
 
   protected numberOfDaysChanged() {
-    this.updateLinesToRender();
+    this.linesToRender = this.getLinesToRender();
   }
 
   protected useCompactLayoutChanged() {
-    this.updateLinesToRender();
+    this.linesToRender = this.getLinesToRender();
   }
 
-  private updateLinesToRender() {
+  protected getLinesToRender(): number[] {
     let allDays = Array(this.numberOfDays + 1)
       .fill(1)
       .map((_, i) => i);
 
     if (this.useCompactLayout) {
-      this.linesToRender = allDays.filter(x => (x - 1) % 5 == 0 && x != 31);
+      return allDays.filter(x => (x - 1) % 5 == 0 && x != 31);
     }
     else {
-      this.linesToRender = allDays;
+      return allDays;
     }
   }
 }
