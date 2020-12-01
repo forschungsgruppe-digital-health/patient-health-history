@@ -8,7 +8,7 @@
 
     <svg>
         <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="iconSize"
-            [attr.width]="iconSize" [attr.y]="(rowHeight - iconSize)/2" [attr.x]="columnWidth*(entry.day-1)" 
+            [attr.width]="iconSize" [attr.y]="(rowHeight - iconSize)/2" [attr.x]="columnWidth*(entry.day-1) + (columnWidth-iconSize)/2" 
             (mouseover)="onMouseOver(entry)" (mouseleave)="onMouseLeave()"/>
     </svg>
 </svg>
