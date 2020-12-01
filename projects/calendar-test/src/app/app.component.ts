@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   public groups: (IGroup | IRow)[] = [
     { name: "Erstdiagnose", key: "Erstdiagnose" },
     { name: "Verknüpfte Dokumente", key: "Verknüpfte Dokumente" },
+    { name: "Lib Unknown Test", key: "Lib Unknown Test" },
     { name: "Weitere Diagnosen", key: "Weitere Diagnosen" },
     { name: "Schübe", key: "Schübe", fontStyle: { isBold: true, isItalic: false } },
     { name: "Schubbehandlung", key: "Schubbehandlung", fontStyle: { isBold: true, isItalic: false } },
@@ -95,6 +96,10 @@ export class AppComponent implements OnInit {
           icon: "/assets/svg/icon_teilweise_genommen.svg"
         }
       ]
+    },
+    "Lib Unknown Test": {
+      type: "Lib Unknown Test",
+      entries: []
     }
   }
 

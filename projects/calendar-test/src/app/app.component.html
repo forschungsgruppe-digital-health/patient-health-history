@@ -12,6 +12,10 @@
         [rowHeight]="40" [useCompactLayout]="data.useCompactLayout">
     </lib-grid-simple-row>
 
+    <div *ngIf="data.entries && data.type == 'Lib Unknown Test'" style="display:inline-block;">
+        Dieser Row-Type ist der Bibliothek nicht bekannt.
+    </div>
+
 </ng-template>
 
 <calendar (requestPreviousMonth)="requestPreviousMonth()" (requestNextMonth)="requestNextMonth()" [year]="year"
