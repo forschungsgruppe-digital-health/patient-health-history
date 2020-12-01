@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, TemplateRef } from '@angular/core';
 import { Entries, Groups, IRowData } from '../models';
 
 @Component({
@@ -8,10 +8,19 @@ import { Entries, Groups, IRowData } from '../models';
 })
 export class GridComponent implements OnInit {
 
-  constructor() { }
+  private static readonly compactLayoutMaxWidth: number = 720;
+  private static readonly minRowHeaderWidth: number = 250;
+
+  constructor(
+    private elementRef: ElementRef
+  ) { }
 
   ngOnInit(): void {
     this.monthChanged();
+  }
+
+  ngAfterContentChecked(): void {
+    this.updateLayout();
   }
 
   private _month: number = 1;
@@ -40,7 +49,7 @@ export class GridComponent implements OnInit {
 
   @Input()
   public entries: Entries = {};
-  
+
   @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
 
@@ -55,5 +64,22 @@ export class GridComponent implements OnInit {
 
   private getNumberOfDaysInMonth(): number {
     return new Date(this.year, this.month, 0).getDate();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  private onResize(event: any) {
+    this.updateLayout();
+  }
+
+  private updateLayout() {
+    let width = this.elementRef.nativeElement.offsetWidth;
+    if (width > GridComponent.compactLayoutMaxWidth) {
+      this.columnWidth = Math.floor((width - GridComponent.minRowHeaderWidth) / this.numberOfDaysInMonth);
+      this.rowHeaderColumnWidth = width - this.columnWidth * this.numberOfDaysInMonth - 1;
+    }
+    else {
+      this.rowHeaderColumnWidth = width;
+      this.columnWidth = width / this.numberOfDaysInMonth;
+    }
   }
 }

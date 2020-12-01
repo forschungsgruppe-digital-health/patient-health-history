@@ -1,9 +1,8 @@
 <lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
     [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="input.name"
-    [isBold]="!!input.fontStyle && input.fontStyle.isBold"
-    [isItalic]="!!input.fontStyle && input.fontStyle.isItalic">
+    [isBold]="!!input.fontStyle && input.fontStyle.isBold" [isItalic]="!!input.fontStyle && input.fontStyle.isItalic">
 </lib-grid-row-header>
 
 <ng-container *ngIf="rowData">
-<ng-container *ngTemplateOutlet="rowTemplate;context:{data:rowData}"></ng-container>
-</ng-container> 
+    <ng-container *ngTemplateOutlet="rowTemplate;context:{data:rowData}"></ng-container>
+</ng-container>
