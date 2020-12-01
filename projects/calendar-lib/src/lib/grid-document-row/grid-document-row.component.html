@@ -1,23 +1,30 @@
 <svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth"
     [attr.height]="rowHeight">
     <svg>
-        <line *ngFor="let day of linesToRender;" stroke="black" [attr.x1]="(day-1)*columnWidth" [attr.x2]="(day-1)*columnWidth"
-            y1="0" [attr.y2]="rowHeight"></line>
+        <line *ngFor="let day of linesToRender;" stroke="black" [attr.x1]="(day-1)*columnWidth"
+            [attr.x2]="(day-1)*columnWidth" y1="0" [attr.y2]="rowHeight"></line>
+        <line stroke="black" [attr.x1]="numberOfDays*columnWidth" [attr.x2]="numberOfDays*columnWidth" y1="0"
+            [attr.y2]="rowHeight"></line>
     </svg>
 
-    <svg *ngFor="let entry of entries" [attr.x]="columnWidth*(entry.day-1)" (click)="onEntryClick(entry)">
+    <svg *ngFor="let entry of entryRenderData" [attr.x]="columnWidth*(entry.entry.day-1)"
+        (click)="onEntryClick(entry.entry)">
         <!-- ToDo: Add Text (if necessary add ellipses) -->
         <image href="/assets/svg/icon_dokument.svg" [attr.height]="iconSize" [attr.width]="iconSize"
             [attr.y]="(rowHeight-iconSize)/2" />
-        <svg [attr.height]="rowHeight-6" [attr.width]="(rowHeight-6)*5" viewBox="0 0 10 2" [attr.y]="3"
+
+        <svg [attr.height]="rowHeight-6" [attr.width]="(rowHeight-6)*0.625" viewBox="0 0 1.25 2" [attr.y]="3"
             [attr.x]="iconSize">
-            <path d="M0 1 l1 -1 l9 0 l0 2 l-9 0 l-1 -1" stroke="transparent" fill="lightgray"></path>
+            <path d="M0 1 l1 -1 l0.25 0 l0 2 l-0.25 0 l-1 -1" stroke="transparent" fill="lightgray"></path>
         </svg>
+        <rect [attr.x]="iconSize+rowHeight/2-3" y="3" [attr.height]="rowHeight-6" [attr.width]="entry.nameWidth+6"
+            fill="lightgray"></rect>
+
         <line [attr.x1]="iconSize" [attr.y1]="rowHeight/2" [attr.x2]="iconSize+rowHeight/2-3" [attr.y2]="3"
             stroke="black" stroke-linecap="round"></line>
         <line [attr.x1]="iconSize" [attr.y1]="rowHeight/2" [attr.x2]="iconSize+rowHeight/2-3" [attr.y2]="rowHeight-3"
             stroke="black" stroke-linecap="round"></line>
         <text style="pointer-events: none" alignment-baseline="central" [attr.y]="rowHeight/2"
-            [attr.x]="iconSize+rowHeight/2-3">{{entry.name}}</text>
+            [attr.x]="iconSize+rowHeight/2-3">{{entry.entry.name}}</text>
     </svg>
 </svg>

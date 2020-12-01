@@ -36,9 +36,9 @@ export class AppComponent implements OnInit {
       type: "document",
       entries: [
         {
-          day: 29,
+          day: 9,
           link: "https://google.de",
-          name: "Google"
+          name: "Google Homepage"
         },
         {
           day: 5,
