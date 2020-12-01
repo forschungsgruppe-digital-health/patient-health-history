@@ -50,7 +50,10 @@ export class GridRowOrGroupComponent implements OnInit {
   public indentationLevel: number = 0;
 
   @Input()
-  public useCompactLayout: boolean = true;
+  public useCompactLayout: boolean = false;
+
+  @Input()
+  public useLinearLayout: boolean = false;
 
   @Input()
   public set input(value: RowOrGroup | null) {
