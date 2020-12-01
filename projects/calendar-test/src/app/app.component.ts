@@ -92,7 +92,12 @@ export class AppComponent implements OnInit {
         },
         {
           day: 17,
-          tooltip: "Tooltip 17",
+          tooltip: "Tooltip 17 - a long tooltip",
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
+        },
+        {
+          day: 30,
+          tooltip: "Tooltip 29",
           icon: "/assets/svg/icon_teilweise_genommen.svg"
         }
       ]

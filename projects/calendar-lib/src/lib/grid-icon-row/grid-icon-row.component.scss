@@ -1,0 +1,5 @@
+@use "../variables.scss";
+
+text.tooltip {
+    font: variables.$font-standard;
+}

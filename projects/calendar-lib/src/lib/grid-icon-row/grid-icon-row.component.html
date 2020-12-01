@@ -17,5 +17,5 @@ style="position: absolute;z-index:10000;"
 [style.marginLeft.px]="-numberOfDays*columnWidth"
 [style.marginTop.px]="(rowHeight - iconSize)/2+iconSize">
     <path [attr.d]="tooltipPath" stroke="black" fill="wheat"></path>
-    <text [attr.y]="tooltipHeight / 2" [attr.x]="tooltipX + 5" alignment-baseline="central">{{tooltip}}</text>
+    <text class="tooltip" [attr.y]="tooltipHeight / 2" [attr.x]="tooltipX + tooltipTextLeftRightPadding" alignment-baseline="central">{{tooltip}}</text>
 </svg>

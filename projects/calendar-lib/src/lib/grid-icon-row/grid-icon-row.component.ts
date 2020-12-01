@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GridEntriesRowComponent } from '../grid-entries-row/grid-entries-row.component';
 import { IIconEntry } from '../models';
+import { TextService } from '../text.service';
 
 @Component({
   selector: 'lib-grid-icon-row',
@@ -8,6 +9,12 @@ import { IIconEntry } from '../models';
   styleUrls: ['./grid-icon-row.component.scss']
 })
 export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> implements OnInit {
+
+  public constructor(
+    private _textService: TextService
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
   }
@@ -23,13 +30,13 @@ export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> im
   tooltipX: number = 0;
   tooltipHeight: number = 40;
   tooltipPath: string = "";
+  tooltipTextLeftRightPadding: number = 10;
 
   onMouseOver(entry: IIconEntry) {
     this.tooltip = entry.tooltip;
     this.tooltipX = this.columnWidth * (entry.day - 1);
 
-    // ToDo: measure tooltip-size and change path
-    const width = 200;
+    const width = 2 * this.tooltipTextLeftRightPadding + (this._textService.getTextWidth(this.tooltip, "16px Segoe UI") || 150);
     const height = this.tooltipHeight;
     const rxy = 5;
     let path = `M${this.columnWidth / 2 + this.tooltipX} 0 ` // Start at nose tip
