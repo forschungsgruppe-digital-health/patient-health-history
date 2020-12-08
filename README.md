@@ -36,6 +36,13 @@
 
 Die Haupt-Component ist die `GridComponent`. Diese rendert das Grid in Form mehrerer Zeilen. Über die Daten der `groups`-Eigenschaft wird iteriert und für jeden Eintrag eine `GridRowOrGroup` erzeugt. Diese erzeugt dann, abhängig davon ob eine einzelne Zeile (`IRow`) oder eine Gruppe (`IGroup`) übergeben wurde entweder nur ein Paar aus einem Zeilen-Kopf (`GridRowHeaderComponent`) und einer `GridRowComponent` oder zusätzlich eine Instanz von sich selbst um die untergeordneten Zeilen zu erzeugen.
 
+Innerhalb von `GridComponent` gibt es 2 konstanten:
+
+- `compactLayoutMaxWidth: number = 720`  
+  Die maximale Breite des kompakten Layouts (bei dem Zeilenköpfe über der eigentlichen Zeile stehen) bavor es zum normalen Layout umbricht.
+- `minRowHeaderWidth: number = 250`  
+  Die Mindestbreite der Zeilenköpfe.
+
 Die `GridRowHeaderComponent` erzeugt den Zeilenkopf einer Zeile. Ihr übergeben werden Styling-Informationen als auch Informationen darüber wie breit sie dargestellt sein soll. Ab einer gewissen Maximalbreite füllt die die gesamte zur Verfügung stehende Breite aus und die `GridRowComponent` dahinter bricht in eine neue Zeile um und füllt diese wiederum in volelr Breite aus.
 
 Die `GridRowComponent` nutzt das der `CalendarComponent` übergebene `ng-template` um anhand der zur Verfügung stehenden Daten eine passende Zeile zu rendern. Dabei wird dem template im `data`-Parameter ein Objekt mit den Daten für diese Zeile übergeben. Dieses kann anschließend im Template selbst ausgewertet werden:
