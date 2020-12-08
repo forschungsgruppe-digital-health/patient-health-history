@@ -74,7 +74,7 @@ export class GridComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   private onResize(event: any) {
-    this.updateLayout();
+    setTimeout(() => this.updateLayout());
   }
 
   private updateLayout() {
