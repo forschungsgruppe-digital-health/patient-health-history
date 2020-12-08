@@ -105,6 +105,41 @@ export class AppComponent implements OnInit {
     "Lib Unknown Test": {
       type: "Lib Unknown Test",
       entries: []
+    },
+    "Subjektives Wohlbefinden": {
+      type: "continuousIcon",
+      entries: [
+        {
+          day: 1,
+          value: 1,
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        },
+        {
+          day: 3,
+          value: 5,
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
+        },
+        {
+          day:10,
+          value: 1,
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        },
+        {
+          day: 17,
+          value: 5,
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
+        },
+        {
+          day: 18,
+          value: 9,
+          icon: "/assets/svg/icon_nichts_genommen.svg"
+        },
+        {
+          day: 27,
+          value: 1,
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        }
+      ]
     }
   }
 

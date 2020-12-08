@@ -10,6 +10,11 @@
         [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
     </lib-grid-document-row>
 
+    <lib-grid-continuous-icon-row *ngIf="!data.entries || data.type == 'continuousIcon'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset" [minValue]="1" [maxValue]="9">
+    </lib-grid-continuous-icon-row>
+
     <lib-grid-simple-row *ngIf="!data.entries || data.type == ''" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [useCompactLayout]="data.useCompactLayout"
         [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">

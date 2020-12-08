@@ -21,7 +21,7 @@ export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> im
 
   cellSizeChanged() {
     super.cellSizeChanged();
-    this.iconSize = Math.min(this.columnWidth, this.rowHeight);//3px padding on each side
+    this.iconSize = Math.min(this.columnWidth, this.rowHeight);
   }
 
   iconSize: number = 1;

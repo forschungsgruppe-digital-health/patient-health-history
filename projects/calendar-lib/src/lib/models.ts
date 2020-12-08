@@ -6,7 +6,7 @@ export interface IRow {
     fontStyle?: IFontStyle;
 }
 
-export interface IGroup extends IRow{
+export interface IGroup extends IRow {
     name: string;
     key: string;
     isCollapsed: boolean;
@@ -18,7 +18,7 @@ export type RowOrGroup = IRow | IGroup;
 
 export type Entries = { [key: string]: KnownEntries }
 
-export type KnownEntries = KnownEntry<"document", IDocumentEntry> | KnownEntry<"icon", IIconEntry> | KnownEntry<string, any>;
+export type KnownEntries = KnownEntry<"document", IDocumentEntry> | KnownEntry<"icon", IIconEntry> | KnownEntry<"continuousIcon", IcontinuousIconEntry> | KnownEntry<string, any>;
 
 export type KnownEntry<TKey, TEntry> = { type: TKey, entries: TEntry[] }
 
@@ -32,6 +32,12 @@ export interface IDocumentEntry {
     day: number;
     link: string;
     name: string;
+}
+
+export interface IcontinuousIconEntry {
+    day: number;
+    icon: string;
+    value: number;
 }
 
 export interface IFontStyle {
