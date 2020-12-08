@@ -22,9 +22,6 @@ export class GridRowHeaderComponent implements OnInit {
   rowHeaderColumnWidth: number = 300;
 
   @Input()
-  rowHeight: number = 300;
-
-  @Input()
   indentationLevel: number = 0;
 
   @Input()
@@ -44,6 +41,9 @@ export class GridRowHeaderComponent implements OnInit {
 
   @Input()
   isItalic: boolean = false;
+
+  @Input()
+  rowHeight: number = 40;
 
   onToggle() {
     this.isCollapsed = !this.isCollapsed;

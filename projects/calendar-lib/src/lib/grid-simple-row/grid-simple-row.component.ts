@@ -7,9 +7,11 @@ import { Component, Input } from '@angular/core';
 export class GridSimpleRowComponent {
 
   private _columnWidth: number = 0;
-  private _rowHeight: number = 40;
   private _numberOfDays: number = 40;
   private _useCompactLayout: boolean = true;
+  private _firstLineInCompactLayoutOffset: number = 0;
+
+  public readonly rowHeight: number = 40;
 
   @Input()
   get columnWidth(): number {
@@ -18,17 +20,6 @@ export class GridSimpleRowComponent {
   set columnWidth(value: number) {
     if (this._columnWidth != value) {
       this._columnWidth = value;
-      this.cellSizeChanged();
-    }
-  }
-
-  @Input()
-  get rowHeight(): number {
-    return this._rowHeight;
-  }
-  set rowHeight(value: number) {
-    if (this._rowHeight != value) {
-      this._rowHeight = value;
       this.cellSizeChanged();
     }
   }
@@ -55,6 +46,18 @@ export class GridSimpleRowComponent {
     }
   }
 
+  @Input()
+  get firstLineInCompactLayoutOffset(): number {
+    return this._firstLineInCompactLayoutOffset;
+  }
+  set firstLineInCompactLayoutOffset(value: number) {
+    if (this._firstLineInCompactLayoutOffset != value) {
+      this._firstLineInCompactLayoutOffset = value;
+      this.firstLineInCompactLayoutOffsetChanged();
+    }
+  }
+
+
   public linesToRender: number[] = [];
 
   protected cellSizeChanged() { }
@@ -67,13 +70,17 @@ export class GridSimpleRowComponent {
     this.linesToRender = this.getLinesToRender();
   }
 
+  protected firstLineInCompactLayoutOffsetChanged() {
+    this.linesToRender = this.getLinesToRender();
+  }
+
   protected getLinesToRender(): number[] {
     let allDays = Array(this.numberOfDays + 1)
       .fill(1)
       .map((_, i) => i);
 
     if (this.useCompactLayout) {
-      return allDays.filter(x => (x - 1) % 5 == 0 && x != 31);
+      return allDays.filter(x => (x - 1 + this.firstLineInCompactLayoutOffset) % 7 == 0 || x == 1);
     }
     else {
       return allDays;

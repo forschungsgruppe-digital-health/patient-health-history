@@ -16,16 +16,16 @@ export class AppComponent implements OnInit {
     { name: "Verknüpfte Dokumente", key: "Verknüpfte Dokumente" },
     { name: "Lib Unknown Test", key: "Lib Unknown Test" },
     { name: "Weitere Diagnosen", key: "Weitere Diagnosen" },
-    { name: "Schübe", key: "Schübe", fontStyle: { isBold: true, isItalic: false } },
-    { name: "Schubbehandlung", key: "Schubbehandlung", fontStyle: { isBold: true, isItalic: false } },
+    { name: "Schübe", key: "Schübe", fontStyle: { isBold: false, isItalic: false } },
+    { name: "Schubbehandlung", key: "Schubbehandlung", fontStyle: { isBold: true, isItalic: true } },
     {
-      name: "Medikation", isCollapsed: false, fontStyle: { isBold: true, isItalic: false }, subs: [
+      name: "Medikation", key: "Medikation", isCollapsed: false, fontStyle: { isBold: true, isItalic: false }, subs: [
         { name: "Cladribin", key: "Cladribin", fontStyle: { isBold: false, isItalic: true } },
         { name: "Gilenya", key: "Gilenya", fontStyle: { isBold: false, isItalic: true } }
       ]
     },
     {
-      name: "weitere Medikation", isCollapsed: true, key: "weitere Medikation", subs: [
+      name: "weitere Medikation", key: "Lib Unknown Test", isCollapsed: true, subs: [
         { name: "Loratadin", key: "Loratadin", fontStyle: { isBold: false, isItalic: true } }
       ]
     },

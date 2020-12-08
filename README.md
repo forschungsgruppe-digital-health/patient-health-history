@@ -44,7 +44,7 @@ Die `GridRowComponent` nutzt das der `CalendarComponent` übergebene `ng-templat
 <ng-template #rowTemplate let-data="data">
 
     <lib-grid-icon-row *ngIf="data.entries && data.type == 'icon'" [columnWidth]="data.columnWidth"
-        [numberOfDays]="data.numberOfDays" [rowHeight]="40" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout">
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout">
     </lib-grid-icon-row>
 
     ...
@@ -85,6 +85,8 @@ Diese Datei enthält die Modell-Klassen für die typisierte Übergabe von Daten:
     Dieser Typ stellt selbst eine Zeile dar und enthält Informationen über dieser Zeile untergeordnete Zeilen. Eigenschaften sind eine Obermenge von denen in `IRow`. Zusätzliche Eigenschaften sind:
     - `subs`  
       Ein Array von Unter-Einträgen vom Typ `RowOrGroup = IRow|IGroup`.
+    - `isCollapsed`  
+      Gibt den initialen Zustand an ob die Unter-Zeilen angezeigt werden sollen oder nicht.
 - <a name="calendar-lib_models_Entries"></a>
   `Entries`  
   Stellt Informationen über die anzuzeigenden Daten in jeder Zeile des Grids bereit. `Entries` ist dabei ein Objekt wobei dessen Eigenschaften vom Typ `string` den Keys aus [Groups](#calendar-lib_models_Groups) entsprechen muss. Der Wert dieser Eigenschaften ist dann wiederum ein `KnownEntry<TKey, TEntry>`:

@@ -55,17 +55,11 @@ export class GridRowComponent implements OnInit {
   @Input()
   public useCompactLayout: boolean = true;
 
-  public get rowData(): IRowData | null {
-    return {
-      entries: this.entries ? <any[]>this.entries.entries : [],
-      type: this.entries ? this.entries.type : "",
-      columnWidth: this.columnWidth,
-      numberOfDays: this.numberOfDaysInMonth,
-      useCompactLayout: this.useCompactLayout
-    }
-  }
+  @Input()
+  public showCollapseButton: boolean = false;
 
-  public numberOfDaysInMonth: number = 31;
+  @Input()
+  public numberOfDaysInMonth: number = 0;
 
   private monthChanged() {
     this.numberOfDaysInMonth = this.getNumberOfDaysInMonth();

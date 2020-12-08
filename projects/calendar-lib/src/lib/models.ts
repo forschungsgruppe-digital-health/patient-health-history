@@ -1,15 +1,16 @@
 export type Groups = RowOrGroup[]
 
-export interface IGroup {
-    name: string;
-    isCollapsed: boolean;
-    subs: RowOrGroup[];
-    fontStyle?: IFontStyle;
-}
-
 export interface IRow {
     name: string;
     key: string;
+    fontStyle?: IFontStyle;
+}
+
+export interface IGroup extends IRow{
+    name: string;
+    key: string;
+    isCollapsed: boolean;
+    subs: RowOrGroup[];
     fontStyle?: IFontStyle;
 }
 
@@ -44,4 +45,5 @@ export interface IRowData {
     columnWidth: number;
     numberOfDays: number;
     useCompactLayout: boolean;
+    firstLineInCompactLayoutOffset: number;
 }

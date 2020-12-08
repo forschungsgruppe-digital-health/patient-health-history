@@ -1,8 +1,8 @@
-<lib-grid-row-header [rowHeight]="40" [indentationLevel]="indentationLevel"
-    [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="input.name"
-    [isBold]="!!input.fontStyle && input.fontStyle.isBold" [isItalic]="!!input.fontStyle && input.fontStyle.isItalic">
+<lib-grid-row-header [indentationLevel]="indentationLevel" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
+    [text]="input.name" [showCollapseButton]="showCollapseButton" [isBold]="!!input.fontStyle && input.fontStyle.isBold"
+    [isItalic]="!!input.fontStyle && input.fontStyle.isItalic">
 </lib-grid-row-header>
 
-<ng-container *ngIf="rowData">
-    <ng-container *ngTemplateOutlet="rowTemplate;context:{data:rowData}"></ng-container>
-</ng-container>
+<lib-grid-templated-row [year]="year" [month]="month" [numberOfDaysInMonth]="numberOfDaysInMonth"
+    [useCompactLayout]="useCompactLayout" [columnWidth]="columnWidth" [entries]="entries" [rowTemplate]="rowTemplate">
+</lib-grid-templated-row>

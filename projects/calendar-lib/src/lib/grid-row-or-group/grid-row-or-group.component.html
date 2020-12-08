@@ -1,21 +1,24 @@
 <div *ngIf="row">
     <lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
-        [columnWidth]="columnWidth" [entries]="entries[row.key]" [indentationLevel]="useLinearLayout ? 0 : indentationLevel"
-        [rowTemplate]="rowTemplate" [useCompactLayout]="useCompactLayout">
+        [columnWidth]="columnWidth" [entries]="entries[row.key]"
+        [indentationLevel]="useLinearLayout ? 0 : indentationLevel" [rowTemplate]="rowTemplate"
+        [useCompactLayout]="useCompactLayout">
     </lib-grid-row>
     <lib-grid-row-line></lib-grid-row-line>
 </div>
 
 <div *ngIf="group">
-    <lib-grid-row-header [showTopBorder]="true" [rowHeight]="40" [indentationLevel]="useLinearLayout ? 0 : indentationLevel"
+    <lib-grid-row-header [showTopBorder]="true" [indentationLevel]="useLinearLayout ? 0 : indentationLevel"
         [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name" [showCollapseButton]="true"
         [(isCollapsed)]="group.isCollapsed" [isBold]="!!group.fontStyle && group.fontStyle.isBold"
         [isItalic]="!!group.fontStyle && group.fontStyle.isItalic">
     </lib-grid-row-header>
-    <!--ToDo: use template-->
-    <lib-grid-simple-row [useCompactLayout]="useCompactLayout" [columnWidth]="columnWidth"
-        [numberOfDays]="numberOfDaysInMonth" [rowHeight]="40" [useCompactLayout]="useCompactLayout">
-    </lib-grid-simple-row>
+
+    <lib-grid-templated-row [year]="year" [month]="month" [numberOfDaysInMonth]="numberOfDaysInMonth"
+        [useCompactLayout]="useCompactLayout" [columnWidth]="columnWidth" [entries]="entries[group.key]"
+        [rowTemplate]="rowTemplate">
+    </lib-grid-templated-row>
+
     <lib-grid-row-line></lib-grid-row-line>
 
     <div style="vertical-align: top;" *ngIf="!group.isCollapsed">

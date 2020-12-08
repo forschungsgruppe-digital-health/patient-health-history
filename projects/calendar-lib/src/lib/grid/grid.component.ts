@@ -58,6 +58,10 @@ export class GridComponent implements OnInit {
   public useCompactLayout: boolean = false;
   public useLinearLayout: boolean = false;
 
+  public get firstLineInCompactLayoutOffset() {
+    return new Date(this.year, this.month - 1, 1, 12, 0, 0, 0).getDay() - 1;
+  }
+
   public numberOfDaysInMonth: number = 31;
 
   private monthChanged() {
