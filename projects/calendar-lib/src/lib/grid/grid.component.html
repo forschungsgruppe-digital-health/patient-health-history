@@ -2,6 +2,8 @@
 <lib-grid-row-header [indentationLevel]="0" [showTopBorder]="true" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
     text="Zeitleiste" [isBold]="true"></lib-grid-row-header>
 
+<lib-grid-row-line *ngIf="useCompactLayout"></lib-grid-row-line>
+
 <lib-grid-days-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth"
     [useCompactLayout]="useCompactLayout" [firstLineInCompactLayoutOffset]="firstLineInCompactLayoutOffset">
 </lib-grid-days-row>
