@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CalendarComponent } from './calendar/calendar.component';
-import { IconButtonComponent } from './icon-button/icon-button.component';
-import { InlineSVGModule } from 'ng-inline-svg';
 import { BrowserModule } from '@angular/platform-browser';
 import { GridRowHeaderComponent } from './grid-row-header/grid-row-header.component';
 import { GridIconRowComponent } from './grid-icon-row/grid-icon-row.component';
@@ -23,7 +21,6 @@ import { GridcontinuousIconRowComponent } from './grid-continuous-icon-row/grid-
     GridComponent,
     NavigationComponent,
     CalendarComponent,
-    IconButtonComponent,
     GridRowComponent,
     GridRowOrGroupComponent,
     GridRowHeaderComponent,
@@ -38,7 +35,6 @@ import { GridcontinuousIconRowComponent } from './grid-continuous-icon-row/grid-
   ],
   imports: [
     BrowserModule,
-    InlineSVGModule.forRoot()
   ],
   exports: [
     CalendarComponent,

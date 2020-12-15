@@ -1,4 +1,5 @@
 @use "colors";
+@use "theme";
 
 lib-grid-continuous-icon-row .calendar-lib_grid-continuous-icon-row_connecting-line {
     stroke-width: 2px;
@@ -7,9 +8,21 @@ lib-grid-continuous-icon-row .calendar-lib_grid-continuous-icon-row_connecting-l
     stroke-linecap: round;
 }
 
+.calendar-lib_navigation .header-icon {
+    background-image: url(./assets/svg/icon_krankengeschichte.svg);
+}
+
 .calendar-lib_grid-vertical-line,
 .calendar-lib_grid-horizontal-line {
     stroke: colors.$grey02;
     stroke-width: 1px;
     stroke-linecap: round;
+}
+
+.lib-calendar_previous-button {
+    @include theme.zurueck_button;
+}
+
+.lib-calendar_next-button {
+    @include theme.vorwaerts_button;
 }

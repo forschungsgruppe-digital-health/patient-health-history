@@ -1,10 +1,10 @@
-<div class="header">
-    <div class="header-icon" [inlineSVG]="'./assets/svg/icon_krankengeschichte.svg'"></div>
+<div class="calendar-lib_navigation header">
+    <div class="header-icon"></div>
 
     <h1>Historie</h1>
 </div>
 <div class="month-navigation">
-    <lib-icon-button asset="icon_zurueck" [size]="24" (click)="requestPreviousClick()"></lib-icon-button>
+    <button class="lib-calendar_previous-button" asset="icon_zurueck" (click)="requestPreviousClick()"></button>
     <span>{{yearMonthString}}</span>
-    <lib-icon-button asset="icon_vorwaerts" [size]="24" (click)="requestNextClick()"></lib-icon-button>
+    <button class="lib-calendar_next-button" asset="icon_vorwaerts" (click)="requestNextClick()"></button>
 </div>
