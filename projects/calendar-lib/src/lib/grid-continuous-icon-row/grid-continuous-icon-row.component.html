@@ -8,13 +8,13 @@
     </svg>
 
     <svg>
-        <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="iconSize" [attr.width]="iconSize"
-            [attr.y]="(rowHeight - iconSize) / (maxValue-minValue) * (entry.value - minValue)"
-            [attr.x]="columnWidth*(entry.day-1) + (columnWidth-iconSize)/2" />
+        <line class="calendar-lib_grid-continuous-icon-row_connecting-line" *ngFor="let line of connectingLines"
+            [attr.x1]="line.x1" [attr.x2]="line.x2" [attr.y1]="line.y1" [attr.y2]="line.y2"></line>
     </svg>
 
     <svg>
-        <line *ngFor="let line of connectingLines" stroke="black" stroke-dasharray="5 5" stroke-linecap="round"
-            [attr.x1]="line.x1" [attr.x2]="line.x2" [attr.y1]="line.y1" [attr.y2]="line.y2"></line>
+        <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="iconSize" [attr.width]="iconSize"
+            [attr.y]="(rowHeight - iconSize) / (maxValue-minValue) * (entry.value - minValue)"
+            [attr.x]="columnWidth*(entry.day-1) + (columnWidth-iconSize)/2" />
     </svg>
 </svg>

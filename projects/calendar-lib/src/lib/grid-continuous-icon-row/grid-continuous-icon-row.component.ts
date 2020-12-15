@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { GridEntriesRowComponent } from '../grid-entries-row/grid-entries-row.component';
 import { IcontinuousIconEntry } from '../models';
 
@@ -55,6 +55,11 @@ export class GridcontinuousIconRowComponent extends GridEntriesRowComponent<Icon
     this.updateConnectingLines();
   }
 
+  @HostListener('window:resize', ['$event'])
+  private onResize(event: any) {
+    setTimeout(() => this.updateConnectingLines());
+  }
+  
   private updateConnectingLines(): void {
     let sorted = this.entries.sort((a, b) => a.day - b.day);
     if (sorted.length <= 1) {
@@ -64,13 +69,9 @@ export class GridcontinuousIconRowComponent extends GridEntriesRowComponent<Icon
 
     let l: { x1: number, x2: number, y1: number, y2: number }[] = [];
     for (let i = 1; i < sorted.length; ++i) {
-      if (sorted[i - 1].day == sorted[i].day - 1) {
-        continue;
-      }
-
       l.push({
-        x1: sorted[i - 1].day * this.columnWidth,
-        x2: (sorted[i].day - 1) * this.columnWidth,
+        x1: (sorted[i - 1].day - 0.5) * this.columnWidth,
+        x2: (sorted[i].day - 0.5) * this.columnWidth,
         y1: (this.rowHeight - this.iconSize) / (this.maxValue - this.minValue) * (sorted[i - 1].value - this.minValue) + this.iconSize / 2,
         y2: (this.rowHeight - this.iconSize) / (this.maxValue - this.minValue) * (sorted[i].value - this.minValue) + this.iconSize / 2
       })
