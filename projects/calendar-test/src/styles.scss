@@ -1,6 +1,15 @@
+@use "colors";
+
 lib-grid-continuous-icon-row .calendar-lib_grid-continuous-icon-row_connecting-line {
     stroke-width: 2px;
-    stroke: darkblue;
+    stroke: colors.$grey04;
     stroke-dasharray: 9 9;
+    stroke-linecap: round;
+}
+
+.calendar-lib_grid-vertical-line,
+.calendar-lib_grid-horizontal-line {
+    stroke: colors.$grey02;
+    stroke-width: 1px;
     stroke-linecap: round;
 }

@@ -1,9 +1,9 @@
-<svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth"
+<svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth + 1"
     [attr.height]="rowHeight">
     <svg>
-        <line *ngFor="let day of linesToRender" stroke="black" [attr.x1]="(day-1)*columnWidth"
-            [attr.x2]="(day-1)*columnWidth" y1="0" [attr.y2]="rowHeight"></line>
-        <line stroke="black" [attr.x1]="numberOfDays*columnWidth" [attr.x2]="numberOfDays*columnWidth" y1="0"
+        <line *ngFor="let day of linesToRender" class="calendar-lib_grid-vertical-line" [attr.x1]="(day-1)*columnWidth + 0.5"
+            [attr.x2]="(day-1)*columnWidth + 0.5" y1="0" [attr.y2]="rowHeight"></line>
+        <line class="calendar-lib_grid-vertical-line" [attr.x1]="numberOfDays*columnWidth + 0.5" [attr.x2]="numberOfDays*columnWidth + 0.5" y1="0"
             [attr.y2]="rowHeight"></line>
     </svg>
 
