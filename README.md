@@ -125,3 +125,11 @@ Die Test-Anwendung baut lediglich ein Rahmen-Projekt um die components der Bilbi
 
 - _Einklappen und ausklappen von Zeilen_  
   Innerhalb von `GridRowOrGroupComponent`
+
+## Theming
+
+Diverse Elemente innerhalb der Bilbiothek sind mit CSS-Klassennamen ausgestattet, sodass diese von außerhalb mit einem Style versehen werden können.
+
+Alle diese CSS-Klassennamen beginnen mit `calendar-lib_`.
+
+Verfügbare Styles sind in der Test-Anwendung in _styles.scss_ zu finden.
