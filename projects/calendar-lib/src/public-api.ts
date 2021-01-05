@@ -10,3 +10,4 @@ export * from './lib/grid-continuous-icon-row/grid-continuous-icon-row.component
 export * from './lib/grid-document-row/grid-document-row.component'
 export * from './lib/grid-entries-row/grid-entries-row.component'
 export * from './lib/calendar-lib.module';
+export * from './lib/grid-icon-longtext-row/grid-icon-longtext-row.component';

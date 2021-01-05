@@ -52,6 +52,24 @@ export class AppComponent implements OnInit {
         }
       ]
     },
+    "Erstdiagnose": {
+      type: "longtextIcon",
+      entries: [
+        {
+          day: 3,
+          icon: "/assets/svg/icon_alles_genommen.svg",
+          text: "Testeintrag",
+          bgcolor: "#ffffff"
+        },
+        {
+          day: 5,
+          icon: "/assets/svg/icon_alles_genommen.svg",
+          text: "Testeintrag 2",
+          bgcolor: "#ffffff"
+        }
+      ]
+    },
+
     "Cladribin": {
       type: "icon",
       entries: [

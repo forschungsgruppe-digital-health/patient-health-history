@@ -51,9 +51,15 @@ export class GridRowOrGroupComponent implements OnInit {
 
   @Input()
   public useCompactLayout: boolean = false;
-
+  
+  private _useLinearLayout: boolean = false;
   @Input()
-  public useLinearLayout: boolean = false;
+  public get useLinearLayout(): boolean {
+    return this._useLinearLayout;
+  }
+  public set useLinearLayout(value: boolean) {
+    this._useLinearLayout = value;
+  }
 
   @Input()
   public set input(value: RowOrGroup | null) {

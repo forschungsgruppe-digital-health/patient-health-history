@@ -14,6 +14,7 @@ import { GridDaysRowComponent } from './grid-days-row/grid-days-row.component';
 import { GridRowLineComponent } from './grid-row-line/grid-row-line.component';
 import { GridTemplatedRowComponent } from './grid-templated-row/grid-templated-row.component';
 import { GridcontinuousIconRowComponent } from './grid-continuous-icon-row/grid-continuous-icon-row.component';
+import { GridIconLongtextRowComponent } from './grid-icon-longtext-row/grid-icon-longtext-row.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { GridcontinuousIconRowComponent } from './grid-continuous-icon-row/grid-
     GridDaysRowComponent,
     GridRowLineComponent,
     GridTemplatedRowComponent,
-    GridcontinuousIconRowComponent
+    GridcontinuousIconRowComponent,
+    GridIconLongtextRowComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { GridcontinuousIconRowComponent } from './grid-continuous-icon-row/grid-
     GridDocumentRowComponent,
     GridSimpleRowComponent,
     GridEntriesRowComponent,
-    GridcontinuousIconRowComponent    
+    GridcontinuousIconRowComponent,
+    GridIconLongtextRowComponent
   ]
 })
 export class CalendarLibModule { }

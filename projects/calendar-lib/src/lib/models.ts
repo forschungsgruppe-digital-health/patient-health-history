@@ -18,7 +18,7 @@ export type RowOrGroup = IRow | IGroup;
 
 export type Entries = { [key: string]: KnownEntries }
 
-export type KnownEntries = KnownEntry<"document", IDocumentEntry> | KnownEntry<"icon", IIconEntry> | KnownEntry<"continuousIcon", IcontinuousIconEntry> | KnownEntry<string, any>;
+export type KnownEntries = KnownEntry<"document", IDocumentEntry> | KnownEntry<"icon", IIconEntry> | KnownEntry<"continuousIcon", IcontinuousIconEntry> | KnownEntry<"longtextIcon", IIconLongTextEntry> | KnownEntry<string, any>;
 
 export type KnownEntry<TKey, TEntry> = { type: TKey, entries: TEntry[] }
 
@@ -43,6 +43,13 @@ export interface IcontinuousIconEntry {
 export interface IFontStyle {
     isBold: boolean;
     isItalic: boolean;
+}
+
+export interface IIconLongTextEntry {
+    day: number;
+    icon: string;
+    text: string;
+    bgcolor: string;
 }
 
 export interface IRowData {

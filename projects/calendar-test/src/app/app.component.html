@@ -20,6 +20,11 @@
         [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
     </lib-grid-simple-row>
 
+    <lib-grid-icon-longtext-row *ngIf="data.entries && data.type == 'longtextIcon'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
+    </lib-grid-icon-longtext-row>
+
     <div *ngIf="data.entries && data.type == 'Lib Unknown Test'" style="display:inline-block;">
         Dieser Row-Type ist der Bibliothek nicht bekannt.
     </div>
