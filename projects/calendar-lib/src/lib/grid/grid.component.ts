@@ -86,7 +86,7 @@ export class GridComponent implements OnInit {
     }
     else {
       this.rowHeaderColumnWidth = width;
-      this.columnWidth = width / this.numberOfDaysInMonth;
+      this.columnWidth = (width - 1) / this.numberOfDaysInMonth;
       this.useLinearLayout = true;
     }
 

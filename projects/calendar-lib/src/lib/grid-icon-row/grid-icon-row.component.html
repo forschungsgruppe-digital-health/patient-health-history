@@ -15,7 +15,7 @@
 </svg>
 <svg *ngIf="tooltip" height="100" [attr.width]="numberOfDays*columnWidth + 1" style="position: absolute;z-index:10000;"
     [style.marginLeft.px]="useCompactLayout ? 0 : -numberOfDays*columnWidth" [style.marginTop.px]="(rowHeight - iconSize)/2+iconSize">
-    <path [attr.d]="tooltipPath" stroke="black" fill="wheat"></path>
+    <path [attr.d]="tooltipPath" stroke="black" fill="#EADED6"></path>
     <text class="tooltip" [attr.y]="tooltipHeight / 2" [attr.x]="tooltipTextX"
         alignment-baseline="central">{{tooltip}}</text>
 </svg>
