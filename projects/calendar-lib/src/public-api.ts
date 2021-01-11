@@ -11,3 +11,4 @@ export * from './lib/grid-document-row/grid-document-row.component'
 export * from './lib/grid-entries-row/grid-entries-row.component'
 export * from './lib/calendar-lib.module';
 export * from './lib/grid-icon-longtext-row/grid-icon-longtext-row.component';
+export * from './lib/grid-date-slice-row/grid-date-slice-row.component';

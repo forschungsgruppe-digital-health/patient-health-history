@@ -1,0 +1,18 @@
+<svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth + 1"
+    [attr.height]="rowHeight">
+    <svg>
+        <line *ngFor="let day of linesToRender" class="calendar-lib_grid-vertical-line" [attr.x1]="(day-1)*columnWidth + 0.5"
+            [attr.x2]="(day-1)*columnWidth + 0.5" y1="0" [attr.y2]="rowHeight"></line>
+        <line class="calendar-lib_grid-vertical-line" [attr.x1]="numberOfDays*columnWidth + 0.5" [attr.x2]="numberOfDays*columnWidth + 0.5" y1="0"
+            [attr.y2]="rowHeight"></line>
+    </svg>
+
+    <svg *ngFor="let entry of entryRenderData">
+        <rect [attr.x]="columnWidth*(entry.entry.day-1)+1" y="0" [attr.height]="rowHeight" [attr.width]="entry.entry.duration*columnWidth"
+            [attr.fill]="entry.entry.bgcolor"></rect>
+        <!-- <text style="pointer-events: none" alignment-baseline="central" [attr.y]="rowHeight/2+7"
+            [attr.x]="columnWidth*(entry.entry.day)">{{entry.entry.text}}</text> -->
+        <image [attr.href]="entry.entry.icon" [attr.height]="iconSize" [attr.width]="iconSize"
+            [attr.y]="(rowHeight - iconSize)/2" [attr.x]="columnWidth*(entry.entry.day-1) + (columnWidth-iconSize)/2" /> 
+    </svg>
+</svg>
