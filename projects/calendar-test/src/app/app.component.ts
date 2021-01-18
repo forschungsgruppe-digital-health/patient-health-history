@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       type: "document",
       entries: [
         {
-          day: 9,
+          day: 10,
           link: "https://google.de",
           name: "Google Homepage"
         },
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
           name: "Bing"
         },
         {
-          day: 21,
+          day: 9,
           link: "https://yahoo.de",
           name: "Yahoo"
         }
@@ -66,6 +66,12 @@ export class AppComponent implements OnInit {
           icon: "/assets/svg/icon_alles_genommen.svg",
           text: "Testeintrag 2",
           bgcolor: "#ffffff"
+        },
+        {
+          day: 6,
+          icon: "/assets/svg/icon_alles_genommen.svg",
+          text: "Testeintrag 3",
+          bgcolor: "#ffffff"
         }
       ]
     },
@@ -75,17 +81,17 @@ export class AppComponent implements OnInit {
       entries: [
         {
           day: 3,
-          text: "Testeintrag",
-          bgcolor: "#ff8800",
+          text: "",
+          bgcolor: "#ffe599",
           duration: 1,
         },
         {
           day: 25,
           icon: "/assets/svg/icon_nichts_genommen.svg",
-          text: "25.8.2021",
-          bgcolor: "#ff0000",
+          text: "Freier Text",
+          bgcolor: "#e06666",
           duration: 4,
-        }
+        },        
       ]
     },
 
