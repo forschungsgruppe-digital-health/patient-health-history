@@ -1,21 +1,26 @@
-<svg style="vertical-align: top;display: inline-block;" [attr.width]="numberOfDays*columnWidth + 1"
-    [attr.height]="rowHeight">
-    <svg>
-        <line *ngFor="let day of linesToRender" class="calendar-lib_grid-vertical-line" [attr.x1]="(day-1)*columnWidth + 0.5"
-            [attr.x2]="(day-1)*columnWidth + 0.5" y1="0" [attr.y2]="rowHeight"></line>
-        <line class="calendar-lib_grid-vertical-line" [attr.x1]="numberOfDays*columnWidth + 0.5" [attr.x2]="numberOfDays*columnWidth + 0.5" y1="0"
-            [attr.y2]="rowHeight"></line>
-    </svg>
+<div style="display:inline-block;">
+    <svg style="vertical-align: top;display: inline-block;"
+        [attr.width]="numberOfDays*columnWidth + 1" [attr.height]="rowHeight">
+        <svg>
+            <line *ngFor="let day of linesToRender" class="calendar-lib_grid-vertical-line"
+                [attr.x1]="(day-1)*columnWidth + 0.5" [attr.x2]="(day-1)*columnWidth + 0.5" y1="0"
+                [attr.y2]="rowHeight">
+            </line>
+            <line class="calendar-lib_grid-vertical-line" [attr.x1]="numberOfDays*columnWidth + 0.5"
+                [attr.x2]="numberOfDays*columnWidth + 0.5" y1="0" [attr.y2]="rowHeight"></line>
+        </svg>
 
-    <svg>
-        <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="iconSize" [attr.width]="iconSize"
-            [attr.y]="(rowHeight - iconSize)/2" [attr.x]="columnWidth*(entry.day-1) + (columnWidth-iconSize)/2"
-            (mouseover)="onMouseOver(entry)" (mouseleave)="onMouseLeave()" />
+        <svg>
+            <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="iconSize"
+                [attr.width]="iconSize" [attr.y]="(rowHeight - iconSize)/2"
+                [attr.x]="columnWidth*(entry.day-1) + (columnWidth-iconSize)/2" (mouseover)="onMouseOver(entry)"
+                (mouseleave)="onMouseLeave()" />
+        </svg>
+    </svg><br/>
+    <svg *ngIf="tooltip" height="100" [attr.width]="numberOfDays*columnWidth + 1"
+        style="position: absolute;z-index:10000;">
+        <path [attr.d]="tooltipPath" stroke="black" fill="#EADED6"></path>
+        <text class="tooltip" [attr.y]="tooltipHeight / 2" [attr.x]="tooltipTextX"
+            alignment-baseline="central">{{tooltip}}</text>
     </svg>
-</svg>
-<svg *ngIf="tooltip" height="100" [attr.width]="numberOfDays*columnWidth + 1" style="position: absolute;z-index:10000;"
-    [style.marginLeft.px]="useCompactLayout ? 0 : -numberOfDays*columnWidth" [style.marginTop.px]="(rowHeight - iconSize)/2+iconSize">
-    <path [attr.d]="tooltipPath" stroke="black" fill="#EADED6"></path>
-    <text class="tooltip" [attr.y]="tooltipHeight / 2" [attr.x]="tooltipTextX"
-        alignment-baseline="central">{{tooltip}}</text>
-</svg>
+</div>
