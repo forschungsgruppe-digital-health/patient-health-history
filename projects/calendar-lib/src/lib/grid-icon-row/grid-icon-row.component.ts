@@ -16,12 +16,66 @@ export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> im
     super();
   }
 
+  public Math = Math;
+
   ngOnInit(): void {
   }
 
   cellSizeChanged() {
     super.cellSizeChanged();
-    this.iconSize = Math.min(this.columnWidth, this.rowHeight);
+    this.updateEntries();
+  }
+
+  @Input()
+  public aggregationFunction: ((entries: IIconEntry[]) => IIconEntry[]) | null = null;
+
+  public iconsToRender: {
+    day: number,
+    tooltip: string,
+    icon: string,
+    size: number,
+    paddingLeft: number,
+  }[] = [];
+
+  protected entriesChanged() {
+    super.entriesChanged();
+    this.updateEntries();
+  }
+
+  private updateEntries() {
+    if (this.aggregationFunction && this.useCompactLayout) {
+      this.iconSize = this.rowHeight;
+      let items = this.aggregationFunction(this.entries).map(x => {
+        return {
+          day: x.day,
+          tooltip: x.tooltip,
+          size: this.iconSize,
+          icon: x.icon,
+          paddingLeft: this.columnWidth < this.iconSize ? 0 : (this.columnWidth - this.iconSize) / 2,
+        };
+      }).sort((x, y) => x.day - y.day);
+
+      for (let i = 0; i < items.length - 1; ++i) {
+        items[i].size = Math.min(items[i].size, (items[i + 1].day - items[i].day) * this.columnWidth);
+      }
+      if (items.length > 0) {
+        items[items.length - 1].size = Math.min(items[items.length - 1].size, (this.numberOfDays - items[items.length - 1].day) * this.columnWidth);
+      }
+
+      this.iconsToRender = items;
+    }
+    else {
+      this.iconSize = Math.min(this.columnWidth, this.rowHeight);
+      this.iconsToRender = this.entries.map(x => {
+        return {
+          day: x.day,
+          tooltip: x.tooltip,
+          size: this.iconSize,
+          icon: x.icon,
+          paddingLeft: 0,
+        };
+      });
+    }
   }
 
   iconSize: number = 1;

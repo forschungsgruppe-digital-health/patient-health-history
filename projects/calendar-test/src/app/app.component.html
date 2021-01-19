@@ -5,6 +5,12 @@
         [drawLineInCompactLayout]="data.drawLineInCompactLayout">
     </lib-grid-icon-row>
 
+    <lib-grid-icon-row *ngIf="data.entries && data.type == 'iconAggregated'"
+        [aggregationFunction]="iconRowAggregationFunction" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
+    </lib-grid-icon-row>
+
     <lib-grid-document-row *ngIf="data.entries && data.type == 'document'" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
         [drawLineInCompactLayout]="data.drawLineInCompactLayout">

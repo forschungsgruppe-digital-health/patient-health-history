@@ -52,8 +52,8 @@ export class CalendarComponent implements OnInit {
   @Input()
   public drawLineInCompactLayout: (day: number) => boolean =
     (x) => {
-      let firstMonth = new Date(this.year, this.month - 1, 1, 12, 0, 0, 0).getDay();
-      return (firstMonth - 1 + x) % 7 == 0;
+      let firstMonday = new Date(this.year, this.month - 1, 1, 12, 0, 0, 0).getDay();
+      return (firstMonday - 1 + x) % 7 == 0;
     };
 
   @Input()

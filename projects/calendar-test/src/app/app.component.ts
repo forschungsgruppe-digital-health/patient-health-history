@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Entries, IGroup, IRow } from 'calendar-lib';
+import { Entries, IGroup, IIconEntry, IRow } from 'calendar-lib';
 
 @Component({
   selector: 'app-root',
@@ -91,12 +91,63 @@ export class AppComponent implements OnInit {
           text: "Freier Text",
           bgcolor: "#e06666",
           duration: 4,
-        },        
+        },
       ]
     },
 
     "Cladribin": {
       type: "icon",
+      entries: [
+        {
+          day: 1,
+          tooltip: "Tooltip 1",
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        },
+        {
+          day: 2,
+          tooltip: "Tooltip 2",
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        },
+        {
+          day: 3,
+          tooltip: "Tooltip 3",
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
+        },
+        {
+          day: 5,
+          tooltip: "Tooltip 5",
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        },
+        {
+          day: 6,
+          tooltip: "Tooltip 6",
+          icon: "/assets/svg/icon_nichts_genommen.svg"
+        },
+        {
+          day: 7,
+          tooltip: "Tooltip 7",
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        },
+        {
+          day: 16,
+          tooltip: "Tooltip 16",
+          icon: "/assets/svg/icon_alles_genommen.svg"
+        },
+        {
+          day: 17,
+          tooltip: "Tooltip 17 - a long tooltip",
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
+        },
+        {
+          day: 30,
+          tooltip: "Tooltip 29",
+          icon: "/assets/svg/icon_teilweise_genommen.svg"
+        }
+      ]
+    },
+
+    "Gilenya": {
+      type: "iconAggregated",
       entries: [
         {
           day: 1,
@@ -163,7 +214,7 @@ export class AppComponent implements OnInit {
           icon: "/assets/svg/icon_teilweise_genommen.svg"
         },
         {
-          day:10,
+          day: 10,
           value: 1,
           icon: "/assets/svg/icon_alles_genommen.svg"
         },
@@ -184,6 +235,25 @@ export class AppComponent implements OnInit {
         }
       ]
     }
+  }
+
+  public iconRowAggregationFunction = (entries: IIconEntry[]) => {
+    let weeks: IIconEntry[][] = [[], [], [], [], [], []];
+    let firstMonday = new Date(this.year, this.month - 1, 1, 12, 0, 0, 0).getDay() - 1;
+    for (let entry of entries) {
+      let weekIndex = Math.floor((firstMonday + entry.day) / 7);
+      weeks[weekIndex].push(entry);
+    }
+
+    let result = weeks.filter(x => x.length > 0).map(x => {
+      return <IIconEntry>{
+        day: Math.min(...x.map(y => y.day)),
+        tooltip: "Number of Entries: " + x.length,
+        icon: x.length >= 1 ? x[0].icon : "",
+      };
+    });
+
+    return result;
   }
 
   public ngOnInit() {

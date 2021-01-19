@@ -11,9 +11,9 @@
         </svg>
 
         <svg>
-            <image *ngFor="let entry of entries" [attr.href]="entry.icon" [attr.height]="iconSize"
-                [attr.width]="iconSize" [attr.y]="(rowHeight - iconSize)/2"
-                [attr.x]="columnWidth*(entry.day-1) + (columnWidth-iconSize)/2" (mouseover)="onMouseOver(entry)"
+            <image *ngFor="let entry of iconsToRender" [attr.href]="entry.icon" [attr.height]="entry.size"
+                [attr.width]="entry.size" [attr.y]="(rowHeight - entry.size)/2"
+                [attr.x]="columnWidth*(entry.day - 1) + entry.paddingLeft" (mouseover)="onMouseOver(entry)"
                 (mouseleave)="onMouseLeave()" />
         </svg>
     </svg><br/>
