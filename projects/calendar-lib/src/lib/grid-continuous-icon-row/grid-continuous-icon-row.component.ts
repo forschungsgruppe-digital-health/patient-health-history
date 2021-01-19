@@ -21,6 +21,7 @@ export class GridcontinuousIconRowComponent extends GridEntriesRowComponent<Icon
   cellSizeChanged() {
     super.cellSizeChanged();
     this.iconSize = Math.min(this.columnWidth, this.rowHeight);
+    this.updateConnectingLines();
   }
 
   public iconSize: number = 100;
