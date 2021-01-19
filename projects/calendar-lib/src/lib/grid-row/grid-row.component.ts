@@ -61,6 +61,9 @@ export class GridRowComponent implements OnInit {
   @Input()
   public numberOfDaysInMonth: number = 0;
 
+  @Input()
+  public drawLineInCompactLayout: (day: number) => boolean = (x) => true;
+
   private monthChanged() {
     this.numberOfDaysInMonth = this.getNumberOfDaysInMonth();
   }

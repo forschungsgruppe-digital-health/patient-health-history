@@ -2,32 +2,32 @@
 
     <lib-grid-icon-row *ngIf="data.entries && data.type == 'icon'" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
-        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
     </lib-grid-icon-row>
 
     <lib-grid-document-row *ngIf="data.entries && data.type == 'document'" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
-        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
     </lib-grid-document-row>
 
     <lib-grid-continuous-icon-row *ngIf="!data.entries || data.type == 'continuousIcon'" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
-        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset" [minValue]="1" [maxValue]="9">
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout" [minValue]="1" [maxValue]="9">
     </lib-grid-continuous-icon-row>
 
     <lib-grid-simple-row *ngIf="!data.entries || data.type == ''" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [useCompactLayout]="data.useCompactLayout"
-        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
     </lib-grid-simple-row>
 
     <lib-grid-icon-longtext-row *ngIf="data.entries && data.type == 'longtextIcon'" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
-        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
     </lib-grid-icon-longtext-row>
         
     <lib-grid-date-slice-row *ngIf="data.entries && data.type == 'dateSlice'" [columnWidth]="data.columnWidth"
         [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
-        [firstLineInCompactLayoutOffset]="data.firstLineInCompactLayoutOffset">
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
     </lib-grid-date-slice-row>
 
     <div *ngIf="data.entries && data.type == 'Lib Unknown Test'" style="display:inline-block;">

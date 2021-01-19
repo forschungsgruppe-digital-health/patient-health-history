@@ -49,6 +49,14 @@ export class CalendarComponent implements OnInit {
   @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
 
+  @Input()
+  public drawLineInCompactLayout: (day: number) => boolean =
+    (x) => {
+      let firstMonth = new Date(this.year, this.month - 1, 1, 12, 0, 0, 0).getDay();
+      console.log({ x, firstMonth, a: (firstMonth - 1 + x) })
+      return (firstMonth - 1 + x) % 7 == 0;
+    };
+
   public yearMonthString: string = "";
 
   public requestPreviousMonthClick() {

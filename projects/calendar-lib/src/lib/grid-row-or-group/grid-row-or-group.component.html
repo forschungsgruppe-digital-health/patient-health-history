@@ -2,7 +2,7 @@
     <lib-grid-row [input]="row" [month]="month" [year]="year" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
         [columnWidth]="columnWidth" [entries]="entries[row.key]"
         [indentationLevel]="useLinearLayout ? 0 : indentationLevel" [rowTemplate]="rowTemplate"
-        [useCompactLayout]="useCompactLayout">
+        [useCompactLayout]="useCompactLayout" [drawLineInCompactLayout]="drawLineInCompactLayout">
     </lib-grid-row>
     <lib-grid-row-line></lib-grid-row-line>
 </div>
@@ -18,7 +18,7 @@
 
     <lib-grid-templated-row [year]="year" [month]="month" [numberOfDaysInMonth]="numberOfDaysInMonth"
         [useCompactLayout]="useCompactLayout" [columnWidth]="columnWidth" [entries]="entries[group.key]"
-        [rowTemplate]="rowTemplate">
+        [rowTemplate]="rowTemplate" [drawLineInCompactLayout]="drawLineInCompactLayout">
     </lib-grid-templated-row>
 
     <lib-grid-row-line></lib-grid-row-line>
@@ -27,7 +27,7 @@
         <lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
             [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries"
             [indentationLevel]="indentationLevel+1" [rowTemplate]="rowTemplate" [useCompactLayout]="useCompactLayout"
-            [useLinearLayout]="useLinearLayout">
+            [useLinearLayout]="useLinearLayout" [drawLineInCompactLayout]="drawLineInCompactLayout">
         </lib-grid-row-or-group>
     </div>
 </div>

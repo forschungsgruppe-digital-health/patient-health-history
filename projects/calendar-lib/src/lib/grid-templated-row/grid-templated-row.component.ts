@@ -35,6 +35,9 @@ export class GridTemplatedRowComponent implements OnInit {
   @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
 
+  @Input()
+  public drawLineInCompactLayout: (day: number) => boolean = (x) => true;
+
   public get rowData(): IRowData | null {
     return {
       entries: this.entries ? <any[]>this.entries.entries : [],
@@ -42,7 +45,7 @@ export class GridTemplatedRowComponent implements OnInit {
       columnWidth: this.columnWidth,
       numberOfDays: this.numberOfDaysInMonth,
       useCompactLayout: this.useCompactLayout,
-      firstLineInCompactLayoutOffset: new Date(this.year, this.month - 1, 1, 12, 0, 0, 0).getDay() - 1,
+      drawLineInCompactLayout: this.drawLineInCompactLayout,
     }
   }
 }

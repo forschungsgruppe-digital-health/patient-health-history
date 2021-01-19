@@ -8,7 +8,7 @@
     </svg>
 
     <svg *ngFor="let entry of entryRenderData">
-        <rect [attr.x]="columnWidth*(entry.entry.day-1)+2" y="2" [attr.height]="rowHeight - 4" [attr.width]="entry.entry.duration*columnWidth-3"
+        <rect [attr.x]="columnWidth*(entry.entry.day-1)+1" y="0.5" [attr.height]="rowHeight-1" [attr.width]="entry.entry.duration*columnWidth-1"
             [attr.fill]="entry.entry.bgcolor"></rect>
         <text style="pointer-events: none; font-weight: bold;" alignment-baseline="central" [attr.y]="rowHeight/2+7"
             [attr.x]="columnWidth*(entry.entry.day)">{{entry.entry.text}}</text>

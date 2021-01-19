@@ -56,7 +56,7 @@ export interface IDateSliceEntry {
     day: number;
     duration: number;
     icon: string;
-    bgcolor: string; 
+    bgcolor: string;
     text: string;
 }
 
@@ -66,5 +66,5 @@ export interface IRowData {
     columnWidth: number;
     numberOfDays: number;
     useCompactLayout: boolean;
-    firstLineInCompactLayoutOffset: number;
+    drawLineInCompactLayout: (day: number) => boolean;
 }

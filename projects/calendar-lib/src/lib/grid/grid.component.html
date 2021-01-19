@@ -6,7 +6,7 @@
 <lib-grid-row-line *ngIf="useCompactLayout"></lib-grid-row-line>
 
 <lib-grid-days-row [columnWidth]="columnWidth" [numberOfDays]="numberOfDaysInMonth"
-    [useCompactLayout]="useCompactLayout" [firstLineInCompactLayoutOffset]="firstLineInCompactLayoutOffset">
+    [useCompactLayout]="useCompactLayout" [drawLineInCompactLayout]="drawLineInCompactLayout">
 </lib-grid-days-row>
 
 <lib-grid-row-line></lib-grid-row-line>
@@ -14,6 +14,6 @@
 <div style="vertical-align: top;" *ngIf="groups">
     <lib-grid-row-or-group *ngFor="let group of groups" [input]="group" [month]="month" [year]="year"
         [rowTemplate]="rowTemplate" [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth"
-        [entries]="entries" [useCompactLayout]="useCompactLayout" [useLinearLayout]="useLinearLayout" >
+        [entries]="entries" [useCompactLayout]="useCompactLayout" [useLinearLayout]="useLinearLayout" [drawLineInCompactLayout]="drawLineInCompactLayout">
     </lib-grid-row-or-group>
 </div>

@@ -72,6 +72,9 @@ export class GridRowOrGroupComponent implements OnInit {
   }
 
   @Input()
+  public drawLineInCompactLayout: (day: number) => boolean = (x) => true;
+
+  @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
 
   public row: IRow | null = null;

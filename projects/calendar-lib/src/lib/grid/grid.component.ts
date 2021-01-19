@@ -53,14 +53,13 @@ export class GridComponent implements OnInit {
   @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
 
+  @Input()
+  public drawLineInCompactLayout: (day: number) => boolean = (x) => true;
+
   public columnWidth: number = 30;
   public rowHeaderColumnWidth: number = 300;
   public useCompactLayout: boolean = false;
   public useLinearLayout: boolean = false;
-
-  public get firstLineInCompactLayoutOffset() {
-    return new Date(this.year, this.month - 1, 1, 12, 0, 0, 0).getDay() - 1;
-  }
 
   public numberOfDaysInMonth: number = 31;
 
