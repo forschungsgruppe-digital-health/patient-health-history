@@ -57,6 +57,9 @@ export class CalendarComponent implements OnInit {
       return (firstMonth - 1 + x) % 7 == 0;
     };
 
+  @Input()
+  public rowHeaderCollapseButtonTemplate: TemplateRef<{ isCollapsed: boolean, rowHeight: boolean }> | null = null;
+
   public yearMonthString: string = "";
 
   public requestPreviousMonthClick() {

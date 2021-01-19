@@ -38,6 +38,9 @@ export class GridTemplatedRowComponent implements OnInit {
   @Input()
   public drawLineInCompactLayout: (day: number) => boolean = (x) => true;
 
+  @Input()
+  public rowHeaderCollapseButtonTemplate: TemplateRef<{ isCollapsed: boolean, rowHeight: boolean }> | null = null;
+
   public get rowData(): IRowData | null {
     return {
       entries: this.entries ? <any[]>this.entries.entries : [],

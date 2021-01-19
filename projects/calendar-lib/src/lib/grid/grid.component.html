@@ -14,6 +14,8 @@
 <div style="vertical-align: top;" *ngIf="groups">
     <lib-grid-row-or-group *ngFor="let group of groups" [input]="group" [month]="month" [year]="year"
         [rowTemplate]="rowTemplate" [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth"
-        [entries]="entries" [useCompactLayout]="useCompactLayout" [useLinearLayout]="useLinearLayout" [drawLineInCompactLayout]="drawLineInCompactLayout">
+        [entries]="entries" [useCompactLayout]="useCompactLayout" [useLinearLayout]="useLinearLayout"
+        [drawLineInCompactLayout]="drawLineInCompactLayout"
+        [rowHeaderCollapseButtonTemplate]="rowHeaderCollapseButtonTemplate">
     </lib-grid-row-or-group>
 </div>

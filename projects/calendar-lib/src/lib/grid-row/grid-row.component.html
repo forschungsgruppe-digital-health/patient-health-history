@@ -1,10 +1,12 @@
 <lib-grid-row-header [indentationLevel]="indentationLevel" [rowHeaderColumnWidth]="rowHeaderColumnWidth"
     [text]="input.name" [showCollapseButton]="showCollapseButton" [isBold]="!!input.fontStyle && input.fontStyle.isBold"
-    [isItalic]="!!input.fontStyle && input.fontStyle.isItalic">
+    [isItalic]="!!input.fontStyle && input.fontStyle.isItalic"
+    [rowHeaderCollapseButtonTemplate]="rowHeaderCollapseButtonTemplate">
 </lib-grid-row-header>
 
 <lib-grid-row-line *ngIf="useCompactLayout"></lib-grid-row-line>
 
 <lib-grid-templated-row [year]="year" [month]="month" [numberOfDaysInMonth]="numberOfDaysInMonth"
-    [useCompactLayout]="useCompactLayout" [columnWidth]="columnWidth" [entries]="entries" [rowTemplate]="rowTemplate" [drawLineInCompactLayout]="drawLineInCompactLayout">
+    [useCompactLayout]="useCompactLayout" [columnWidth]="columnWidth" [entries]="entries" [rowTemplate]="rowTemplate"
+    [drawLineInCompactLayout]="drawLineInCompactLayout">
 </lib-grid-templated-row>

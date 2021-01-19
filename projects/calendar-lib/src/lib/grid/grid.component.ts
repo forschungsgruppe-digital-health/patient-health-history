@@ -56,6 +56,9 @@ export class GridComponent implements OnInit {
   @Input()
   public drawLineInCompactLayout: (day: number) => boolean = (x) => true;
 
+  @Input()
+  public rowHeaderCollapseButtonTemplate: TemplateRef<{ isCollapsed: boolean, rowHeight: boolean }> | null = null;
+
   public columnWidth: number = 30;
   public rowHeaderColumnWidth: number = 300;
   public useCompactLayout: boolean = false;

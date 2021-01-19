@@ -11,14 +11,16 @@
     <lib-grid-row-header [showTopBorder]="true" [indentationLevel]="useLinearLayout ? 0 : indentationLevel"
         [rowHeaderColumnWidth]="rowHeaderColumnWidth" [text]="group.name" [showCollapseButton]="true"
         [(isCollapsed)]="group.isCollapsed" [isBold]="!!group.fontStyle && group.fontStyle.isBold"
-        [isItalic]="!!group.fontStyle && group.fontStyle.isItalic">
+        [isItalic]="!!group.fontStyle && group.fontStyle.isItalic"
+        [rowHeaderCollapseButtonTemplate]="rowHeaderCollapseButtonTemplate">
     </lib-grid-row-header>
 
     <lib-grid-row-line *ngIf="useCompactLayout"></lib-grid-row-line>
 
     <lib-grid-templated-row [year]="year" [month]="month" [numberOfDaysInMonth]="numberOfDaysInMonth"
         [useCompactLayout]="useCompactLayout" [columnWidth]="columnWidth" [entries]="entries[group.key]"
-        [rowTemplate]="rowTemplate" [drawLineInCompactLayout]="drawLineInCompactLayout">
+        [rowTemplate]="rowTemplate" [drawLineInCompactLayout]="drawLineInCompactLayout"
+        [rowHeaderCollapseButtonTemplate]="rowHeaderCollapseButtonTemplate">
     </lib-grid-templated-row>
 
     <lib-grid-row-line></lib-grid-row-line>
@@ -27,7 +29,8 @@
         <lib-grid-row-or-group *ngFor="let sub of group.subs" [input]="sub" [month]="month" [year]="year"
             [rowHeaderColumnWidth]="rowHeaderColumnWidth" [columnWidth]="columnWidth" [entries]="entries"
             [indentationLevel]="indentationLevel+1" [rowTemplate]="rowTemplate" [useCompactLayout]="useCompactLayout"
-            [useLinearLayout]="useLinearLayout" [drawLineInCompactLayout]="drawLineInCompactLayout">
+            [useLinearLayout]="useLinearLayout" [drawLineInCompactLayout]="drawLineInCompactLayout"
+            [rowHeaderCollapseButtonTemplate]="rowHeaderCollapseButtonTemplate">
         </lib-grid-row-or-group>
     </div>
 </div>

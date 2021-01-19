@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'lib-grid-row-header',
@@ -44,6 +44,9 @@ export class GridRowHeaderComponent implements OnInit {
 
   @Input()
   rowHeight: number = 40;
+
+  @Input()
+  public rowHeaderCollapseButtonTemplate: TemplateRef<{ isCollapsed: boolean, rowHeight: boolean }> | null = null;
 
   onToggle() {
     this.isCollapsed = !this.isCollapsed;

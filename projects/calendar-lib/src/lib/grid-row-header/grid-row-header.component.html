@@ -4,11 +4,8 @@
         [attr.x]="indentationLevel * 20" alignment-baseline="central">{{text}}</text>
 
     <svg *ngIf="showCollapseButton" [attr.x]="rowHeaderColumnWidth - rowHeight" (click)="onToggle()">
-        <rect [attr.width]="rowHeight*0.6" [attr.height]="rowHeight*0.6" [attr.x]="rowHeight * 0.2"
-            [attr.y]="rowHeight*0.2" stroke="black" fill="transparent"></rect>
-        <text style="pointer-events: none" [attr.x]="rowHeight/2" [attr.y]="rowHeight/2" text-anchor="middle"
-            alignment-baseline="central" *ngIf="!isCollapsed">-</text>
-        <text style="pointer-events: none" [attr.x]="rowHeight/2" [attr.y]="rowHeight/2" text-anchor="middle"
-            alignment-baseline="central" *ngIf="isCollapsed">+</text>
+        <ng-container
+            *ngTemplateOutlet="rowHeaderCollapseButtonTemplate;context:{isCollapsed:isCollapsed, rowHeight:rowHeight}">
+        </ng-container>
     </svg>
 </svg>

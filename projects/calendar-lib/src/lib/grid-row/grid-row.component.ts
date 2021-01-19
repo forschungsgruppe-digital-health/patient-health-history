@@ -64,6 +64,9 @@ export class GridRowComponent implements OnInit {
   @Input()
   public drawLineInCompactLayout: (day: number) => boolean = (x) => true;
 
+  @Input()
+  public rowHeaderCollapseButtonTemplate: TemplateRef<{ isCollapsed: boolean, rowHeight: boolean }> | null = null;
+
   private monthChanged() {
     this.numberOfDaysInMonth = this.getNumberOfDaysInMonth();
   }

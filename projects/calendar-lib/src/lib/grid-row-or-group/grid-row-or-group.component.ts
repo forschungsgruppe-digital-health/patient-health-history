@@ -51,7 +51,7 @@ export class GridRowOrGroupComponent implements OnInit {
 
   @Input()
   public useCompactLayout: boolean = false;
-  
+
   private _useLinearLayout: boolean = false;
   @Input()
   public get useLinearLayout(): boolean {
@@ -76,6 +76,9 @@ export class GridRowOrGroupComponent implements OnInit {
 
   @Input()
   public rowTemplate: TemplateRef<IRowData> | null = null;
+
+  @Input()
+  public rowHeaderCollapseButtonTemplate: TemplateRef<{ isCollapsed: boolean, rowHeight: boolean }> | null = null;
 
   public row: IRow | null = null;
   public group: IGroup | null = null;
