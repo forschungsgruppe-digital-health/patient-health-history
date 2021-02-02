@@ -19,6 +19,7 @@ export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> im
   public Math = Math;
 
   ngOnInit(): void {
+    this.updateEntries();
   }
 
   cellSizeChanged() {
