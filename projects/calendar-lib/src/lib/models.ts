@@ -22,42 +22,46 @@ export type KnownEntries = KnownEntry<"document", IDocumentEntry> | KnownEntry<"
 
 export type KnownEntry<TKey, TEntry> = { type: TKey, entries: TEntry[] }
 
-export interface IIconEntry {
+
+interface IEntry {
+    day: number;
+}
+
+export interface IIconEntry extends IEntry {
     day: number;
     tooltip: string;
     icon: string;
 }
-
-export interface IDocumentEntry {
+export interface IDocumentEntry extends IEntry {
     day: number;
     link: string;
     name: string;
 }
 
-export interface IcontinuousIconEntry {
+export interface IcontinuousIconEntry extends IEntry {
     day: number;
     icon: string;
     value: number;
 }
 
-export interface IFontStyle {
-    isBold: boolean;
-    isItalic: boolean;
-}
-
-export interface IIconLongTextEntry {
+export interface IIconLongTextEntry extends IEntry {
     day: number;
     icon: string;
     text: string;
     bgcolor: string;
 }
 
-export interface IDateSliceEntry {
+export interface IDateSliceEntry extends IEntry {
     day: number;
     duration: number;
     icon: string;
     bgcolor: string;
     text: string;
+}
+
+export interface IFontStyle {
+    isBold: boolean;
+    isItalic: boolean;
 }
 
 export interface IRowData {
