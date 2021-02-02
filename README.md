@@ -26,7 +26,19 @@
 #### Allgemeine Components
 
 - `CalendarComponent`  
-  Die Haupt-Component welche das obere Navigationsmenü und das Grid mit einander verbindet.
+  Die Haupt-Component welche das obere Navigationsmenü und das Grid mit einander verbindet. Diese stellt folgende `@Input`-Felder bereit:
+  - `requestPreviousMonth` und `requestNextMonth`  
+    Diese Funktionen werden aufgerufen sofern der Benutzer einen Monat vor bzw. zurück blättert.
+  - `month` und `year`  
+    Diese Daten dienen vor allem der Anzeige des Headers über dem Grid als auch der Bestimmung wie viele Tage der angezigte Monat besitzt.
+  - `groups: Groups` und `entries: Entries`  
+    Diese Felder nehmen die anzuzeigenden Daten entgegen. Eine beispielhafte Struktur kann in der Test-Anwendung gefundne werden.
+  - `rowTemplate`  
+    Ein Angular-Template mit dessen Hilfe zu jedem Eintrag in `groups` eine anzuzeigende Row-Component zugeordnet wird. Die Zuordnung geschieht über die Keys aus `entries` welche wiederum in `groups` spezifiziert sind. Ein Beispiel kann in der Test-Anwendung in der _app.component.html_-Datei gefunden werden.
+  - `drawLineInCompactLayout`  
+    Eine Funktion welche bestimmt zwischen welchen Tagen im _CompactLayout_ senkrechte Linien gerendert werden. Diese Funktion wird von den einzelnen Row-Components ausgewertet. Standardmäßig wird immer zwischen Sonntag und Montag eine Linie gezeichnet.
+  - `rowHeaderCollapseButtonTemplate`  
+    Ein Angular-Template welches bestimmt wie die Buttons zum ein- und ausblenden einzelner Zeilen dargestellt werden sollen. Dabei gibt `isCollapsed` den Zustand der Zeilen an und `rowHeight` die Höhe der Zeile in der der Button angezeigt wird. Das Template darf ausschließlich valides SVG enthalten.
 - `NavigationComponent`  
   Enthält die Überschrift als auch Controls zum Navigieren durch die Monate.
 - `GridComponent`  
@@ -73,6 +85,10 @@ Die Bilbiothek stellt verschiedene Components zum erzeugen von Zeilen-Inhalten b
 
 `GridDocumentRow` stellt eine Zeile dar bei der an jedem Tag bis zu einem Dokument angezeigt wird. Dieses "Dokument" hat zum einen eine Beschriftung auf der rechten Seite und zum anderen kann man es anklicken und führt dann zu der im Datenmodell hinterlegten URL.
 
+`GridIconLongtextRow` stelt eine Zeile dar deren Einträge links ein Icon und rechts daneben einen beliebig langen Text haben. Die Hintergrundfarbe hinter Icon und Text ist frei wählbar. Sollten 2 Einträge nicht genügend Platz nebeneinander haben, so rutschen diese automatisch auf 2 verschiedene Höhen innerhalb dieser Zeile.
+
+`GridDateSliceRow` stellt eine Zeile dar in der mehrere Bereiche farblich markiert werden können. Jeder Bereich kann mit einem Icon und einem beliebigen Text versehen werden. Der Text kann über das Ende des farblich markierten Bereichs hinaus ragen.
+
 ### _models.ts_
 
 Diese Datei enthält die Modell-Klassen für die typisierte Übergabe von Daten:
@@ -104,6 +120,9 @@ Diese Datei enthält die Modell-Klassen für die typisierte Übergabe von Daten:
 Weiterhin sind auch Modell-Klassen für die typisierte Übergabe Zeilenspezifischer Daten anthalten:
 
 - `IIconEntry` für die Component `GridIconRowComponent`
+- `IcontinuousIconEntry` für die Component `GridContinousIconRowComponent`
+- `IIconLongTextEntry` für die Component `GridIconLongTextRowComponent`
+- `IDateSliceEntry` für die Component `GridDateSliceRowComponent`
 - `IDocumentEntry` für die Component `GridDocumentRowComponent`
 
 ## <a name="calendar-test"></a> Test-Anwendung
@@ -120,6 +139,8 @@ Die Test-Anwendung baut lediglich ein Rahmen-Projekt um die components der Bilbi
     Enthält die anzuzeigenden Zeilen im Grid und ist vom Typ [`Groups` (_models.ts_)](#calendar-lib_models_Groups).
   - `entries`  
     Enthält die anzuzeigenden Daten für jede Zeile im Grid und ist vom Typ [`Entries` (_models.ts_)](#calendar-lib_models_Entries).
+  - `iconRowAggregationFunction`  
+    Eine Aggregierungs-Funktion für die Anzeige von _Gilenya_ bei schmalen Bildschirmen. (Über eine `GridIconRow`)
 
 ## Funktionen und wo sie sich befinden
 
