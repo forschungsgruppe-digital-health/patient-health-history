@@ -2,27 +2,35 @@
 @use "theme";
 
 lib-grid-continuous-icon-row .calendar-lib_grid-continuous-icon-row_connecting-line {
-    stroke-width: 2px;
-    stroke: colors.$grey04;
-    stroke-dasharray: 9 9;
-    stroke-linecap: round;
+    stroke-width: 2px !important;
+    stroke: colors.$grey04 !important;
+    stroke-dasharray: 9 9 !important;
+    stroke-linecap: round !important;
 }
 
 .calendar-lib_navigation .header-icon {
-    background-image: url(./assets/svg/icon_krankengeschichte.svg);
+    background-image: url(./assets/svg/icon_krankengeschichte.svg) !important;
+    width: 30px !important;
+    height: 30px !important;
 }
 
 .calendar-lib_grid-vertical-line,
 .calendar-lib_grid-horizontal-line {
-    stroke: colors.$grey02;
-    stroke-width: 1px;
-    stroke-linecap: round;
+    stroke: colors.$grey03 !important;
+    stroke-width: 1px !important;
+    stroke-linecap: round !important;
 }
 
 .lib-calendar_previous-button {
+    &:before {
+        content: "" !important;
+    }
     @include theme.zurueck_button;
 }
 
 .lib-calendar_next-button {
+    &:before {
+        content: "" !important;
+    }
     @include theme.vorwaerts_button;
 }

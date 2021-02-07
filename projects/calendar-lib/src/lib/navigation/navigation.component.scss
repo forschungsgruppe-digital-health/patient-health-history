@@ -3,8 +3,7 @@
 .header {
     .header-icon {
         display: inline-block;
-        width: variables.$size-icon-header;
-        height: variables.$size-icon-header;
+        width: 0;
     }
 
     h1 {
@@ -16,4 +15,12 @@
 .month-navigation {
     text-align: center;
     font: variables.$font-standard;
+}
+
+.lib-calendar_previous-button:before {
+    content: "<";
+}
+
+.lib-calendar_next-button:before {
+    content: ">";
 }
