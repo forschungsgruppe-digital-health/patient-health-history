@@ -65,7 +65,12 @@
             "aot": true,
             "assets": [
               "projects/calendar-test/src/favicon.ico",
-              "projects/calendar-test/src/assets"
+              "projects/calendar-test/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./projects/calendar-lib/assets",
+                "output": "./assets"
+              }
             ],
             "styles": [
               "projects/calendar-test/src/styles.scss"

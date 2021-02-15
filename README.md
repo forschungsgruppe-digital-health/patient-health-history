@@ -83,7 +83,22 @@ Die Bilbiothek stellt verschiedene Components zum erzeugen von Zeilen-Inhalten b
 
 `GridIconRow` stellt eine Zeile dar bei der für jeden Tag bis zu einem Icon angezeigt wird. Das Icon wird als Pfad im Daten-Modell angegeben. Wenn man mit der Maus über das Icon fährt wird ein Tooltip darunter angezeigt.
 
-`GridDocumentRow` stellt eine Zeile dar bei der an jedem Tag bis zu einem Dokument angezeigt wird. Dieses "Dokument" hat zum einen eine Beschriftung auf der rechten Seite und zum anderen kann man es anklicken und führt dann zu der im Datenmodell hinterlegten URL.
+`GridDocumentRow` stellt eine Zeile dar bei der an jedem Tag bis zu einem Dokument angezeigt wird. Dieses "Dokument" hat zum einen eine Beschriftung auf der rechten Seite und zum anderen kann man es anklicken und führt dann zu der im Datenmodell hinterlegten URL. Das Feld `iconPath` legt das anzuzeigende Icon fest. Standardmäßig wird ein Icon unter `./assets/svg/icon_document.svg` mit ausgeliefert, welches ggf. über eine Anpassung der _angular.json_ mit eingebunden werden kann:
+
+```json
+{
+  "projects": {
+    "<ProjectName>":{
+      "architect": {
+        "build": {
+          "options": {
+            "assets": [ {
+              "glob": "**/*",
+              "input": "./projects/calendar-lib/assets", // bzw. "./node_modules/calendar-lib/assets"
+              "output": "./assets"
+            }, ...]
+...
+```
 
 `GridIconLongtextRow` stelt eine Zeile dar deren Einträge links ein Icon und rechts daneben einen beliebig langen Text haben. Die Hintergrundfarbe hinter Icon und Text ist frei wählbar. Sollten 2 Einträge nicht genügend Platz nebeneinander haben, so rutschen diese automatisch auf 2 verschiedene Höhen innerhalb dieser Zeile.
 

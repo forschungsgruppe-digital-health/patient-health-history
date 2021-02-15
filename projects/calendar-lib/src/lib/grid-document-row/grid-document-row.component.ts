@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GridEntriesRowComponent } from '../grid-entries-row/grid-entries-row.component';
-import { GridRowLineComponent } from '../grid-row-line/grid-row-line.component';
 import { IDocumentEntry } from '../models';
 import { TextService } from '../text.service';
 
@@ -19,6 +18,9 @@ export class GridDocumentRowComponent extends GridEntriesRowComponent<IDocumentE
 
   ngOnInit(): void {
   }
+
+  @Input()
+  public iconPath: string = "/assets/svg/icon_document.svg";
 
   public entryRenderData: { entry: IDocumentEntry, nameWidth: number, rowIndex: number }[] = [];
   public rowCount: number = 0;

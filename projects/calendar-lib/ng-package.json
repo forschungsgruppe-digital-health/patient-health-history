@@ -6,7 +6,7 @@
     "cssUrl": "inline"
   },
   "assets": [
-    "./assets/**"
+    "/assets"
   ],
   "whitelistedNonPeerDependencies":[
     "ng-inline-svg"

@@ -10,8 +10,7 @@
 
     <svg *ngFor="let entry of entryRenderData" [attr.x]="columnWidth*(entry.entry.day-1)"
         [attr.y]="entry.rowIndex * rowHeight" (click)="onEntryClick(entry.entry)">
-        <!-- ToDo: Add Text (if necessary add ellipses) -->
-        <image href="/assets/svg/icon_dokument.svg" [attr.height]="iconSize" [attr.width]="iconSize"
+        <image [attr.href]="iconPath" [attr.height]="iconSize" [attr.width]="iconSize"
             [attr.y]="(rowHeight-iconSize)/2" />
 
         <svg [attr.height]="rowHeight-6" [attr.width]="(rowHeight-6)*0.625" viewBox="0 0 1.25 2" [attr.y]="3"
