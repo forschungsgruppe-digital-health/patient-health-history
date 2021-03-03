@@ -1,13 +1,24 @@
 {
-  "name": "calender",
-  "version": "0.0.0",
+  "name": "@helict/health-history",
+  "description": "Module presenting the health history of a patient chronologically",
+  "version": "1.0.0-alpha",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint"
   },
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helict/health-history.git"
+  },
+  "keywords": ["health history", "patient history", "case history"],
+  "author": "HeLiCT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helict/health-history/issues"
+  },
+  "homepage": "https://github.com/helict/health-history/releases",
   "dependencies": {
     "@angular/animations": "~11.0.0",
     "@angular/common": "~11.0.0",
