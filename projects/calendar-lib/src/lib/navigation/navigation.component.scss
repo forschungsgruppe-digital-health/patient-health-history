@@ -1,4 +1,4 @@
-@use "../variables.scss";
+@import "../variables.scss";
 
 .header {
     .header-icon {
@@ -8,13 +8,13 @@
 
     h1 {
         display: inline-block;
-        font: variables.$font-headline-2;
+        font: $font-headline-2;
     }
 }
 
 .month-navigation {
     text-align: center;
-    font: variables.$font-standard;
+    font: $font-standard;
 }
 
 .lib-calendar_previous-button:before {

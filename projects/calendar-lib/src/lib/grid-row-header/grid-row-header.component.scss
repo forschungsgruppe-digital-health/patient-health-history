@@ -1,7 +1,7 @@
-@use "../variables.scss";
+@import "../variables.scss";
 
 text {
-    font: variables.$font-standard;
+    font: $font-standard;
 
     &[data-isBold = true]{
         font-weight: bold;

@@ -14,10 +14,10 @@
 
 ## Node Scripts
 
-- `npm run build-lib`  
-  Erstellt die Bibliothek und wartet auf Änderungen von zugehörigen Dateien und stößt ggf. einen neuen build-Vorgang an.
-- `npm run serve-test`  
-  Erstellt die Test-Anwendung und wartet auf Änderungen vonzugehörigen Dateien und stößt ggf. einen neuen build-Vorgang an. Sollte die Bibliothek neu gebaut werden, so wird auch die Test-Anwendung neu gebaut. Der Befehl stellt einen Development-Sever auch <http://localhost:4200/> bereit.
+- ~~npm run build-lib Erstellt die Bibliothek und wartet auf Änderungen von zugehörigen Dateien und stößt ggf. einen neuen build-Vorgang an.~~
+- ~~npm run serve-test Erstellt die Test-Anwendung und wartet auf Änderungen vonzugehörigen Dateien und stößt ggf. einen neuen build-Vorgang an. Sollte die Bibliothek neu gebaut werden, so wird auch die Test-Anwendung neu gebaut. Der Befehl stellt einen Development-Sever auch <http://localhost:4200/> bereit.~~
+- `npm run reinstall` Erzeugt die Bibliothek und bindet diese als Abhängigkeit in das Eltern- und somit in Demo-Projekt ein
+- `npm run publish` Erzeugt die Bibliothek und veröffentlicht diese im Github-Repository als NPM-Paket
 
 ## <a name="calendar-lib"></a> Bilbiothek
 

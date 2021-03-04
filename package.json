@@ -1,12 +1,14 @@
 {
-  "name": "@helict/health-history",
+  "name": "health-history",
   "description": "Module presenting the health history of a patient chronologically",
   "version": "1.0.0-alpha",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "publish": "ng build --prod calendar-lib && npm publish dist/calendar-lib",
+    "reinstall": "ng build --prod calendar-lib && npm i dist/calendar-lib"
   },
   "repository": {
     "type": "git",
@@ -32,12 +34,12 @@
     "@angular/platform-browser": "~11.2.3",
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
+    "@helict/health-history": "file:dist/calendar-lib",
     "bufferutil": "^4.0.3",
     "fibers": "^5.0.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.6",
     "rxjs": "~6.6.6",
-    "sass-loader": "^10.1.1",
     "tslib": "^2.1.0",
     "utf-8-validate": "^5.0.4",
     "webpack": "^4.46.0",

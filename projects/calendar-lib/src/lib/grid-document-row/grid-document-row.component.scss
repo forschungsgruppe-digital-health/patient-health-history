@@ -1,7 +1,7 @@
-@use "../variables.scss";
+@import "../variables.scss";
 
 text {
-    font: variables.$font-mini-text;
+    font: $font-mini-text;
 }
 
 // common for each row

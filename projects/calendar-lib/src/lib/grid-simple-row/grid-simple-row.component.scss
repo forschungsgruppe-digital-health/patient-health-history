@@ -1,7 +1,7 @@
-@use "../variables.scss";
+@import "../variables.scss";
 
 text.tooltip {
-    font: variables.$font-standard;
+    font: $font-standard;
 }
 
 .calendar-lib_grid-vertical-line {

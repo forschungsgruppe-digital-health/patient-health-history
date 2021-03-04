@@ -1,0 +1,60 @@
+<ng-template #rowTemplate let-data="data">
+
+    <lib-grid-icon-row *ngIf="data.entries && data.type == 'icon'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
+    </lib-grid-icon-row>
+
+    <lib-grid-icon-row *ngIf="data.entries && data.type == 'iconAggregated'"
+        [aggregationFunction]="iconRowAggregationFunction" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
+    </lib-grid-icon-row>
+
+    <lib-grid-document-row *ngIf="data.entries && data.type == 'document'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
+    </lib-grid-document-row>
+
+    <lib-grid-continuous-icon-row *ngIf="!data.entries || data.type == 'continuousIcon'"
+        [columnWidth]="data.columnWidth" [numberOfDays]="data.numberOfDays" [entries]="data.entries"
+        [useCompactLayout]="data.useCompactLayout" [drawLineInCompactLayout]="data.drawLineInCompactLayout"
+        [minValue]="1" [maxValue]="9">
+    </lib-grid-continuous-icon-row>
+
+    <lib-grid-simple-row *ngIf="!data.entries || data.type == ''" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [useCompactLayout]="data.useCompactLayout"
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
+    </lib-grid-simple-row>
+
+    <lib-grid-icon-longtext-row *ngIf="data.entries && data.type == 'longtextIcon'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
+    </lib-grid-icon-longtext-row>
+
+    <lib-grid-date-slice-row *ngIf="data.entries && data.type == 'dateSlice'" [columnWidth]="data.columnWidth"
+        [numberOfDays]="data.numberOfDays" [entries]="data.entries" [useCompactLayout]="data.useCompactLayout"
+        [drawLineInCompactLayout]="data.drawLineInCompactLayout">
+    </lib-grid-date-slice-row>
+
+    <div *ngIf="data.entries && data.type == 'Lib Unknown Test'" style="display:inline-block;">
+        Dieser Row-Type ist der Bibliothek nicht bekannt.
+    </div>
+
+</ng-template>
+
+<ng-template #rowHeaderCollapseButtonTemplate let-isCollapsed="isCollapsed" let-rowHeight="rowHeight">
+    <!--must be an SVG! -->
+    <svg>
+        <rect [attr.width]="rowHeight*0.6" [attr.height]="rowHeight*0.6" [attr.x]="rowHeight * 0.2"
+            [attr.y]="rowHeight*0.2" stroke="black" fill="transparent"></rect>
+        <text style="pointer-events: none" [attr.x]="rowHeight/2" [attr.y]="rowHeight/2" text-anchor="middle"
+            alignment-baseline="central" *ngIf="!isCollapsed">-</text>
+        <text style="pointer-events: none" [attr.x]="rowHeight/2" [attr.y]="rowHeight/2" text-anchor="middle"
+            alignment-baseline="central" *ngIf="isCollapsed">+</text>
+    </svg>
+</ng-template>
+
+<calendar (requestPreviousMonth)="requestPreviousMonth()" (requestNextMonth)="requestNextMonth()" [year]="year"
+    [month]="month" [groups]="groups" [entries]="entries" [rowTemplate]="rowTemplate"
+    [rowHeaderCollapseButtonTemplate]="rowHeaderCollapseButtonTemplate"></calendar>

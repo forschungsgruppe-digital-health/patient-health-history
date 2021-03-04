@@ -20,7 +20,7 @@ export class GridDocumentRowComponent extends GridEntriesRowComponent<IDocumentE
   }
 
   @Input()
-  public iconPath: string = "/assets/svg/icon_document.svg";
+  public iconPath: string = "/assets/svg/icon_dokument.svg";
 
   public entryRenderData: { entry: IDocumentEntry, nameWidth: number, rowIndex: number }[] = [];
   public rowCount: number = 0;
