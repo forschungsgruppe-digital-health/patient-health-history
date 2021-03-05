@@ -8,7 +8,7 @@
   "assets": [
     "/assets"
   ],
-  "allowedNonPeerDependencies":[
+  "whitelistedNonPeerDependencies":[
     "ng-inline-svg"
   ]
 }
