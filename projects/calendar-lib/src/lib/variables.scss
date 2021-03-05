@@ -32,11 +32,13 @@ $size-icon-calendar: 24px;
 $size-icon-mini: 20px;
 
 // fonts
-$font-headline-1: 44px "Segoe Marker"; // <h1>
-$font-headline-2: 36px "Segoe Marker"; // <h2>
-$font-headline-3: 28px "Segoe Marker"; // <h3>
-$font-button-text: 18px "Segoe Marker"; // <h4>
-$font-standard: 16px "Segoe UI"; // <p>
-$font-label: 16px bold "Segoe UI"; // Labels
-$font-emphasized: 16px italic "Segoe UI";
-$font-mini-text: 14px "Segoe UI";
+$font-family-primary: Arial, sans-serif;
+$font-family-accent: Arial, sans-serif;
+$font-headline-1: 44px $font-family-primary; // <h1>
+$font-headline-2: 36px $font-family-primary; // <h2>
+$font-headline-3: 28px $font-family-primary; // <h3>
+$font-button-text: 18px $font-family-primary; // <h4>
+$font-standard: 16px $font-family-primary; // <p>
+$font-label: 16px bold $font-family-accent; // Labels
+$font-emphasized: 16px italic $font-family-accent;
+$font-mini-text: 14px $font-family-accent;

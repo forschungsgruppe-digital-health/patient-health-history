@@ -92,7 +92,7 @@ export class GridIconRowComponent extends GridEntriesRowComponent<IIconEntry> im
     this.tooltip = entry.tooltip;
     this.tooltipX = this.columnWidth * (entry.day - 1);
 
-    let textWidth = this._textService.getTextWidth(this.tooltip, "16px Segoe UI") || 150;
+    let textWidth = this._textService.getTextWidth(this.tooltip, "16px  Arial, sans-serif") || 150;
     const width = 2 * this.tooltipTextLeftRightPadding + textWidth;
     const height = this.tooltipHeight;
     const rxy = 5;

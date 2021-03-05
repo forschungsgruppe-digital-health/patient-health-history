@@ -29,7 +29,7 @@ export class GridDocumentRowComponent extends GridEntriesRowComponent<IDocumentE
     var data = this.entries.map(x => {
       return {
         entry: x,
-        nameWidth: this._textService.getTextWidth(x.name, "14px Segoe UI") || 100,
+        nameWidth: this._textService.getTextWidth(x.name, "14px  Arial, sans-serif") || 100,
         rowIndex: 0
       };
     }).sort((a, b) => a.entry.day - b.entry.day);

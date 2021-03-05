@@ -61,7 +61,7 @@ export class GridIconLongtextRowComponent extends GridEntriesRowComponent<IIconL
     var data = this.entryRenderData = this.entries.map(x => {
       return {
         entry: x,
-        textWidth: this._textService.getTextWidth(x.text, "16px Segoe UI") || 100,
+        textWidth: this._textService.getTextWidth(x.text, "16px  Arial, sans-serif") || 100,
         rowIndex: 0
       };
     }).sort((a, b) => a.entry.day - b.entry.day);
