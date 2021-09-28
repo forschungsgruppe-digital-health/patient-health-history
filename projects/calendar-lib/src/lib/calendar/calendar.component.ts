@@ -59,6 +59,12 @@ export class CalendarComponent implements OnInit {
   @Input()
   public rowHeaderCollapseButtonTemplate: TemplateRef<{ isCollapsed: boolean, rowHeight: boolean }> | null = null;
 
+  @Input()
+  public navigationPreviousButtonTemplate: TemplateRef<{}> | null = null;
+
+  @Input()
+  public navigationNextButtonTemplate: TemplateRef<{}> | null = null;
+
   public yearMonthString: string = "";
 
   public requestPreviousMonthClick() {

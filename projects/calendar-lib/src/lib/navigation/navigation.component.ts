@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 
 @Component({
   selector: 'lib-navigation',
@@ -17,6 +17,12 @@ export class NavigationComponent implements OnInit {
 
   @Output()
   public requestNext = new EventEmitter<null>();
+
+  @Input()
+  public previousButtonTemplate: TemplateRef<{}> | null = null;
+
+  @Input()
+  public nextButtonTemplate: TemplateRef<{}> | null = null;
 
   @Input()
   public yearMonthString: string = "";

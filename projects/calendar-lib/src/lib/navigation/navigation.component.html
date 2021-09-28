@@ -1,5 +1,19 @@
 <div class="month-navigation">
-    <button class="lib-calendar_previous-button" asset="icon_zurueck" (click)="requestPreviousClick()"></button>
-    <span>{{yearMonthString}}</span>
-    <button class="lib-calendar_next-button" asset="icon_vorwaerts" (click)="requestNextClick()"></button>
+  <ng-container *ngIf="previousButtonTemplate;else defaultPreviousButton">
+    <ng-container *ngTemplateOutlet="previousButtonTemplate">
+    </ng-container>
+  </ng-container>
+  <span>{{yearMonthString}}</span>
+  <ng-container *ngIf="nextButtonTemplate;else defaultNextButton">
+    <ng-container *ngTemplateOutlet="nextButtonTemplate">
+    </ng-container>
+  </ng-container>
 </div>
+
+<ng-template #defaultPreviousButton>
+  <button class="lib-calendar_previous-button" asset="icon_zurueck" (click)="requestPreviousClick()"></button>
+</ng-template>
+
+<ng-template #defaultNextButton>
+  <button class="lib-calendar_next-button" asset="icon_vorwaerts" (click)="requestNextClick()"></button>
+</ng-template>
