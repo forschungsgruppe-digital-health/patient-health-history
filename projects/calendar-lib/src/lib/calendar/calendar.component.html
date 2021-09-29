@@ -1,6 +1,7 @@
 <lib-navigation (requestPrevious)="requestPreviousMonthClick()" (requestNext)="requestNextMonthClick()"
                 [previousButtonTemplate]="navigationPreviousButtonTemplate"
                 [nextButtonTemplate]="navigationNextButtonTemplate"
+                [monthTemplate]="navigationMonthTemplate"
                 [yearMonthString]="yearMonthString">
 </lib-navigation>
 <calendar-lib-grid [month]="month" [year]="year" [groups]="groups" [entries]="entries" [rowTemplate]="rowTemplate"

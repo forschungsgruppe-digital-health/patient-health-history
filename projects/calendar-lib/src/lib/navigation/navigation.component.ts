@@ -22,6 +22,9 @@ export class NavigationComponent implements OnInit {
   public previousButtonTemplate: TemplateRef<{}> | null = null;
 
   @Input()
+  public monthTemplate: TemplateRef<{}> | null = null;
+
+  @Input()
   public nextButtonTemplate: TemplateRef<{}> | null = null;
 
   @Input()

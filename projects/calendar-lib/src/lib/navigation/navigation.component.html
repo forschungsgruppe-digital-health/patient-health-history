@@ -3,7 +3,10 @@
     <ng-container *ngTemplateOutlet="previousButtonTemplate">
     </ng-container>
   </ng-container>
-  <span>{{yearMonthString}}</span>
+  <ng-container *ngIf="monthTemplate;else defaultMonth">
+    <ng-container *ngTemplateOutlet="monthTemplate">
+    </ng-container>
+  </ng-container>
   <ng-container *ngIf="nextButtonTemplate;else defaultNextButton">
     <ng-container *ngTemplateOutlet="nextButtonTemplate">
     </ng-container>
@@ -12,6 +15,10 @@
 
 <ng-template #defaultPreviousButton>
   <button class="lib-calendar_previous-button" asset="icon_zurueck" (click)="requestPreviousClick()"></button>
+</ng-template>
+
+<ng-template #defaultMonth>
+  <span>{{yearMonthString}}</span>
 </ng-template>
 
 <ng-template #defaultNextButton>

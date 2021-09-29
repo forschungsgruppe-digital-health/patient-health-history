@@ -63,6 +63,9 @@ export class CalendarComponent implements OnInit {
   public navigationPreviousButtonTemplate: TemplateRef<{}> | null = null;
 
   @Input()
+  public navigationMonthTemplate: TemplateRef<{}> | null = null;
+
+  @Input()
   public navigationNextButtonTemplate: TemplateRef<{}> | null = null;
 
   public yearMonthString: string = "";
