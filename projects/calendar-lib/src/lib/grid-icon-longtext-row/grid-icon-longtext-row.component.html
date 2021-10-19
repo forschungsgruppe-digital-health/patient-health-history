@@ -8,11 +8,11 @@
     </svg>
 
     <svg *ngFor="let entry of entryRenderData" [attr.y]="entry.rowIndex * rowHeight">
-        <rect [attr.x]="columnWidth*(entry.entry.day-1)+1+iconSize" y="1" [attr.height]="rowHeight-2" [attr.width]="entry.textWidth+6+columnWidth-iconSize"
+        <rect [attr.x]="columnWidth*(entry.entry.day-1)+1+iconSize" y="1" [attr.height]="rowHeight-3" [attr.width]="entry.textWidth+6+columnWidth-iconSize"
             [attr.fill]="entry.entry.bgcolor"></rect>
-        <text style="pointer-events: none" alignment-baseline="central" [attr.y]="(rowHeight-2)*2/3"
+        <text style="pointer-events: none" alignment-baseline="central" [attr.y]="(rowHeight-3)*2/3"
             [attr.x]="columnWidth*(entry.entry.day-1) + iconSize + 5">{{entry.entry.text}}</text>
         <image [attr.href]="entry.entry.icon" [attr.height]="iconSize" [attr.width]="iconSize"
-            [attr.y]="(rowHeight - 2 - iconSize)/2" [attr.x]="columnWidth*(entry.entry.day-1) + (columnWidth-iconSize)/2" />
+            [attr.y]="(rowHeight - 3 - iconSize)/2" [attr.x]="columnWidth*(entry.entry.day-1) + (columnWidth-iconSize)/2" />
     </svg>
 </svg>

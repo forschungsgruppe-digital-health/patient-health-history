@@ -24,7 +24,7 @@
             stroke="black" stroke-linecap="round"></line>
         <line [attr.x1]="iconSize" [attr.y1]="rowHeight/2" [attr.x2]="iconSize+rowHeight/2-3" [attr.y2]="rowHeight-3"
             stroke="black" stroke-linecap="round"></line>
-        <text style="pointer-events: none" alignment-baseline="central" [attr.y]="rowHeight/2"
-            [attr.x]="iconSize+rowHeight/2-3">{{entry.entry.name}}</text>
+        <text style="pointer-events: none" alignment-baseline="central" [attr.y]="(rowHeight-2)*2/3"
+            [attr.x]="iconSize+rowHeight/2">{{entry.entry.name}}</text>
     </svg>
 </svg>
