@@ -1,7 +1,7 @@
 {
   "name": "health-history",
   "description": "Module presenting the health history of a patient chronologically",
-  "version": "1.0.0-alpha",
+  "version": "1.1.0",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
