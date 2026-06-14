@@ -5,10 +5,5 @@
     "entryFile": "src/public-api.ts",
     "cssUrl": "inline"
   },
-  "assets": [
-    "/assets"
-  ],
-  "whitelistedNonPeerDependencies":[
-    "ng-inline-svg"
-  ]
+  "assets": ["./assets"]
 }

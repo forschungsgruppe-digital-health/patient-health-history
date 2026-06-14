@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'lib-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']

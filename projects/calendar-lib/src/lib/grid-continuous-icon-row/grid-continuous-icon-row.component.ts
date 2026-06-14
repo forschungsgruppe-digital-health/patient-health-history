@@ -3,6 +3,7 @@ import { GridEntriesRowComponent } from '../grid-entries-row/grid-entries-row.co
 import { IcontinuousIconEntry } from '../models';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-continuous-icon-row',
   templateUrl: './grid-continuous-icon-row.component.html',
   styleUrls: ['./grid-continuous-icon-row.component.scss']
@@ -57,7 +58,7 @@ export class GridcontinuousIconRowComponent extends GridEntriesRowComponent<Icon
   }
 
   @HostListener('window:resize', ['$event'])
-  private onResize(event: any) {
+  onResize(event: any) {
     setTimeout(() => this.updateConnectingLines());
   }
   

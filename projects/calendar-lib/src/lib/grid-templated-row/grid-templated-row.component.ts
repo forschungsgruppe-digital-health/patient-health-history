@@ -2,6 +2,7 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { IRowData, KnownEntries } from '../models';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-templated-row',
   templateUrl: './grid-templated-row.component.html',
   styleUrls: ['./grid-templated-row.component.scss']

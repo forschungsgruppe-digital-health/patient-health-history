@@ -2,6 +2,7 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { Entries, IGroup, IRow, IRowData, RowOrGroup } from '../models';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-row-or-group',
   templateUrl: './grid-row-or-group.component.html',
   styleUrls: ['./grid-row-or-group.component.scss']

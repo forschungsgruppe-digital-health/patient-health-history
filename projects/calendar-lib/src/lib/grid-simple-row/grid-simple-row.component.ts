@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-simple-row',
   templateUrl: './grid-simple-row.component.html',
   styleUrls: ['./grid-simple-row.component.scss']

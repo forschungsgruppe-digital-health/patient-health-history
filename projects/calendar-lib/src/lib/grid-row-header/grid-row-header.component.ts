@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-row-header',
   templateUrl: './grid-row-header.component.html',
   styleUrls: ['./grid-row-header.component.scss']
