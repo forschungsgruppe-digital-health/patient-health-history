@@ -1,5 +1,5 @@
 {
-  "name": "@tud-fgdh/health-history",
+  "name": "@forschungsgruppe-digital-health/health-history",
   "version": "21.0.0",
   "license": "MIT",
   "description": "Angular SVG timeline library that presents a patient's health history chronologically. Upgraded to Angular 21 (was @helict/health-history @ Angular 11).",
@@ -7,7 +7,13 @@
     "type": "git",
     "url": "https://github.com/forschungsgruppe-digital-health/patient-health-history.git"
   },
-  "keywords": ["angular", "fhir", "health-history", "timeline", "svg"],
+  "keywords": [
+    "angular",
+    "fhir",
+    "health-history",
+    "timeline",
+    "svg"
+  ],
   "peerDependencies": {
     "@angular/common": "^21.0.0",
     "@angular/core": "^21.0.0"
@@ -15,5 +21,8 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
