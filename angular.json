@@ -1,133 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
   "newProjectRoot": "projects",
   "projects": {
-    "calendar-test": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/calendar-test",
-      "sourceRoot": "projects/calendar-test/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/calendar-test",
-            "index": "projects/calendar-test/src/index.html",
-            "main": "projects/calendar-test/src/main.ts",
-            "polyfills": "projects/calendar-test/src/polyfills.ts",
-            "tsConfig": "projects/calendar-test/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "projects/calendar-test/src/favicon.ico",
-              "projects/calendar-test/src/assets",
-              {
-                "glob": "**/*",
-                "input": "./projects/calendar-lib/assets",
-                "output": "./assets"
-              }
-            ],
-            "styles": [
-              "projects/calendar-test/src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/calendar-test/src/environments/environment.ts",
-                  "with": "projects/calendar-test/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "calendar-test:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "calendar-test:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "calendar-test:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/calendar-test/src/test.ts",
-            "polyfills": "projects/calendar-test/src/polyfills.ts",
-            "tsConfig": "projects/calendar-test/tsconfig.spec.json",
-            "karmaConfig": "projects/calendar-test/karma.conf.js",
-            "assets": [
-              "projects/calendar-test/src/favicon.ico",
-              "projects/calendar-test/src/assets"
-            ],
-            "styles": [
-              "projects/calendar-test/src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/calendar-test/tsconfig.app.json",
-              "projects/calendar-test/tsconfig.spec.json",
-              "projects/calendar-test/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/calendar-test/e2e/protractor.conf.js",
-            "devServerTarget": "calendar-test:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "calendar-test:serve:production"
-            }
-          }
-        }
-      }
-    },
     "calendar-lib": {
       "projectType": "library",
       "root": "projects/calendar-lib",
@@ -135,44 +13,24 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/calendar-lib/tsconfig.lib.json",
-            "project": "projects/calendar-lib/ng-package.json"
-          },
+          "builder": "@angular/build:ng-packagr",
           "configurations": {
             "production": {
               "tsConfig": "projects/calendar-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/calendar-lib/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/calendar-lib/src/test.ts",
-            "tsConfig": "projects/calendar-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/calendar-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/calendar-lib/tsconfig.lib.json",
-              "projects/calendar-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": "projects/calendar-lib/tsconfig.spec.json"
           }
         }
       }
-    }
-  },
-  "defaultProject": "calendar-lib",
-  "schematics": {
-    "@nrwl/angular:component": {
-      "styleext": "scss"
     }
   }
 }

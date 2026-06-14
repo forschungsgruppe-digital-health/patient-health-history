@@ -4,6 +4,7 @@ import { IIconLongTextEntry } from '../models';
 import { TextService } from '../text.service';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-icon-longtext-row',
   templateUrl: './grid-icon-longtext-row.component.html',
   styleUrls: ['./grid-icon-longtext-row.component.scss']

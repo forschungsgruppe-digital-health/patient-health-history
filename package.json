@@ -1,74 +1,33 @@
 {
-  "name": "health-history",
-  "description": "Module presenting the health history of a patient chronologically",
-  "version": "1.1.0",
+  "name": "hh-v21",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "publish": "ng build --prod calendar-lib && npm publish dist/calendar-lib",
-    "reinstall": "ng build --prod calendar-lib && npm i dist/calendar-lib",
-    "demo": "ng serve calendar-test --watch --live-reload"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/helict/health-history.git"
-  },
-  "keywords": [
-    "health history",
-    "patient history",
-    "case history"
-  ],
-  "author": "HeLiCT",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/helict/health-history/issues"
-  },
-  "homepage": "https://github.com/helict/health-history/releases",
+  "private": true,
+  "packageManager": "npm@10.9.8",
   "dependencies": {
-    "@angular/animations": "~11.2.14",
-    "@angular/common": "~11.2.14",
-    "@angular/compiler": "~11.2.14",
-    "@angular/core": "~11.2.14",
-    "@angular/forms": "~11.2.14",
-    "@angular/platform-browser": "~11.2.14",
-    "@angular/platform-browser-dynamic": "~11.2.14",
-    "@angular/router": "~11.2.14",
-    "@helict/health-history": "file:dist/calendar-lib",
-    "autoprefixer": "^10.3.7",
-    "bufferutil": "^4.0.5",
-    "fibers": "^5.0.0",
-    "node-sass": "^6.0.1",
-    "postcss": "^8.3.9",
-    "rxjs": "~6.6.7",
-    "tslib": "^2.3.1",
-    "utf-8-validate": "^5.0.7",
-    "webpack": "^5.58.2",
-    "zone.js": "~0.11.4"
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.14",
-    "@angular/cli": "~11.2.14",
-    "@angular/compiler-cli": "~11.2.14",
-    "@angular/localize": "~11.2.14",
-    "@angular/service-worker": "~11.2.14",
-    "@types/jasmine": "^3.10.0",
-    "@types/node": "^14.14.31",
-    "codelyzer": "^6.0.2",
-    "html-webpack-plugin": "^5.4.0",
-    "jasmine-core": "~3.8.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~6.1.1",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.0.3",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.7.0",
-    "ng-packagr": "^11.2.4",
-    "protractor": "~7.0.0",
-    "tailwindcss": "^2.0.3",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "^4.0.7"
+    "@angular/build": "^21.2.15",
+    "@angular/cli": "^21.2.15",
+    "@angular/compiler-cli": "^21.2.0",
+    "jsdom": "^28.0.0",
+    "ng-packagr": "^21.2.5",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
   }
 }

@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, Input, OnInit, TemplateRef } from 
 import { Entries, Groups, IRowData } from '../models';
 
 @Component({
+  standalone: false,
   selector: 'calendar-lib-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss']
@@ -75,7 +76,7 @@ export class GridComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  private onResize(event: any) {
+  onResize(event: any) {
     setTimeout(() => this.updateLayout());
   }
 

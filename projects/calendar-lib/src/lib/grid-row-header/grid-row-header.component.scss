@@ -1,13 +1,13 @@
-@import "../variables.scss";
+@import "../variables";
 
 text {
     font: $font-standard;
 
-    &[data-isBold = true]{
+    &[data-isBold = "true"]{
         font-weight: bold;
     }
 
-    &[data-isItalic = true]{
+    &[data-isItalic = "true"]{
         font-style: italic;
     }
 }

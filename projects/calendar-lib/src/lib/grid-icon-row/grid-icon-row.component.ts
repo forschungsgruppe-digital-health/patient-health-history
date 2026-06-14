@@ -4,6 +4,7 @@ import { IIconEntry } from '../models';
 import { TextService } from '../text.service';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-icon-row',
   templateUrl: './grid-icon-row.component.html',
   styleUrls: ['./grid-icon-row.component.scss']

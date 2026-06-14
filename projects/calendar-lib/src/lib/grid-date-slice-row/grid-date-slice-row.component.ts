@@ -4,6 +4,7 @@ import { IDateSliceEntry } from '../models';
 import { TextService } from '../text.service';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-date-slice-row',
   templateUrl: './grid-date-slice-row.component.html',
   styleUrls: ['./grid-date-slice-row.component.scss']

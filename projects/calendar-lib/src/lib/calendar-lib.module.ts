@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CalendarComponent } from './calendar/calendar.component';
-import { BrowserModule } from '@angular/platform-browser';
+// PR-B port fix: lib must not import BrowserModule (NG6007 from lazy modules).
+import { CommonModule } from '@angular/common';
 import { GridRowHeaderComponent } from './grid-row-header/grid-row-header.component';
 import { GridIconRowComponent } from './grid-icon-row/grid-icon-row.component';
 import { GridDocumentRowComponent } from './grid-document-row/grid-document-row.component';
@@ -38,7 +39,7 @@ import { GridDateSliceRowComponent } from './grid-date-slice-row/grid-date-slice
     GridDateSliceRowComponent,
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
   ],
   exports: [
     CalendarComponent,

@@ -1,34 +1,28 @@
 {
-  "name": "@helict/health-history",
-  "description": "Module presenting the health history of a patient chronologically",
-  "version": "1.1.0",
-  "scripts": {
-    "ng": "ng",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint"
-  },
+  "name": "@forschungsgruppe-digital-health/health-history",
+  "version": "21.0.0",
+  "license": "MIT",
+  "description": "Angular SVG timeline library that presents a patient's health history chronologically. Upgraded to Angular 21 (was @helict/health-history @ Angular 11).",
   "repository": {
     "type": "git",
-    "url": "https://github.com/helict/health-history.git"
+    "url": "https://github.com/forschungsgruppe-digital-health/patient-health-history.git"
   },
   "keywords": [
-    "health history",
-    "patient history",
-    "case history"
+    "angular",
+    "fhir",
+    "health-history",
+    "timeline",
+    "svg"
   ],
-  "author": "HeLiCT",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/helict/health-history/issues"
-  },
-  "homepage": "https://github.com/helict/health-history/releases",
   "peerDependencies": {
-    "@angular/common": "^11.2.14",
-    "@angular/core": "^11.2.14"
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0"
   },
   "dependencies": {
-    "ng-inline-svg": "^11.0.1",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

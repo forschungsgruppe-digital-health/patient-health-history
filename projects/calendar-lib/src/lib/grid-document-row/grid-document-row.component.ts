@@ -4,6 +4,7 @@ import { IDocumentEntry } from '../models';
 import { TextService } from '../text.service';
 
 @Component({
+  standalone: false,
   selector: 'lib-grid-document-row',
   templateUrl: './grid-document-row.component.html',
   styleUrls: ['./grid-document-row.component.scss']
