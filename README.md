@@ -66,15 +66,18 @@ ng build calendar-lib --configuration production   # build the library → dist/
 ng test                                             # run the library unit tests
 ```
 
-**Hot-reload loop** — rebuild the library on change while serving a consuming demo app:
+**Hot-reload loop** — this workspace contains only the `calendar-lib` library (there is **no bundled
+demo app**), so rebuild the library on change and consume the fresh `dist/calendar-lib` from a host
+application:
 
 ```bash
-npm run watch     # ng build --watch (rebuilds dist/calendar-lib on every change)
-npm start         # ng serve — the demo app on http://localhost:4200
+npm run watch     # ng build --watch — rebuilds dist/calendar-lib on every change
 ```
 
-Run the two in separate terminals: `npm run watch` keeps `dist/calendar-lib` fresh and `npm start`
-serves the demo app at <http://localhost:4200>, so library edits hot-reload into the app.
+Point a consuming app (the patient portal, or your own demo) at the rebuilt `dist/calendar-lib`
+(via `npm link` or a `file:` dependency) and run that app's dev server; library edits then propagate
+as the watch rebuilds. (The old `calendar-test` demo is not present in this workspace; add an
+`application` project to `angular.json` if you want a standalone `ng serve` preview.)
 
 ## Contributing · Versioning · Release · License
 
