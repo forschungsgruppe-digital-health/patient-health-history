@@ -1,0 +1,29 @@
+name: ci
+# Build + test gate for the calendar-lib library on every PR and on push to master.
+# The repo has no lint script; the unit tests run on Angular 21's @angular/build:unit-test
+# builder (vitest / jsdom), so no browser is required.
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      # publish.yml uses --legacy-peer-deps; mirror it so installs resolve identically.
+      - name: Install
+        run: npm ci --legacy-peer-deps
+      - name: Build library
+        run: npx ng build calendar-lib --configuration production
+      - name: Tests
+        run: npx ng test --watch=false

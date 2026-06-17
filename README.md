@@ -1,4 +1,102 @@
-# health-history
+# patient-health-history (`@forschungsgruppe-digital-health/health-history`)
+
+An Angular SVG **timeline library** that renders a patient's health history chronologically (a
+calendar/grid of icon, document, long-text and date-slice rows), developed by **TU Dresden /
+Forschungsgruppe Digital Health (FGDH)**. Published to GitHub Packages as
+`@forschungsgruppe-digital-health/health-history`.
+
+## Installation
+
+The package is published to **GitHub Packages**, which requires authentication even for reads.
+Add an `.npmrc` next to your project that points the scope at the GitHub registry and provides a
+token with the `read:packages` scope:
+
+```ini
+# .npmrc
+@forschungsgruppe-digital-health:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Then install:
+
+```bash
+npm install @forschungsgruppe-digital-health/health-history
+```
+
+## Usage
+
+Import `CalendarLibModule` and use the `CalendarComponent` (selector `lib-calendar`):
+
+```ts
+import { CalendarLibModule } from '@forschungsgruppe-digital-health/health-history';
+
+@NgModule({
+  imports: [CalendarLibModule],
+})
+export class AppModule {}
+```
+
+```html
+<lib-calendar
+  [month]="month"
+  [year]="year"
+  [groups]="groups"
+  [entries]="entries"
+  [rowTemplate]="rowTemplate">
+</lib-calendar>
+```
+
+The model types (`Groups`, `Entries`, `IRow`, `IGroup`, `IIconEntry`, `IDocumentEntry`, …) and the
+row components are exported from the package entry point — see the [Reference](#reference) below for
+the full API.
+
+## Setup
+
+- **Node 22** (Angular 21 — Node 18 is no longer supported).
+- npm 10+.
+
+## Development
+
+```bash
+git clone https://github.com/forschungsgruppe-digital-health/patient-health-history.git
+cd patient-health-history
+npm ci --legacy-peer-deps
+
+ng build calendar-lib --configuration production   # build the library → dist/calendar-lib
+ng test                                             # run the library unit tests
+```
+
+**Hot-reload loop** — this workspace contains only the `calendar-lib` library (there is **no bundled
+demo app**), so rebuild the library on change and consume the fresh `dist/calendar-lib` from a host
+application:
+
+```bash
+npm run watch     # ng build --watch — rebuilds dist/calendar-lib on every change
+```
+
+Point a consuming app (the patient portal, or your own demo) at the rebuilt `dist/calendar-lib`
+(via `npm link` or a `file:` dependency) and run that app's dev server; library edits then propagate
+as the watch rebuilds. (The old `calendar-test` demo is not present in this workspace; add an
+`application` project to `angular.json` if you want a standalone `ng serve` preview.)
+
+## Contributing · Versioning · Release · License
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) — branch model (`master` is the releasable branch) and
+  Conventional-Commit / PR-title rules.
+- [VERSIONING.md](VERSIONING.md) — SemVer; the published version lives in
+  [`projects/calendar-lib/package.json`](projects/calendar-lib/package.json).
+- [RELEASE.md](RELEASE.md) — release-please on `master` → tag + GitHub Release → publish to GitHub
+  Packages (the existing `publish.yml` remains the manual path).
+- [LICENSE](LICENSE) — MIT.
+
+---
+
+## Reference
+
+> The API documentation below is in German and is preserved verbatim from the library's original
+> documentation.
+
+### health-history
 
 ## Aufbau des Projekts
 

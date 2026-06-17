@@ -1,0 +1,50 @@
+name: release-please
+# Automated release path (see VERSIONING.md / RELEASE.md). On push to master, release-please
+# maintains a "release PR" (version bump in projects/calendar-lib/package.json + CHANGELOG from
+# Conventional Commits). Merging that PR creates the vX.Y.Z tag + GitHub Release, and — in the
+# SAME run — the publish job builds the library and publishes it to GitHub Packages.
+# (A token-created Release does not reliably trigger publish.yml, so publishing is wired here;
+# publish.yml remains the manual workflow_dispatch / hand-created-Release path.)
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.rp.outputs.release_created }}
+      tag_name: ${{ steps.rp.outputs.tag_name }}
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: rp
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  publish:
+    needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://npm.pkg.github.com"
+      - name: Install
+        run: npm ci --legacy-peer-deps
+      - name: Build library
+        run: npx ng build calendar-lib --configuration production
+      - name: Publish to GitHub Packages
+        run: npm publish
+        working-directory: dist/calendar-lib
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
